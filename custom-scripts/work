@@ -1,0 +1,7 @@
+firefox "www.gotimeforce2.com" "kickback.atlassian.net" --new-window "www.yappy.im/web" --new-window "https://app.groupme.com/chats" --new-window "localhost:5277" &
+nuvolaplayer3 -a google_play_music &
+hipchat &
+~/Misc/Packages/Davmail/davmail-linux-x86_64-4.6.1-2343/davmail.sh ~/.davmail.kickbackpoints.properties &
+thunderbird &
+gnome-system-monitor &
+tp

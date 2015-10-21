@@ -1,0 +1,48 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 684,
+       "width": 644,
+       "x": 0,
+       "y": 0
+    },
+    "name": "NERD_tree_7 - (~/Google Drive/Backups/i3/ultrawide) - GVIM",
+    "percent": 0.5703125,
+    "swallows": [
+       {
+       "class": "^Gvim$",
+       "instance": "^gvim$"
+       // "title": "^NERD_tree_7\\ \\-\\ \\(\\~\\/Google\\ Drive\\/Backups\\/i3\\/ultrawide\\)\\ \\-\\ GVIM$",
+       // "transient_for": "^$",
+       // "window_role": "^vim\\-3105\\-1799148957\\-1437057520$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 992,
+       "width": 1276,
+       "x": 0,
+       "y": 0
+    },
+    "name": "i3: Layout saving in i3 - Mozilla Firefox",
+    "percent": 0.4296875,
+    "swallows": [
+       {
+       "class": "^Firefox$",
+       "instance": "^Navigator$"
+       // "title": "^i3\\:\\ Layout\\ saving\\ in\\ i3\\ \\-\\ Mozilla\\ Firefox$",
+       // "transient_for": "^$",
+       // "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}

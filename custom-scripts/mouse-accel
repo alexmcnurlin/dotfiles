@@ -1,0 +1,7 @@
+#! /bin/bash
+# Disables mouse acceleration, assuming the device has an ID of 16
+
+for i in $(xinput list | grep "Logitech USB Receiver" | sed -e 's/^.*id=\([0-9]*.\).*$/\1/')
+do
+  xinput set-ptr-feedback $i 10 1 1
+done

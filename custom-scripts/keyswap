@@ -1,0 +1,4 @@
+#! /bin/bash
+# A script that will load xmodmap settings, switching the left control and left super keys
+
+xmodmap ~/Misc/custom-scripts/files/keyswap

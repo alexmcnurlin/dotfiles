@@ -1,0 +1,18 @@
+i3-msg 'workspace 1; append_layout ~/.i3/ultrawide/workspace1.json'  # restores saved layouts
+i3-msg 'workspace 2; append_layout ~/.i3/ultrawide/workspace2.json'
+i3-msg 'workspace 3; append_layout ~/.i3/ultrawide/workspace3.json'
+i3-msg 'workspace 4; append_layout ~/.i3/ultrawide/workspace4.json'
+i3-msg 'workspace 5; append_layout ~/.i3/ultrawide/workspace5.json'
+i3-msg 'workspace 6; append_layout ~/.i3/ultrawide/workspace6.json'
+i3-msg 'workspace 7; append_layout ~/.i3/ultrawide/workspace7.json'
+
+i3-msg 'exec nuvolaplayer3 -a google_play_music'                  #  Works fine
+i3-msg 'exec gnome-terminal & gnome-terminal'                     #  Works fine
+i3-msg 'exec thunderbird'                                         #  Works fine
+i3-msg 'exec gvim'                                                #  Works fine
+i3-msg 'exec hipchat'                                             #  Works fine
+i3-msg 'exec firefox "www.gotimeforce2.com" --new-window "kickback.atlassian.net" --new-window "stash.krs.io" --new-window "www.github.com" --new-window "www.pushbullet.com" --new-window "app.groupme.com/chats" --new-window "localhost:8080/wordpress/" --new-window "www.messenger.com"' # Works fine. Windows arent swallowed into the correct containers, but I dont know a way around this.
+i3-msg 'exec gnome-system-monitor'                                #  Works fine
+
+i3-msg 'exec davmail ~/.davmail.kickbackpoints.properties'
+i3-msg 'exec xmod'

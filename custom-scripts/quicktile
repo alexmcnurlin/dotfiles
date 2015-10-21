@@ -1,0 +1,4 @@
+#! /bin/bash
+# Starts the Quicktile daemon, an alternative to the Compiz Grid plugin.
+
+/home/alexmcnurlin/Misc/Packages/quicktile/quicktile.py "$@"
