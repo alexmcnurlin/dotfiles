@@ -1,4 +1,0 @@
-#! /bin/bash
-# Echo's information about the battery
-
-zenity --info --text="$(upower -i /org/freedesktop/UPower/devices/DisplayDevice | grep percentage)"

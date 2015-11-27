@@ -1,4 +1,0 @@
-#! /bin/bash
-# Starts the Davmail server 
-
-~/Misc/Packages/Davmail/davmail-linux-x86_64-4.6.1-2343/davmail.sh "$@"

@@ -1,4 +1,0 @@
-#!/bin/bash
-#Toggle Redshift (the yellow screen tint)
-
-pkill -USR1 redshift
