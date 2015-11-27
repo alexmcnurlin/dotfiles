@@ -1,0 +1,270 @@
+" ###Settings For Vanilla VIM 
+
+
+
+" Disable mouse
+set mouse=c
+
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
+" These are to set options that I liked from spf13-vim
+" Sets the <leader> to comma 
+set t_Co=256
+let mapleader=" "
+set number                            " Enables line numbering
+set wildmode=longest,list,full        " Sets desired file completion from command mode
+set wildmenu                          " Sets desired file completion from command mode
+set hlsearch                          " Highlights all matches when searching 
+set clipboard=unnamedplus             " Tells Gvim to use the system clipboard
+set incsearch                         " Sets encremental search. Search results will be shown as you type
+set ignorecase                        " Disables case sensitivity in searches. Required for smartcase
+set smartcase                         " Enables smartcase for searching
+set spell spelllang=en_us             " Enables spell checking
+set nobackup                          " Disables backup files (those ending in ~)
+set noswapfile                        " Disables swap files (those ending in .swp)
+set autoindent                        " Will automatically indent text
+vnoremap < <gv|                      " Indenting lines in visual mode keeps the selection. The pipe allows comments
+vnoremap > >gv|                      " Indenting lines in visual mode keeps the selection. The pipe allows comments
+nnoremap Y yg_|                      " Yanks the rest of the line
+nmap j gj|                           " Makes j move across displayed lines, not physical lines. Useful when wordwrap is on
+nmap k gk|                           " Makes k move across displayed lines, not physical lines. Useful when wordwrap is on
+
+" Makes a different colored background at 80 characters
+set colorcolumn=80 " Set softwrap
+set wrap
+set linebreak
+set nolist
+
+" This is actually set in ~/.vimrc after the colorscheme declaration
+" highlight ColorColumn ctermbg=236 guibg=#202326
+
+" When lines are softwrapped, indentation is preserved.
+" HOW DID I NOT KNOW ABOUT THIS SOONER!!!
+set breakindent
+
+" Fold settings
+set foldmethod=indent  " Will create folds for indented text
+set foldopen-=block    " Navigating using `[` and `]` (among others) won't open folds
+set foldminlines=1     " One indented line by itself will not be foldled
+set foldignore-=#      " Lines with a `#` will still be folded
+
+" Changes the time needed to chain keys together for a mapping
+set timeoutlen=500
+set ttimeoutlen=50
+
+" Change tab width"
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set softtabstop=2
+
+" Set guioptions
+" T Removes tabline
+set guioptions-=r " Removes scrollbar
+set guioptions-=m " Removes menu bar
+set guioptions-=T " Removes GTK toolbar
+set guioptions-=e " Uses the terminal tabline (currently powerline) instead of GTK tabline
+set showtabline=2 " Always show tabline
+
+" Keep cursor in the middle of the screen
+" I'm disbling this for now, I'm testing a different value
+"set so=100
+set so=5
+
+" Highlights the line the cursor is on. 
+set nocursorline
+set cursorline
+
+" Fixes bugs caused by mapping Enter to controlling folds
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
+
+" Saves the current file when you switch out of the window
+au FocusLost * silent! w
+
+
+
+" ###General Key Mappings
+
+
+
+" This is to prevent me from mistyping Po as PO. requires Nyancat plugin
+imap PO <Esc>:tabnew \| :Nyancat<CR> 
+imap teh <Esc>:tabnew \| :Nyancat<CR> 
+
+cmap <c-j> <down>
+cmap <c-k> <up>
+
+" Maps single quote to backtick. If this messes up anything, just uncomment the below line.
+"noremap '' ``
+noremap ' `
+
+" switches to the last open file
+noremap '" :e#<CR>
+
+nmap <leader>= :Autoformat<CR>
+
+nmap <leader>& s&amp;<Esc>
+imap ,& &amp;
+
+" Control backspace will delete the current word
+imap <c-bs> <c-w>
+
+" Backspace deletes line, Shift Backspace deletes contents without deleting line
+noremap <BS> dd
+noremap <S-BS> zc
+
+" Using enter to manage folds. Very convenient with foldmethod=indnent
+nnoremap <Enter> zo
+nnoremap <S-Enter> zc
+
+
+"nnoremap <S-Tab> <c-o>
+" Navigates the changelist
+nnoremap <Tab> <C-I> " Ctrl-I is already tab, but keeping this for completeness
+nnoremap <S-Tab> <C-O>
+"nnoremap <C-Tab> g,|     " Navigate changelist
+"nnoremap <S-Tab>g;|    " Navigate changelist
+
+" Capitalizes the beginning of the current word
+nmap cu mub~`u
+imap ,cu <esc>mub~`ua
+
+
+nmap <leader>e :lcd %:p:h<CR>
+
+" Sets F to use the easymotion 'f' motion. Requires 'easymotion/vim-easymotion'
+nmap F <Plug>(easymotion-bd-f)
+omap F <Plug>(easymotion-bd-f)
+vmap F <Plug>(easymotion-bd-f)
+
+" Goes to the file under cursor, but creates it if it doesn't exist
+nnoremap gF :edit <cfile><cr>
+
+" Hilights the previously pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Hilights the previously selected test
+nnoremap gv vgv
+
+nmap <leader>h :noh<CR>
+imap ,h <c-o>:noh<CR>
+
+" L and H will cycle through tabs
+nnoremap L gt 
+nnoremap H gT
+
+nmap <leader><leader>d /\(\s\$\(\) \)\@<=.*$<CR>
+nmap <leader><leader>h /\(\s-\(\) \)\@<=.\+$<CR>
+nmap <leader><leader>o /\(\s\!\(\) \)\@<=.*$<CR>
+
+" Enables indent guides on startup, even though they should already be on, and 
+" creates a keyboard shortcut for it. Requires Indent Guides plugin
+nmap <leader><leader>i :IndentGuidesEnable<CR>
+
+" Takes the current line and enters it into vim command line. Useful for
+" editing vimrc
+" The second one will take the line and pass it on to a shell
+nmap <leader>s yy:<c-r>"<BS><CR>
+nmap <leader>! ^g_:!<c-r>"
+
+" Saves the current file as root
+command Sudow :w !sudo tee %<CR>L
+
+" unmap <leader>jt
+nmap <leader>j i<CR><Esc>
+
+" Control-v works in command mode now
+cmap <c-v> <c-r>"
+
+
+nmap <leader>t :tabnew
+
+" Opens the previous file in a new tab
+noremap <leader>T :tabnew#<CR>
+
+" Makes U redo
+nmap U <c-r>
+
+imap qq <Esc>
+
+" ,s will find the last misspelled word and change it to the first suggested 
+" spell correction
+imap ,s <esc>mm[sz=1<Enter>`ma
+
+nmap <leader>z z=1
+
+
+
+" ###Filetype Specific Settings
+
+
+
+au BufRead,BufNewFile java  nnoremap <leader><leader>c  :w \| :!javac %:t;java %:t:r<CR> 
+au BufRead,BufNewFile java  nnoremap <leader><leader>ca :w \| :!javac %:t;java %:t:r 
+au BufRead,BufNewFile *.py  nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!./%<CR>
+au BufRead,BufNewFile *.py  nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!./%
+au BufRead,BufNewFile *.cpp nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r<CR>
+au BufRead,BufNewFile *.cpp nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r
+"au BufRead,BufNewFile *.sh nnoremap <leader><leader>c :w \|:cd %:p:h \|./%<CR>
+"au BufRead,BufNewFile *.sh nnoremap <leader><leader>ca :w \|:cd %:p:h \|./%
+
+
+
+" ###Plugin Settings 
+
+
+
+"Easymotion
+" Enables Smartcase
+let g:EasyMotion_smartcase=1
+
+" Neocomple 
+let g:neocomplete#enable_at_startup=1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+set completeopt-=preview              " This removes a bug where a split window would randomly pop up in some situations
+" Neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" Vim Autoclose
+" I hacked the plugin to make this never autoclose double quotes.
+" I don't use this plugin anymore
+let g:autoclose_vim_commentmode = 1
+
+" Vim AutoPairs. This disables autocomplete from double quotes
+let g:AutoPairs={'(':')', '[':']', '{':'}',"'":"'", '`':'`',}
+
+" undotree
+nnoremap <leader>u :UndotreeToggle<cr>
+set undodir=$HOME/.vim/.undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" When a buffer is loaded, this detects the current indent settings and
+" adjusts accordingly. Requires 'ciaranm/detectindent'
+au BufReadPost * :DetectIndent
+let g:detectindent_preferred_indent = 2
+
+" Powerline
+set laststatus=2
+
+" Mappings to navigate by indentation. Requires 'jeetsukumaran/vim-indentwise'
+map - <Plug>(IndentWisePreviousLesserIndent)
+map = <Plug>(IndentWiseNextGreaterIndent)
+map \ <Plug>(IndentWiseNextEqualIndent)
+map \| <Plug>(IndentWisePreviousEqualIndent)
+map + <Plug>(IndentWisePreviousGreaterIndent)
+map _ <Plug>(IndentWiseNextLesserIndent)
+
+" Supposed to change the current directory. Let's see if this works
+" Requires 'yssl/AutoCWD.vim'
+" This one actually works
+let g:autocwd_patternwd_pairs = [
+	\['*', '%:p:h' ]
+\]
