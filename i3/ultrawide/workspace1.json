@@ -1,0 +1,23 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1055,
+       "width": 1914,
+       "x": 2560,
+       "y": 19
+    },
+    "name": "Google Play Music",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^nuvolaplayer3\\-google\\-play\\-music$",
+       "instance": "^nuvolaplayer3\\-google\\-play\\-music$"
+       // "title": "^Google\\ Play\\ Music$",
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}

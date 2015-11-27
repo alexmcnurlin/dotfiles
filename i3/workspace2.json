@@ -1,0 +1,25 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1074,
+       "width": 1914,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Problem loading page - Mozilla Firefox",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Firefox$",
+       "instance": "^Navigator$"
+       // "title": "^Problem\\ loading\\ page\\ \\-\\ Mozilla\\ Firefox$"
+       // "transient_for": "^$",
+       // "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+

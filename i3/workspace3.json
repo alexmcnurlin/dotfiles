@@ -1,0 +1,25 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1074,
+       "width": 1914,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Inbox - amcnurlin@kickbackpoints.com - Mozilla Thunderbird",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Thunderbird$",
+       "instance": "^Mail$"
+       // "title": "^Inbox\\ \\-\\ amcnurlin\\@kickbackpoints\\.com\\ \\-\\ Mozilla\\ Thunderbird$",
+       // "transient_for": "^$",
+       // "window_role": "^3pane$"
+       }
+    ],
+    "type": "con"
+}
+

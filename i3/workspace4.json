@@ -1,0 +1,125 @@
+// vim:ts=4:sw=4:et
+{
+    // splith split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            // splith split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1074,
+                       "width": 1914,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Time Card (kb) - Mozilla Firefox",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Firefox$",
+                       "instance": "^Navigator$"
+                       // "title": "^Time\\ Card\\ \\(kb\\)\\ \\-\\ Mozilla\\ Firefox$",
+                       // "transient_for": "^$",
+                       // "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 509,
+                       "width": 954,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "[WEB-594] Update Ridley's emailer to include cardnumber, points redeemed and current points balance - JIRA - Mozilla Firefox",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Firefox$",
+                       "instance": "^Navigator$"
+                       // "title": "^\\[WEB\\-594\\]\\ Update\\ Ridley\\'s\\ emailer\\ to\\ include\\ cardnumber\\,\\ points\\ redeemed\\ and\\ current\\ points\\ balance\\ \\-\\ JIRA\\ \\-\\ Mozilla\\ Firefox$",
+                       // "transient_for": "^$",
+                       // "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // splith split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1055,
+               "width": 1274,
+               "x": 0,
+               "y": 0
+            },
+            "name": "GitHub - Mozilla Firefox",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Firefox$",
+               "instance": "^Navigator$"
+               // "title": "^GitHub\\ \\-\\ Mozilla\\ Firefox$",
+               // "transient_for": "^$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1055,
+               "width": 1914,
+               "x": 2566,
+               "y": 25
+            },
+            "name": "Pull Request #1: Fix checkbox styling - Stash - Mozilla Firefox",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Firefox$",
+               "instance": "^Navigator$"
+               // "title": "^Pull\\ Request\\ \\#1\\:\\ Fix\\ checkbox\\ styling\\ \\-\\ Stash\\ \\-\\ Mozilla\\ Firefox$",
+               // "transient_for": "^$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
