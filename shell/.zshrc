@@ -89,6 +89,7 @@ alias clean-all="sudo apt-get autoremove"
 alias i3logout="i3-msg exit"
 alias lock="lock.sh"
 alias i3lock="~/Misc/Packages/i3lock-blur/i3lock"
+alias netflix="google-chrome --app='https://www.netflix.com'"
 
 # games
 alias minesweeper="freesweep"
