@@ -34,9 +34,6 @@
 
   exec_always i3-msg gaps inner all set 30
 
-# start dmenu (a program launcher)
-  #bindsym $mod+d exec dmenu_run
-
 # Basic key bindings
   # start a terminal
   bindsym $mod+Return exec gnome-terminal
@@ -327,7 +324,7 @@
 
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
-    set $monitor VGA1
+    set $monitor HDMI1
     exec xrandr --output $monitor --auto --right-of eDP1 # Sets up second monitor
     workspace 1 output eDP1  #  Assigns workspaces to specific monitors
     workspace 2 output eDP1
