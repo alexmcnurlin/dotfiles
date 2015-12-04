@@ -209,8 +209,10 @@ au BufRead,BufNewFile *.py  nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!./%<C
 au BufRead,BufNewFile *.py  nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!./%
 au BufRead,BufNewFile *.cpp nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r<CR>
 au BufRead,BufNewFile *.cpp nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r
-"au BufRead,BufNewFile *.sh nnoremap <leader><leader>c :w \|:cd %:p:h \|./%<CR>
-"au BufRead,BufNewFile *.sh nnoremap <leader><leader>ca :w \|:cd %:p:h \|./%
+au BufRead,BufNewFile *.php nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
+au BufRead,BufNewFile *.php nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!php %
+"au BufRead,BufNewFile *.sh nnoremap <leader><leader>c :w \|:cd %:p:h \|sh %<CR>
+"au BufRead,BufNewFile *.sh nnoremap <leader><leader>ca :w \|:cd %:p:h \|sh %
 
 
 
