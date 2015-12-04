@@ -268,3 +268,7 @@ map _ <Plug>(IndentWiseNextLesserIndent)
 let g:autocwd_patternwd_pairs = [
 	\['*', '%:p:h' ]
 \]
+
+" Makes f and t become case insensitive
+" Requires 'dahu/vim-fanfingtastic'
+let g:fanfingtastic_ignorecase=1

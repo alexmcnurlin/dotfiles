@@ -28,4 +28,6 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'yegappan/mru'
 Plugin 'yssl/AutoCWD.vim'
 Plugin 'wellle/targets.vim'
+Plugin 'dahu/vim-fanfingtastic'
+
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/ "Powerline status bar
