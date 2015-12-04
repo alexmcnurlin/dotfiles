@@ -96,69 +96,83 @@
 
 # Workspace management
   # switch to workspace
-  bindsym $mod+Control+KP_1   workspace 1
-  bindsym $mod+Control+KP_2   workspace 2
-  bindsym $mod+Control+KP_3   workspace 3
-  bindsym $mod+Control+KP_4   workspace 4
-  bindsym $mod+Control+KP_5   workspace 5
-  bindsym $mod+Control+KP_6   workspace 6
-  bindsym $mod+Control+KP_7   workspace 7
-  bindsym $mod+Control+KP_8   workspace 8
-  bindsym $mod+Control+KP_9   workspace 9
-  bindsym $mod+Control+KP_0   workspace 10
-  bindsym $mod+Control+m      workspace 1
-  bindsym $mod+Control+comma  workspace 2
-  bindsym $mod+Control+period workspace 3
-  bindsym $mod+Control+j      workspace 4
-  bindsym $mod+Control+k      workspace 5
-  bindsym $mod+Control+l      workspace 6
-  bindsym $mod+Control+u      workspace 7
-  bindsym $mod+Control+i      workspace 8
-  bindsym $mod+Control+o      workspace 9
-   
-  # move focused container to workspace
-  bindsym $mod+mod4+KP_1 move container to workspace 1
-  bindsym $mod+mod4+KP_2 move container to workspace 2
-  bindsym $mod+mod4+KP_3 move container to workspace 3
-  bindsym $mod+mod4+KP_4 move container to workspace 4
-  bindsym $mod+mod4+KP_5 move container to workspace 5
-  bindsym $mod+mod4+KP_6 move container to workspace 6
-  bindsym $mod+mod4+KP_7 move container to workspace 7
-  bindsym $mod+mod4+KP_8 move container to workspace 8
-  bindsym $mod+mod4+KP_9 move container to workspace 9
-  bindsym $mod+mod4+KP_0 move container to workspace 10
-  bindsym $mod+mod4+m move container to workspace 1
-  bindsym $mod+mod4+comma move container to workspace 2
-  bindsym $mod+mod4+period move container to workspace 3
-  bindsym $mod+mod4+j move container to workspace 4
-  bindsym $mod+mod4+k move container to workspace 5
-  bindsym $mod+mod4+l move container to workspace 6
-  bindsym $mod+mod4+u move container to workspace 7
-  bindsym $mod+mod4+i move container to workspace 8
-  bindsym $mod+mod4+o move container to workspace 9
+  set $one   🎜
+  set $two   $
+  set $three 🗨
+  set $four  🞆
+  set $five  🌎
+  set $six   🖂
+  set $seven 🖳
+  set $eight 🗔 
+  set $nine  △
+  set $ten   10
+                
+               
+               
+                
+  bindsym $mod+Control+KP_1   workspace $one
+  bindsym $mod+Control+m      workspace $one
+  bindsym $mod+Control+KP_2   workspace $two
+  bindsym $mod+Control+comma  workspace $two
+  bindsym $mod+Control+KP_3   workspace $three
+  bindsym $mod+Control+period workspace $three
+  bindsym $mod+Control+j      workspace $four
+  bindsym $mod+Control+KP_4   workspace $four
+  bindsym $mod+Control+k      workspace $five
+  bindsym $mod+Control+KP_5   workspace $five
+  bindsym $mod+Control+l      workspace $six
+  bindsym $mod+Control+KP_6   workspace $six
+  bindsym $mod+Control+u      workspace $seven
+  bindsym $mod+Control+KP_7   workspace $seven
+  bindsym $mod+Control+i      workspace $eight
+  bindsym $mod+Control+KP_8   workspace $eight
+  bindsym $mod+Control+KP_9   workspace $nine
+  bindsym $mod+Control+o      workspace $nine
+  bindsym $mod+Control+KP_0   workspace $ten
+
+# move focused container to workspace
+  bindsym $mod+mod4+KP_1 move container to workspace $one
+  bindsym $mod+mod4+KP_2 move container to workspace $two
+  bindsym $mod+mod4+KP_3 move container to workspace $three
+  bindsym $mod+mod4+KP_4 move container to workspace $four
+  bindsym $mod+mod4+KP_5 move container to workspace $five
+  bindsym $mod+mod4+KP_6 move container to workspace $six
+  bindsym $mod+mod4+KP_7 move container to workspace $seven
+  bindsym $mod+mod4+KP_8 move container to workspace $eight
+  bindsym $mod+mod4+KP_9 move container to workspace $nine
+  bindsym $mod+mod4+KP_0 move container to workspace $ten
+  bindsym $mod+mod4+m move container to workspace $one
+  bindsym $mod+mod4+comma move container to workspace $two
+  bindsym $mod+mod4+period move container to workspace $three
+  bindsym $mod+mod4+j move container to workspace $four
+  bindsym $mod+mod4+k move container to workspace $five
+  bindsym $mod+mod4+l move container to workspace $six
+  bindsym $mod+mod4+u move container to workspace $seven
+  bindsym $mod+mod4+i move container to workspace $eight
+  bindsym $mod+mod4+o move container to workspace $nine
 
   # move focused container to workspace
-  bindsym $mod+Shift+KP_1 exec --no-startup-id ~/.i3/switch-workspace.py 1
-  bindsym $mod+Shift+KP_2 exec --no-startup-id ~/.i3/switch-workspace.py 2
-  bindsym $mod+Shift+KP_3 exec --no-startup-id ~/.i3/switch-workspace.py 3
-  bindsym $mod+Shift+KP_4 exec --no-startup-id ~/.i3/switch-workspace.py 4
-  bindsym $mod+Shift+KP_5 exec --no-startup-id ~/.i3/switch-workspace.py 5
-  bindsym $mod+Shift+KP_6 exec --no-startup-id ~/.i3/switch-workspace.py 6
-  bindsym $mod+Shift+KP_7 exec --no-startup-id ~/.i3/switch-workspace.py 7
-  bindsym $mod+Shift+KP_8 exec --no-startup-id ~/.i3/switch-workspace.py 8
-  bindsym $mod+Shift+KP_9 exec --no-startup-id ~/.i3/switch-workspace.py 9
-  bindsym $mod+Shift+KP_0 exec --no-startup-id ~/.i3/switch-workspace.py 10
+  bindsym $mod+Shift+KP_1 exec --no-startup-id ~/.i3/switch-workspace.py $one
+  bindsym $mod+Shift+KP_2 exec --no-startup-id ~/.i3/switch-workspace.py $two
+  bindsym $mod+Shift+KP_3 exec --no-startup-id ~/.i3/switch-workspace.py $three
+  bindsym $mod+Shift+KP_4 exec --no-startup-id ~/.i3/switch-workspace.py $four
+  bindsym $mod+Shift+KP_5 exec --no-startup-id ~/.i3/switch-workspace.py $five
+  bindsym $mod+Shift+KP_6 exec --no-startup-id ~/.i3/switch-workspace.py $six
+  bindsym $mod+Shift+KP_7 exec --no-startup-id ~/.i3/switch-workspace.py $seven
+  bindsym $mod+Shift+KP_8 exec --no-startup-id ~/.i3/switch-workspace.py $eight
+  bindsym $mod+Shift+KP_9 exec --no-startup-id ~/.i3/switch-workspace.py $nine
+  bindsym $mod+Shift+KP_0 exec --no-startup-id ~/.i3/switch-workspace.py $ten
 
   # move focused container to workspace
-  bindsym control+$mod+Shift+m      move container to workspace 1; workspace 1
-  bindsym control+$mod+Shift+comma  move container to workspace 2; workspace 2
-  bindsym control+$mod+Shift+period move container to workspace 3; workspace 3
-  bindsym control+$mod+Shift+j      move container to workspace 4; workspace 4
-  bindsym control+$mod+Shift+k      move container to workspace 5; workspace 5
-  bindsym control+$mod+Shift+l      move container to workspace 6; workspace 6
-  bindsym control+$mod+Shift+u      move container to workspace 7; workspace 7
-  bindsym control+$mod+Shift+i      move container to workspace 8; workspace 8
-  bindsym control+$mod+Shift+o      move container to workspace 9; workspace 9
+  bindsym control+$mod+Shift+m      move container to workspace $one; workspace $one
+  bindsym control+$mod+Shift+comma  move container to workspace $two workspace $two
+  bindsym control+$mod+Shift+period move container to workspace $three; workspace $three
+  bindsym control+$mod+Shift+j      move container to workspace $four; workspace $four
+  bindsym control+$mod+Shift+k      move container to workspace $five; workspace $five
+  bindsym control+$mod+Shift+l      move container to workspace $six; workspace $six
+  bindsym control+$mod+Shift+u      move container to workspace $seven; workspace $seven
+  bindsym control+$mod+Shift+i      move container to workspace $eight; workspace $eight
+  bindsym control+$mod+Shift+o      move container to workspace $nine; workspace $nine
 
 # Custom Modes
   # Resize Window mode
@@ -239,9 +253,6 @@
     #}
     #bindsym $mod+m mode "move"
 
-
-# Lemonbar
-#exec_always "/home/alexmcnurlin/Misc/Packages/dotfiles/.i3/lemonbar/i3_lemonbar.sh"
 # i3bar
   # Config can be found in ~/.i3status.conf
   bar {
@@ -252,8 +263,8 @@
       separator  $fgcolor 
 
                           #border  #bg     #text 
-      focused_workspace 	$bgcolor $bgcolor $accent
-      active_workspace  	$bgcolor $bgcolor $accent
+      focused_workspace 	$fgcolor $fgcolor $bgcolor
+      active_workspace  	$fgcolor $fgcolor $bgcolor
       inactive_workspace	$bgcolor $bgcolor $fgcolor  
       urgent_workspace	  $bgcolor $bgcolor $fgcolor  
     }
