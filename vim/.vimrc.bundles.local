@@ -1,7 +1,6 @@
 " ### Bundles
 
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'Potatoesmaster/i3-vim-syntax'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
@@ -24,10 +23,17 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/MatchTagAlways'
-Plugin 'w0ng/vim-hybrid'
 Plugin 'yegappan/mru'
 Plugin 'yssl/AutoCWD.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'dahu/vim-fanfingtastic'
+Plugin 'airblade/vim-gitgutter'
+
+" Colorschemes
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/phd'
+Plugin 'vim-scripts/twilight'
 
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/ "Powerline status bar

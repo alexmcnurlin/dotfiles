@@ -8,6 +8,7 @@ source ~/.vimrc.bundles.local
 source ~/.vimrc.local
 
 call vundle#end()
+set background=dark
 colorscheme hybrid
 
 highlight ColorColumn ctermbg=236 guibg=#1e2227

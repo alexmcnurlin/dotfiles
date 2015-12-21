@@ -94,6 +94,7 @@ au FocusLost * silent! w
 " This is to prevent me from mistyping Po as PO. requires Nyancat plugin
 imap PO <Esc>:tabnew \| :Nyancat<CR> 
 imap teh <Esc>:tabnew \| :Nyancat<CR> 
+imap ednl <Esc>:tabnew \| :Nyancat<CR> 
 
 cmap <c-j> <down>
 cmap <c-k> <up>
@@ -172,6 +173,7 @@ nmap <leader>s yy:<c-r>"<BS><CR>
 nmap <leader>! ^g_:!<c-r>"
 
 " Saves the current file as root
+" This doesn't work consistently
 command Sudow :w !sudo tee %<CR>L
 
 " unmap <leader>jt
@@ -196,6 +198,20 @@ imap qq <Esc>
 imap ,s <esc>mm[sz=1<Enter>`ma
 
 nmap <leader>z z=1
+
+nmap <leader>1 :colorscheme hybrid<CR>
+nmap <leader>2 :colorscheme PaperColor<CR>
+nmap <leader>3 :colorscheme solarized<CR>
+nmap <leader>4 :colorscheme phd<CR>
+nmap <leader>5 :colorscheme twilight<CR>
+function! ColorToggle()
+	if &background == "dark"
+		let &background = "light"
+	else 
+		let &background = "dark"
+	endif
+endfunction
+nmap <leader>` :call ColorToggle()<CR>
 
 
 
