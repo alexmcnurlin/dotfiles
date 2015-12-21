@@ -116,7 +116,7 @@ export PATH="$PATH:$HOME/Misc/custom-scripts/"
 export GOPATH=$HOME/.Go
 
 figlet "LinuxMasterRace"
-screenfetch
+#screenfetch
 
 ## This is the official powerline. I can't figure out how to customize it so
 ## the other one is being used for now
