@@ -312,7 +312,9 @@
     bindsym Control+$mod+p            exec variety --show-selector
     bindsym Control+$mod+backslash    exec xdg-open "$(variety --show-current | grep home)"
 
-    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
+    #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
+    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal" -fuzzy 
+
   # Mouse button configuration
     set $alt   Mod1
     set $super Mod4
@@ -322,7 +324,7 @@
     bindsym --whole-window $alt+button7        exec xdotool key --clearmodifiers XF86AudioPrev 
 
     bindsym --whole-window button8             exec xdotool key --clearmodifiers control+Prior 
-    bindsym --whole-window button9             exec xdotool key --cliers control+Next 
+    bindsym --whole-window button9             exec xdotool key --clearmodifiers control+Next 
     bindsym --whole-window $super+button2      kill
 
     bindsym --whole-window $alt+button1        exec xdotool key --clearmodifiers control+shift+c
