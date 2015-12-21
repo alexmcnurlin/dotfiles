@@ -336,14 +336,14 @@
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
     set $monitor HDMI1
-    exec xrandr --output $monitor --auto --right-of eDP1 # Sets up second monitor
-    workspace 1 output eDP1  #  Assigns workspaces to specific monitors
-    workspace 2 output eDP1
-    workspace 3 output eDP1
-    workspace 4 output $monitor
-    workspace 5 output $monitor
-    workspace 6 output $monitor
-    workspace 7 output $monitor
+    exec xrandr --output $monitor --auto --left-of eDP1 # Sets up second monitor
+    workspace $one   output eDP1  #  Assigns workspaces to specific monitors
+    workspace $two   output eDP1
+    workspace $three output eDP1
+    workspace $four  output $monitor
+    workspace $five  output $monitor
+    workspace $six   output $monitor
+    workspace $seven output $monitor
 
     exec --no-startup-id redshift ~/.config/redshift.conf           #  Works fine. Redshifts the screen
     exec --no-startup-id compton -f                                 #  Works fine. Lightweight composting manager to allow subtle graphics effects
