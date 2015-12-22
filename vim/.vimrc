@@ -20,7 +20,7 @@ source ~/.vimrc.local
 	call vundle#end()
 
 set background=dark
-colorscheme hybrid
+colorscheme PaperColor
 
 highlight ColorColumn ctermbg=236 guibg=#1e2227
 
