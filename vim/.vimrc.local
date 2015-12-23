@@ -103,7 +103,7 @@ cmap <c-k> <up>
 "noremap '' ``
 noremap ' `
 
-" switches to the last open file
+" switches to the most recently closed file
 noremap '" :e#<CR>
 
 nmap <leader>= :Autoformat<CR>
@@ -135,7 +135,12 @@ nmap cu mub~`u
 imap ,cu <esc>mub~`ua
 
 
+" Force changes the current directory. 
+" The should be unnecessary with 'yssl/AutoCWD.vim'
 nmap <leader>e :lcd %:p:h<CR>
+
+" 
+nmap <leader><leader>e :!sudo chmod a+x %<CR>
 
 " Sets F to use the easymotion 'f' motion. Requires 'easymotion/vim-easymotion'
 nmap F <Plug>(easymotion-bd-f)
@@ -204,6 +209,8 @@ nmap <leader>2 :colorscheme PaperColor<CR>
 nmap <leader>3 :colorscheme solarized<CR>
 nmap <leader>4 :colorscheme phd<CR>
 nmap <leader>5 :colorscheme twilight<CR>
+
+" A function that toggles between light and dark themes
 function! ColorToggle()
 	if &background == "dark"
 		let &background = "light"
