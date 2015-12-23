@@ -96,18 +96,16 @@
 
 # Workspace management
   # switch to workspace
-  set $one   🎜
-  set $two   $
-  set $three 🗨
-  set $four  🞆
-  set $five  🌎
-  set $six   🖂
-  set $seven 🖳
-  set $eight 🗔 
-  set $nine  △
+  set $one   Music
+  set $two   >_Term
+  set $three Chat_2
+  set $four  Ect.
+  set $five  Web
+  set $six   Chat_1
+  set $seven System
+  set $eight VM
+  set $nine  Nine
   set $ten   10
-                
-               
                
                 
   bindsym $mod+Control+KP_1   workspace $one
