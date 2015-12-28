@@ -345,31 +345,15 @@
     workspace $six   output $monitor
     workspace $seven output $monitor
 
-    exec --no-startup-id redshift ~/.config/redshift.conf           #  Works fine. Redshifts the screen
-    exec --no-startup-id compton -f                                 #  Works fine. Lightweight composting manager to allow subtle graphics effects
-    exec --no-startup-id variety                                    #  Works fine. Automatic wallpaper changer
-    exec --no-startup-id insync start                               #  Works fine. Good Google Drive client. I got it for free :)
-    exec --no-startup-id davmail .davmail.vandals.properties        #  Works fine. Starts the Davmail server
-    exec --no-startup-id guake
-    exec --no-startup-id "~/Misc/Packages/WhatPulse/whatpulse"      #  A program to log keystroke statistics
-    exec --no-startup-id "~/Misc/custom-scripts/xmod"               #? Doesn't run on startup? Runs a custom  script to change Super_R to Control_R. 
-    exec --no-startup-id "~/Misc/custom-scripts/mouse-accel"        #  Works fine. Runs a custom script to disable mouse acceleration
-
-  #These lines are specific to work environment and should be moved to a separate script
-    #exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.i3/ultrawide/workspace1.json'"  # restores saved layouts
-    #exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.i3/ultrawide/workspace2.json'"
-    #exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.i3/ultrawide/workspace3.json'"
-    #exec --no-startup-id "i3-msg 'workspace 4; append_layout ~/.i3/ultrawide/workspace4.json'"
-    #exec --no-startup-id "i3-msg 'workspace 5; append_layout ~/.i3/ultrawide/workspace5.json'"
-    #exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.i3/ultrawide/workspace6.json'"
-    #exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.i3/ultrawide/workspace7.json'"
-
-    #exec                 i3-msg 'workspace 1; exec nuvolaplayer3 -a google_play_music'                  #  Works fine
-    #exec --no-startup-id i3-msg 'workspace 2; exec gnome-terminal & gnome-terminal                      #  Works fine
-    #exec --no-startup-id i3-msg 'workspace 3; exec thunderbird'                                         #  Works fine
-    #exec --no-startup-id i3-msg 'workspace 5; exec gvim'                                                #  Works fine
-    #exec                 i3-msg 'workspace 6; exec hipchat'                                             #  Works fine
-    #exec                 i3-msg 'workspace 6; exec messengerfordesktop'                                 #  Works fine
-    #exec --no-startup-id i3-msg 'workspace 6; exec firefox "www.gotimeforce2.com" --new-window "kickback.atlassian.net" --new-window "stash.krs.io" --new-window "www.github.com" --new-window "www.pushbullet.com" --new-window "app.groupme.com/chats" --new-window "localhost:8080/wordpress/"' # Works fine. Windows aren't swallowed into the correct containers, but I don't know a way around this.
-    #exec --no-startup-id i3-msg 'workspace 7; exec gnome-system-monitor'                                #  Works fine
-
+# Startup commands
+  exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
+  exec --no-startup-id compton -f                                 #  Lightweight composting manager to allow subtle graphics effects
+  exec --no-startup-id variety                                    #  Automatic wallpaper changer
+  exec --no-startup-id insync start                               #  Good Google Drive client. I got it for free :)
+  exec --no-startup-id davmail .davmail.vandals.properties        #  Starts the Davmail server
+  exec --no-startup-id guake                                      #  A popup terminal.
+  exec --no-startup-id "~/Misc/Packages/WhatPulse/whatpulse"      #  A program to log keystroke statistics
+  exec                 blueman-applet                             #? Enables the blueman bluetooth client. Doesn't seem to run on startup. 
+  exec --no-startup-id "~/Misc/custom-scripts/xmod"               #? Doesn't run on startup? Runs a custom  script to change Super_R to Control_R. 
+                                                                  #  As a workaround, this command is added to my ~/.zshrc
+  exec --no-startup-id "~/Misc/custom-scripts/mouse-accel"        #  Works fine. Runs a custom script to disable mouse acceleration.  
