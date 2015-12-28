@@ -9,15 +9,12 @@
        "x": 0,
        "y": 0
     },
-    "name": "Inbox - amcnurlin@kickbackpoints.com - Mozilla Thunderbird",
+    "name": "Inbox - .* - Mozilla Thunderbird",
     "percent": 1,
     "swallows": [
        {
        "class": "^Thunderbird$",
        "instance": "^Mail$"
-       // "title": "^Inbox\\ \\-\\ amcnurlin\\@kickbackpoints\\.com\\ \\-\\ Mozilla\\ Thunderbird$",
-       // "transient_for": "^$",
-       // "window_role": "^3pane$"
        }
     ],
     "type": "con"
