@@ -96,15 +96,20 @@
 
 # Workspace management
   # switch to workspace
-  set $one   Music
-  set $two   >_Term
-  set $three Chat_2
-  set $four  Ect.
-  set $five  Web
-  set $six   Chat_1
-  set $seven System
-  set $eight VM
-  set $nine  Nine
+  # This is using FontAwesome fonts. The font must be `FontAwesome` in the i3bar settings (line 272 at time of writing)
+  # Ubuntu package - `fonts-font-awesome`
+  #     sudo apt-get install fonts-font-awesome
+  # Arch package - ttf-font-awesome or otf-font-awesome
+  # I don't use Arch, idk if this is correct :)
+  set $one   
+  set $two   
+  set $three 
+  set $four  
+  set $five  
+  set $six   
+  set $seven 
+  set $eight 
+  set $nine  9
   set $ten   10
                
                 
@@ -267,8 +272,8 @@
       urgent_workspace	  $bgcolor $bgcolor $fgcolor  
     }
     status_command i3status
-    separator_symbol ""
-    font pango:Ubuntu Mono derivative Powerline 11
+    separator_symbol ""
+    font pango:FontAwesome 11
     position top
   }
 
@@ -313,7 +318,7 @@
     bindsym Control+$mod+Return       exec variety --favorite;exec notify-send -a "Vaiety" "$(variety --show-current | grep -oP '[^\/ ]+?\.[^ ]+') has been added to favorites"
 
     #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
-    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal" -fuzzy 
+    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
 
   # Mouse button configuration
     set $alt   Mod1
