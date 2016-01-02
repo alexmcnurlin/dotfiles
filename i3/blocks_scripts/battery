@@ -1,0 +1,46 @@
+#! /usr/bin/env zsh
+# Echo's information about the battery
+
+source ~/.i3/blocks_scripts/colors
+
+state=$(upower -i /org/freedesktop/UPower/devices/DisplayDevice)
+if [ $(echo $state | grep -oP "present") ]; then
+	percent=$(echo $state | grep -oP "\d*(?=%)")
+	#time=$(upower -i /org/freedesktop/UPower/devices/DisplayDevice) # This line is incomplete. I may or may not finish it later
+
+	if [ $percent -lt 20 ]; then
+		icon=;
+		color=$clr_bad;
+	elif [ $percent -lt 40 ]; then
+		icon=;
+		color=$clr_bad;
+	elif [ $percent -lt 60 ]; then
+		icon=;
+		color=$clr_degr;
+	elif [ $percent -lt 80 ]; then
+		icon=;
+		color=$clr_degr;
+	else
+		icon=
+		color=$clr_good;
+	fi;
+
+	# Note: This block doesn't work with bash, but it works with zsh
+	# It probably has to do with grepping a multi-line variable
+	charge=$(echo $state | grep -oP "(?<=state:\s{15}).*");
+	if [ "$charge" = "charging" ]; then
+		charge=Charging
+	elif [ "$status" = "discharging" ]; then
+		charge=Discharging
+	elif [ "$status" = "fully-charged" ]; then
+		charge="Fully charged"
+	fi
+			
+else
+	echo "No Battery"
+	exit 0;
+fi;
+
+echo $icon $percent% $charge
+echo
+echo $color

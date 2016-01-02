@@ -1,0 +1,28 @@
+#! /usr/bin/env bash
+
+source ~/.i3/blocks_scripts/colors;
+
+vol=$(get_volume);
+
+
+if [ $vol -eq 0 ]; then
+	icon=;
+elif [ $vol -lt 33 ]; then
+	icon=;
+else
+	icon=
+fi;
+
+
+mute=$(pacmd dump | awk ' $1 == "set-sink-mute" {m[$2] = $3}; $1 == "set-default-sink" {s = $2}; END {print m[s]}');
+
+if [ $mute = "yes" ]; then
+	vol="muted($vol)";
+	col=$clr_degr;
+fi;
+
+
+
+echo $icon $vol%;
+echo;
+echo $col;

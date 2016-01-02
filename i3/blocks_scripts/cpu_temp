@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+temp=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input | grep -oP ".*(?=\d{3})");
+source ~/.i3/blocks_scripts/colors
+
+if [ $temp -gt 90 ]; then
+	color="$clr_bad";
+elif [ $temp -gt 75 ]; then
+	color="$clr_degr"
+else
+	color="$clr_theme"
+fi
+
+echo "🌡 $temp °C"
+echo ""
+echo $color

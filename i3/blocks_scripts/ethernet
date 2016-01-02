@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+status=$(/usr/share/i3blocks/network)
+if [ status = 
+  "down
+  down
+  #FF0000"
+  ]; then
+
+  exit 1;
+else
+  echo status;
+fi;

@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+# Read colors to use
+source ~/.i3/blocks_scripts/colors
+
+# A beautiful mess of grep. Good luck changing this later
+stat=$(iwconfig wlan0)
+essid=$(echo $stat | grep -oP "(?<=ESSID:\").*?(?=\")")
+percent=$(qalc -t "$(echo $stat | grep -oP "(\d+/\d+)") * 100" | grep -oP "^(\d\d\d?$)|(.*?(?=\.))")
+ip=$(ifconfig wlan0 | grep -oP "(?<=inet addr:).*?\s")
+
+if [ $percent -lt 50 ]; then
+	color="$clr_bad";
+elif [ $percent -lt 75 ]; then
+	color="$clr_degr";
+else
+	color="$clr_good";
+fi
+
+if [ $(echo $stat | grep -oP "ESSID:off/any") ]; then
+	echo  No wireless;
+	exit 0;
+elif [ "$ip" = "" ]; then
+	ip="No IP";
+	color="$clr_bad";
+else 
+	ip="IP:$ip";
+fi;
+
+echo  $essid: $percent% $ip
+echo ""
+echo $color
