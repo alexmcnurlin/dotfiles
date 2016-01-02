@@ -291,6 +291,7 @@
     # Media player controls
     # I had to install playerctl. I can't remember how though. It was weird
     bindsym XF86AudioPlay  exec playerctl play-pause      
+    bindsym XF86AudioPause exec playerctl play-pause
     bindsym XF86AudioNext  exec playerctl next
     bindsym XF86AudioPrev  exec playerctl previous
 
