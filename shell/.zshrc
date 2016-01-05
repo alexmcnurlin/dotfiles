@@ -95,6 +95,8 @@ alias netflix="google-chrome --app='https://www.netflix.com'"
 alias minesweeper="freesweep"
 alias tetris="tint"
 
+eval "$(thefuck --alias oops)"
+
 # This disables zsh sessions from sharing their command history
 setopt nosharehistory
 
