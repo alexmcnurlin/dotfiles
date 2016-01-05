@@ -30,9 +30,9 @@ if [ $(echo $state | grep -oP "present") ]; then
 	charge=$(echo $state | grep -oP "(?<=state:\s{15}).*");
 	if [ "$charge" = "charging" ]; then
 		charge=Charging
-	elif [ "$status" = "discharging" ]; then
+	elif [ "$charge" = "discharging" ]; then
 		charge=Discharging
-	elif [ "$status" = "fully-charged" ]; then
+	elif [ "$charge" = "fully-charged" ]; then
 		charge="Fully charged"
 	fi
 			
