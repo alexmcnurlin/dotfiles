@@ -285,8 +285,8 @@
     bindsym XF86AudioMute        exec pactl set-sink-mute   alsa_output.pci-0000_00_1b.0.analog-stereo toggle && notify-send -t 1 -a "Audio" "Mute toggled"  # mute sound
 
     # Sreen brightness controls. Installed xbacklight through apt-get 
-    bindsym XF86MonBrightnessUp   exec xbacklight +10 && notify-send "Brightness: $(xbacklight)"
-    bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send "Brightness: $(xbacklight)"
+    bindsym XF86MonBrightnessUp   exec xbacklight +10 && notify-send -t 1 "Brightness: $(xbacklight)"
+    bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send -t 1 "Brightness: $(xbacklight)"
 
     # Media player controls
     # I had to install playerctl. I can't remember how though. It was weird
