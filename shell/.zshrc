@@ -95,6 +95,9 @@ alias netflix="google-chrome --app='https://www.netflix.com'"
 alias minesweeper="freesweep"
 alias tetris="tint"
 
+# This disables zsh sessions from sharing their command history
+setopt nosharehistory
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export EDITOR=/usr/bin/gvim # Change Gvim to default text editor. 
