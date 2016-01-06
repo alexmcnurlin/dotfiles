@@ -20,8 +20,9 @@ source ~/.vimrc.local
 	call vundle#end()
 
 set background=dark
-colorscheme PaperColor
-
-highlight ColorColumn ctermbg=236 guibg=#1e2227
+colorscheme gruvbox
+let g:grovbox_contrast_dark="soft"
+let g:grovbox_invert_indent_guides=1
+let g:grovbox_improved_strings=1
 
 filetype plugin indent on

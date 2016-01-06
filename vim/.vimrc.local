@@ -209,6 +209,7 @@ nmap <leader>2 :colorscheme PaperColor<CR>
 nmap <leader>3 :colorscheme solarized<CR>
 nmap <leader>4 :colorscheme phd<CR>
 nmap <leader>5 :colorscheme twilight<CR>
+nmap <leader>6 :colorscheme gruvbox<CR>
 
 " A function that toggles between light and dark themes
 function! ColorToggle()

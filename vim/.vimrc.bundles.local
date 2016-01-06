@@ -35,5 +35,6 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/phd'
 Plugin 'vim-scripts/twilight'
+Plugin 'alexmcnurlin/gruvbox'
 
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/ "Powerline status bar
+"set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/ "Powerline status bar
