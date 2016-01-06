@@ -28,6 +28,7 @@ Plugin 'yssl/AutoCWD.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'dahu/vim-fanfingtastic'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
 
 " Colorschemes
 Plugin 'NLKNguyen/papercolor-theme'

@@ -295,6 +295,11 @@ let g:autocwd_patternwd_pairs = [
 	\['*', '%:p:h' ]
 \]
 
+
+" Airline configuration options
+" Requires 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+
 " Makes f and t become case insensitive
 " Requires 'dahu/vim-fanfingtastic'
 let g:fanfingtastic_ignorecase=1
