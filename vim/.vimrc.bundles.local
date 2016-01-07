@@ -29,6 +29,8 @@ Plugin 'wellle/targets.vim'
 Plugin 'dahu/vim-fanfingtastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-unimpaired'
 
 " Colorschemes
 Plugin 'NLKNguyen/papercolor-theme'
