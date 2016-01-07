@@ -13,7 +13,7 @@ noremap <right> <nop>
 " These are to set options that I liked from spf13-vim
 " Sets the <leader> to comma 
 set t_Co=256
-let mapleader=" "
+let g:mapleader=' '
 set number                            " Enables line numbering
 set wildmode=longest,list,full        " Sets desired file completion from command mode
 set wildmenu                          " Sets desired file completion from command mode
@@ -213,10 +213,10 @@ nmap <leader>6 :colorscheme gruvbox<CR>
 
 " A function that toggles between light and dark themes
 function! ColorToggle()
-	if &background == "dark"
-		let &background = "light"
+	if &background ==? 'dark'
+		let &background = 'light'
 	else 
-		let &background = "dark"
+		let &background = 'dark'
 	endif
 endfunction
 nmap <leader>` :call ColorToggle()<CR>
