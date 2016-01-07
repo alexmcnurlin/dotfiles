@@ -271,7 +271,8 @@
       inactive_workspace	$bgcolor $bgcolor $fgcolor  
       urgent_workspace	  $bgcolor $bgcolor $fgcolor  
     }
-    status_command i3status
+    # sudo pip install py3status
+    status_command py3status    
     separator_symbol ""
     font pango:FontAwesome 11
     position top
