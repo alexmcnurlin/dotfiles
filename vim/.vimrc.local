@@ -1,14 +1,10 @@
 " ###Settings For Vanilla VIM 
+" vim: fdm=manual
 
 
 
 " Disable mouse
 set mouse=c
-
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
 
 " These are to set options that I liked from spf13-vim
 " Sets the <leader> to comma 
@@ -34,6 +30,8 @@ nmap k gk|                           " Makes k move across displayed lines, not 
 
 " Makes a different colored background at 80 characters
 set colorcolumn=80 " Set softwrap
+
+" Line wrap
 set wrap
 set linebreak
 set nolist
@@ -252,6 +250,7 @@ let g:EasyMotion_smartcase=1
 let g:neocomplete#enable_at_startup=1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 set completeopt-=preview              " This removes a bug where a split window would randomly pop up in some situations
+
 " Neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
