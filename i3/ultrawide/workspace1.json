@@ -14,7 +14,7 @@
     "swallows": [
        {
        "class": "^Spotify$",
-       "instance": "^spotify$",
+       "instance": "^spotify$"
        // "title": "^Spotify\\ Premium\\ \\-\\ Linux\\ Preview$",
        // "transient_for": "^$"
        }
