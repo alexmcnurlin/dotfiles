@@ -152,5 +152,8 @@ figlet "LinuxMasterRace"
 # This is a custom script to switch right control and right windows key
 xmod
 
+# This script disables mouse acceleration
+mouse-accel
+
 # A calculator plugin for zsh
 source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh
