@@ -314,6 +314,9 @@ let g:syntastic_warning_symbol = '⊙'
 let g:syntastic_vim_checkers = ['vint']
 let g:syntastic_always_populate_loc_list=1
 
+" Adds c++11 support
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
 " Configuration for vim-unimpaired
 " Requires 'tpope/vim-unimpaired'
 nmap [l <Plug>unimpairedMoveUp
