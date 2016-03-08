@@ -319,6 +319,7 @@
     bindsym Control+$mod+p            exec variety --show-selector
     bindsym Control+$mod+backslash    exec xdg-open "$(variety --show-current | grep -oP \"^/home.*$\")"
     bindsym Control+$mod+Return       exec variety --favorite;exec notify-send -a "Vaiety" "$(variety --show-current | grep -oP '[^\/ ]+?\.[^ ]+') has been added to favorites"
+    bindsym $mod+c exec xmod
 
     #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
     bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
@@ -346,7 +347,7 @@
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
     set $monitor HDMI1
-    exec xrandr --output $monitor --auto --left-of eDP1 # Sets up second monitor
+    exec "xrandr --output $monitor --auto --right-of eDP1 # Sets up second monitor"
     workspace $one   output eDP1  #  Assigns workspaces to specific monitors
     workspace $two   output eDP1
     workspace $three output eDP1
