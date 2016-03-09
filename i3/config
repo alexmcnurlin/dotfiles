@@ -23,6 +23,13 @@
   set $black              #212121
   set $white              #dddddd
 
+  # Configuration options for lemonbar and gaps
+  set $monitor1           1920 # The width of the first monitor
+  set $monitor2           2560 # The width of the second monitor
+  set $outer_gap          15   # The size of outer gaps
+  set $inner_gap          15   # The size of inner gaps
+  set $bar_height         20   # The height of the status bar
+
   # Class                     border   backgr   text     indicator
   client.focused              $fgcolor $fgcolor $bgcolor $accent
   client.focused_inactive     $bgcolor $bgcolor $fgcolor $bgcolor
@@ -32,7 +39,8 @@
   for_window [class="Variety" instance="variety"] floating enable
   for_window [class="Guake" instance="guake"] floating enable
 
-  exec_always i3-msg gaps inner all set 30
+  exec_always i3-msg gaps inner all set $inner_gap
+  exec_always i3-msg gaps outer all set $outer_gap
 
 # Basic key bindings
   # start a terminal
@@ -346,15 +354,15 @@
 
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
-    set $monitor HDMI1
-    exec "xrandr --output $monitor --auto --right-of eDP1 # Sets up second monitor"
+    set $ext_monitor HDMI1
+    exec "xrandr --output $ext_monitor --auto --right-of eDP1 # Sets up second monitor"
     workspace $one   output eDP1  #  Assigns workspaces to specific monitors
     workspace $two   output eDP1
     workspace $three output eDP1
-    workspace $four  output $monitor
-    workspace $five  output $monitor
-    workspace $six   output $monitor
-    workspace $seven output $monitor
+    workspace $four  output $ext_monitor
+    workspace $five  output $ext_monitor
+    workspace $six   output $ext_monitor
+    workspace $seven output $ext_monitor
 
 # Startup commands
   exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
