@@ -266,26 +266,30 @@
 
 # i3bar
   # Config can be found in ~/.i3status.conf
-  bar {
-    colors {
-      # Whole color settings
-      background $bgcolor
-      statusline $accent
-      separator  $fgcolor 
+    # Here's some experimentation with lemonbar20
+exec_always --no-startup-id ~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1 $monitor2 $outer_gap $inner_gap $bar_height
+  #bar {
+    #colors {
+      ## Whole color settings
+      #background $bgcolor
+      #statusline $accent
+      #separator  $fgcolor 
 
-                          #border  #bg     #text 
-      focused_workspace 	$fgcolor $fgcolor $bgcolor
-      active_workspace  	$fgcolor $fgcolor $bgcolor
-      inactive_workspace	$bgcolor $bgcolor $fgcolor  
-      urgent_workspace	  $bgcolor $bgcolor $fgcolor  
-    }
-    # sudo pip install py3status
-    i3bar_command i3bar
-    status_command py3status
-    separator_symbol ""
-    font pango:FontAwesome 11
-    position top
-  }
+                          ##border  #bg     #text 
+      #focused_workspace 	$fgcolor $fgcolor $bgcolor
+      #active_workspace  	$fgcolor $fgcolor $bgcolor
+      #inactive_workspace	$bgcolor $bgcolor $fgcolor  
+      #urgent_workspace	  $bgcolor $bgcolor $fgcolor  
+    #}
+    ## sudo pip install py3status
+    ##i3bar_command i3bar
+    #i3bar_command lemonbar -F FontAwesome
+    ##status_command py3status
+    #status_command lemonbar_status.sh
+    #separator_symbol ""
+    #font pango:FontAwesome 11
+    #position top
+  #}
 
 # Custom Keys/Commands
   #Media/FN key controls
