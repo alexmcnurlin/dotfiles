@@ -17,23 +17,31 @@
   new_window pixel 4 
 
   # new pastel colors
-  set $fgcolor            #4084d6
-  set $accent             #64b5f6 
-  set $bgcolor            #2f343f
-  set $black              #212121
-  set $white              #dddddd
+  # The colors are stored as just the numbers, with the hash symbol in the variable $h. 
+  # This allows more flexibility for passing colors as arguments to commands
+  set $h                  #
+  set $fgcolor            4084d6
+  set $accent             64b5f6 
+  set $bgcolor            2f343f
+  set $black              212121
+  set $white              dddddd
+  set $gdcolor            8bc34a
+  set $degcolor           cddc39
+  set $bdcolor            ff5722
 
   # Configuration options for lemonbar and gaps
-  set $monitor1           1920 # The width of the first monitor
-  set $monitor2           2560 # The width of the second monitor
-  set $outer_gap          15   # The size of outer gaps
-  set $inner_gap          15   # The size of inner gaps
-  set $bar_height         20   # The height of the status bar
-
-  # Class                     border   backgr   text     indicator
-  client.focused              $fgcolor $fgcolor $bgcolor $accent
-  client.focused_inactive     $bgcolor $bgcolor $fgcolor $bgcolor
-  client.unfocused            $bgcolor $bgcolor $fgcolor $bgcolor
+  # monitor1 = width of left monitor, monitor2 = width of right monitor, 
+  # outer_gap = i3-gaps outer gap. inner_gap = i3-gaps inner gap. bar_height = status bar height
+  set $monitor1           1920 
+  set $monitor2           2560 
+  set $outer_gap          15   
+  set $inner_gap          15   
+  set $bar_height         30   
+  
+  # Class                     border     backgr     text       indicator
+  client.focused              $h$fgcolor $h$fgcolor $h$bgcolor $h$accent
+  client.focused_inactive     $h$bgcolor $h$bgcolor $h$fgcolor $h$bgcolor
+  client.unfocused            $h$bgcolor $h$bgcolor $h$fgcolor $h$bgcolor
 
   # Make the Variety Wallpaper chooser always be float, not tiling
   for_window [class="Variety" instance="variety"] floating enable
@@ -264,32 +272,9 @@
     #}
     #bindsym $mod+m mode "move"
 
-# i3bar
-  # Config can be found in ~/.i3status.conf
-    # Here's some experimentation with lemonbar20
-exec_always --no-startup-id ~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1 $monitor2 $outer_gap $inner_gap $bar_height
-  #bar {
-    #colors {
-      ## Whole color settings
-      #background $bgcolor
-      #statusline $accent
-      #separator  $fgcolor 
-
-                          ##border  #bg     #text 
-      #focused_workspace 	$fgcolor $fgcolor $bgcolor
-      #active_workspace  	$fgcolor $fgcolor $bgcolor
-      #inactive_workspace	$bgcolor $bgcolor $fgcolor  
-      #urgent_workspace	  $bgcolor $bgcolor $fgcolor  
-    #}
-    ## sudo pip install py3status
-    ##i3bar_command i3bar
-    #i3bar_command lemonbar -F FontAwesome
-    ##status_command py3status
-    #status_command lemonbar_status.sh
-    #separator_symbol ""
-    #font pango:FontAwesome 11
-    #position top
-  #}
+# lemonbar
+  # Here's some experimentation with lemonbar
+  exec_always --no-startup-id "~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1 $monitor2 $outer_gap $inner_gap $bar_height $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor"
 
 # Custom Keys/Commands
   #Media/FN key controls
@@ -336,7 +321,7 @@ exec_always --no-startup-id ~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1 $mo
     bindsym $mod+c exec mouse-accel
 
     #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
-    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
+    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
 
   # Mouse button configuration
     set $alt   Mod1
