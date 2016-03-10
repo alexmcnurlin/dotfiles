@@ -1,5 +1,12 @@
 #! /usr/bin/env bash
 
+# TODO: 
+#		* Fix Ethernet script
+#		* Add Battery, CPU usage, CPU Temp, Disk usage (maybe)
+#		* Make Powerline Full height
+#		* Only show workspaces on current monitor
+#		* Pick Colorscheme
+
 bgcolor=$1
 fgcolor=$2
 accent=$3
