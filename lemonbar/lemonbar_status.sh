@@ -6,10 +6,14 @@ accent=$3
 gdcolor=$4
 degcolor=$5
 bdcolor=$6
+sep="%{O}%{O-1}"
+# The %{O} tags offset the text by a pixel. May need tweaking with some fonts
+# Powerline format:
+# "%{F$background_color}$sep%{B$foreground_color}%{R}Text here"
 
 
 the_time() {
-	date "+ %a %D %T"
+	date "+%%{F$bgcolor}$sep%%{B$fgcolor}%%{R} %a %D %T "
 }
 
 workspaces() {
@@ -57,8 +61,9 @@ wifi() {
 		ip="IP:$ip";
 	fi;
 
-	echo " %{F$color} $essid: $percent% $ip%{F}"
+	echo "%{F$color}$sep%{R}  $essid: $percent% $ip"
 }
+
 
 eth() {
 	status=$(/usr/share/i3blocks/network | head -1)
@@ -70,6 +75,6 @@ eth() {
 }
 
 while [ 1 ]; do
-	echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time) "
+	echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time)%{B}%{F}"
 	sleep .5;
 done
