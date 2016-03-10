@@ -1,10 +1,11 @@
 #! /usr/bin/env bash
+transparency="88"
 monitor1=$1
 monitor2=$2
 outer_gap=$3
 inner_gap=$4
 bar_height=$5
-bgcolor=$6
+bgcolor=$transparency$6
 fgcolor=$7
 accent=$8
 gdcolor=$9
@@ -18,7 +19,7 @@ echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap ))+$(( monitor1 - 1 )) -B
 
 # Geometry is {width-2(outer_gap)}x{bar_height}+{offset+outer_gap}+{outer_gap}
 # The bar for the left monitor (monitor1)
-~/.dotfiles/lemonbar/lemonbar_status.sh $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor | lemonbar -d -g $(( monitor1 - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#FF$bgcolor" -F "#FF$fgcolor" -p -f "Liberation Mono for Powerline:style=Regular" -f "FontAwesome:style=Regular" &
+~/.dotfiles/lemonbar/lemonbar_status.sh $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor | lemonbar -d -g $(( monitor1 - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#$bgcolor" -F "#FF$fgcolor" -p -f "Liberation Mono for Powerline:style=Regular" -f "FontAwesome:style=Regular" &
 
 # The bar for the right monitor (monitor2)
-~/.dotfiles/lemonbar/lemonbar_status.sh $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor | lemonbar -d -g $(( monitor2 - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( monitor1 + outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#88$bgcolor" -F "#FF$fgcolor" -p -f "Liberation Mono for Powerline:style=Regular" -f "FontAwesome:style=Regular"
+~/.dotfiles/lemonbar/lemonbar_status.sh $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor | lemonbar -d -g $(( monitor2 - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( monitor1 + outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#$bgcolor" -F "#FF$fgcolor" -p -f "Liberation Mono for Powerline:style=Regular" -f "FontAwesome:style=Regular"
