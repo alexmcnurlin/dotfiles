@@ -76,11 +76,11 @@ wifi() {
 
 
 eth() {
-  status=$(/usr/share/i3blocks/network | head -1)
+  status=$(/usr/share/i3blocks/network | head -1 | grep -oP ".*(?=\(.*\))")
   if [ $status != "down" ]; then
     echo " Eth: $status";
   else
-    echo "";
+    echo "$status";
   fi;
 }
 
