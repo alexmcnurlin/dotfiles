@@ -319,6 +319,7 @@
     bindsym $mod+x exec xmod
     bindsym $mod+Escape exec tp
     bindsym $mod+c exec mouse-accel
+    bindsym $mod+b exec "if [ blueman-applet ]; then notify-send 'Blueman is running'; fi"
 
     #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
     bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
