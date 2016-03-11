@@ -54,11 +54,11 @@ wifi() {
   ip=$(ifconfig wlan0 | grep -oP "(?<=inet addr:).*?\s")
 
   if [ $percent -lt 50 ]; then
-    color="#$4";
+    color="#$6";
   elif [ $percent -lt 75 ]; then
     color="#$5";
   else
-    color="#$6";
+    color="#$4";
   fi
 
   if [ $(echo $stat | grep -oP "ESSID:off/any") ]; then
