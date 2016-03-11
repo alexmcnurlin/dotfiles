@@ -14,14 +14,16 @@ accent=$3
 gdcolor=$4
 degcolor=$5
 bdcolor=$6
-sep="%{O}%{O-1}"
+
+sep=" "
 # The %{O} tags offset the text by a pixel. May need tweaking with some fonts
 # Powerline format:
 # "%{F$background_color}$sep%{B$foreground_color}%{R}Text here"
 
 
 the_time() {
-  date "+%%{F$bgcolor}$sep%%{B$fgcolor}%%{R} %a %D %T "
+  date=$(date "+ %a %D %T ")
+  echo "%{F#$fgcolor}$sep%{B#$bgcolor}$date%{B}%{F}"
 }
 
 workspaces() {
@@ -35,9 +37,9 @@ workspaces() {
 
     for workspace in $get_workspaces; do
       if [ "$workspace" = "$current_workspace" ]; then
-        output+="%{R} $workspace %{R}"
+        output+="%{F#$accent+u}%{U#$accent} $workspace %{F!u}"
       else
-        output+="%{R}%{R} $workspace "
+        output+="%{-u} $workspace "
       fi
     done
 
@@ -69,7 +71,7 @@ wifi() {
     ip="IP:$ip";
   fi;
 
-  echo "%{F$color}$sep%{R}  $essid: $percent% $ip"
+  echo "$sep%{F$color+u}%{U$color} $essid: $percent% $ip%{F!u}$sep"
 }
 
 
@@ -83,6 +85,6 @@ eth() {
 }
 
 while [ 1 ]; do
-  echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time)%{B}%{F}"
+  echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time)"
   sleep .5;
 done
