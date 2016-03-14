@@ -53,7 +53,8 @@ wifi() {
 
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
-  output=($line)
+  the_output=($line)
+  output+=("${the_output[@]//\"/}")
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
   wifi="$(wifi $fgcolor $bgcolor $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
   time="${output[0]} "
