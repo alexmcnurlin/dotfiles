@@ -54,11 +54,8 @@ wifi() {
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   output=($line)
-  #notify-send "${output[*]}"
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
   wifi="$(wifi $fgcolor $bgcolor $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
-  #" %essid:%quality, IP:%ip"
   time="${output[0]} "
   echo "%{l}$workspaces %{r}$wifi $time"
-  #echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time)"
 done
