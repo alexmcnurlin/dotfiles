@@ -39,22 +39,42 @@ workspaces() {
 }
 
 wifi() {
-  if [ $6 -lt 50 ]; then
-    color=$5
-  elif [ $6 -lt 75 ]; then
-    color=$4
-  else
+  if [ $4 -lt 50 ]; then
     color=$3
+  elif [ $4 -lt 75 ]; then
+    color=$2
+  else
+    color=$1
   fi
-  echo "%{F#$color+u}%{U#$color} $7: $6% IP:$8 %{F!u}"
+  echo "%{F#$color+u}%{U#$color}  $5: $4% IP:$6 %{F!u}"
+}
+
+cpu() {
+  if [ $4 -gt 50 ]; then
+    color=$3
+  elif [ $4 -gt 20 ]; then
+    color=$2
+  else
+    color=$1
+  fi
+  echo "%{F#$color+u}%{U#$color}  $4% %{F!u}"
+}
+
+temp() {
+  echo "$4°C"
 }
 
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   the_output=($line)
   output+=("${the_output[@]//\"/}")
+
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
-  wifi="$(wifi $fgcolor $bgcolor $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
-  time="${output[0]} "
-  echo "%{l}$workspaces %{r}$wifi $time"
+
+  temp="$(temp $gdcolor $degcolor $bdcolor ${output[5]})"
+  cpu="$(cpu $gdcolor $degcolor $bdcolor ${output[4]})"
+  wifi="$(wifi $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
+  time="${output[0]}"
+
+  echo "%{l}$workspaces %{r}$temp $cpu $wifi $time "
 done
