@@ -24,10 +24,8 @@ workspaces() {
     get_workspaces=$(i3-msg -t get_workspaces | jq -r 'map(.name) | .[]')
     current_workspace=$(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name')
     
-     Leave this blank
+     #Leave this blank
     output=""
-     This is the character used to separate workspace icons
-    sep=" "
 
     for workspace in $get_workspaces; do
       if [ "$workspace" = "$current_workspace" ]; then
