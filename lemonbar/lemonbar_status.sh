@@ -20,19 +20,13 @@ sep=" "
 # Powerline format:
 # "%{F$background_color}$sep%{B$foreground_color}%{R}Text here"
 
-
-the_time() {
-  date=$(date "+ %a %D %T ")
-  echo "%{F#$fgcolor}$sep%{B#$bgcolor}$date%{B}%{F}"
-}
-
 workspaces() {
     get_workspaces=$(i3-msg -t get_workspaces | jq -r 'map(.name) | .[]')
     current_workspace=$(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name')
     
-    # Leave this blank
+     Leave this blank
     output=""
-    # This is the character used to separate workspace icons
+     This is the character used to separate workspace icons
     sep=" "
 
     for workspace in $get_workspaces; do
@@ -47,44 +41,24 @@ workspaces() {
 }
 
 wifi() {
-  # A beautiful mess of grep. Good luck changing this later
-  stat=$(iwconfig wlan0)
-  essid=$(echo $stat | grep -oP "(?<=ESSID:\").*?(?=\")")
-  percent=$(qalc -t "$(echo $stat | grep -oP "(\d+/\d+)") * 100" | grep -oP "^(\d\d\d?$)|(.*?(?=\.))")
-  ip=$(ifconfig wlan0 | grep -oP "(?<=inet addr:).*?\s")
-
-  if [ $percent -lt 50 ]; then
-    color="#$6";
-  elif [ $percent -lt 75 ]; then
-    color="#$5";
+  if [ $6 -lt 50 ]; then
+    color=$5
+  elif [ $6 -lt 75 ]; then
+    color=$4
   else
-    color="#$4";
+    color=$3
   fi
-
-  if [ $(echo $stat | grep -oP "ESSID:off/any") ]; then
-    echo  No wireless;
-    exit 0;
-  elif [ "$ip" = "" ]; then
-    ip="No IP";
-    color="#$2";
-  else 
-    ip="IP:$ip";
-  fi;
-
-  echo "$sep%{F$color+u}%{U$color} $essid: $percent% $ip%{F!u}$sep"
+  echo "%{F#$color+u}%{U#$color} $7: $6% IP:$8 %{F!u}"
 }
 
-
-eth() {
-  status=$(/usr/share/i3blocks/network | head -1 | grep -oP ".*(?=\(.*\))")
-  if [ $status != "down" ]; then
-    echo " Eth: $status";
-  else
-    echo "$status";
-  fi;
-}
-
-while [ 1 ]; do
-  echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time)"
-  sleep .5;
+# The update interval is controlled through the conky update interval
+conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
+  output=($line)
+  #notify-send "${output[*]}"
+  workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
+  wifi="$(wifi $fgcolor $bgcolor $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
+  #" %essid:%quality, IP:%ip"
+  time="${output[0]} "
+  echo "%{l}$workspaces %{r}$wifi $time"
+  #echo "%{l}$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)%{r}$(eth)$(wifi $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)$(the_time)"
 done
