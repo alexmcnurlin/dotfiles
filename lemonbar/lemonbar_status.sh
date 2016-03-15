@@ -67,7 +67,7 @@ temp() {
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   the_output=($line)
-  output+=("${the_output[@]//\"/}")
+  output=("${the_output[@]//\"/}")
 
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
 
