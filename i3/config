@@ -24,11 +24,11 @@
   set $white              #dddddd
 
   # Configuration options for lemonbar and gaps
-  set $monitor1           1920 # The width of the first monitor
-  set $monitor2           1920 # The width of the second monitor
-  set $outer_gap          15   # The size of outer gaps
-  set $inner_gap          15   # The size of inner gaps
-  set $bar_height         20   # The height of the status bar
+  set $monitor1           1920
+  set $monitor2           1920
+  set $outer_gap          15
+  set $inner_gap          15
+  set $bar_height         20
 
   # Class                     border   backgr   text     indicator
   client.focused              $fgcolor $fgcolor $bgcolor $accent
