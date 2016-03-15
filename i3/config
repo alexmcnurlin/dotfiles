@@ -25,7 +25,7 @@
 
   # Configuration options for lemonbar and gaps
   set $monitor1           1920 # The width of the first monitor
-  set $monitor2           2560 # The width of the second monitor
+  set $monitor2           1920 # The width of the second monitor
   set $outer_gap          15   # The size of outer gaps
   set $inner_gap          15   # The size of inner gaps
   set $bar_height         20   # The height of the status bar
@@ -357,7 +357,7 @@
 
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
-    set $ext_monitor HDMI1
+    set $ext_monitor VGA1
     exec "xrandr --output $ext_monitor --auto --right-of eDP1 # Sets up second monitor"
     workspace $one   output eDP1  #  Assigns workspaces to specific monitors
     workspace $two   output eDP1
