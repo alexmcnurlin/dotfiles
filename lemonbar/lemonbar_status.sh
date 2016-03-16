@@ -39,14 +39,18 @@ workspaces() {
 }
 
 wifi() {
-  if [ $4 -lt 50 ]; then
-    color=$3
-  elif [ $4 -lt 75 ]; then
-    color=$2
+  if [ $6 != "No" ]; then
+    if [ $4 -lt 50 ]; then
+      color=$3
+    elif [ $4 -lt 75 ]; then
+      color=$2
+    else
+      color=$1
+    fi
+    echo "%{F#$color+u}%{U#$color}  $5: $4% IP:$6 %{F!u}"
   else
-    color=$1
-  fi
-  echo "%{F#$color+u}%{U#$color}  $5: $4% IP:$6 %{F!u}"
+    echo "%{F#$3+u}%{U#$3}  No Wifi %{F!u}"
+  fi;
 }
 
 cpu() {
