@@ -16,9 +16,6 @@ degcolor=$5
 bdcolor=$6
 
 sep=" "
-# The %{O} tags offset the text by a pixel. May need tweaking with some fonts
-# Powerline format:
-# "%{F$background_color}$sep%{B$foreground_color}%{R}Text here"
 
 workspaces() {
     get_workspaces=$(i3-msg -t get_workspaces | jq -r 'map(.name) | .[]')
