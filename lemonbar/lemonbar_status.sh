@@ -22,7 +22,7 @@ workspaces() {
     current_workspace=$(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name')
     
      #Leave this blank
-    output=""
+    declare -a output
 
     for workspace in $get_workspaces; do
       if [ "$workspace" = "$current_workspace" ]; then
@@ -36,7 +36,7 @@ workspaces() {
 }
 
 wifi() {
-  if [ $6 != "No" ]; then
+  if [ $6 != "No Address" ]; then
     if [ $4 -lt 50 ]; then
       color=$3
     elif [ $4 -lt 75 ]; then
