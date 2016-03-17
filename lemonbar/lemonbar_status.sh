@@ -62,7 +62,14 @@ cpu() {
 }
 
 temp() {
-  echo "$4°C"
+  if [ $4 -lt 75 ]; then
+    color=$1
+  elif [ $4 -lt 90 ]; then
+    color=$2
+  else 
+    color=$3
+  fi
+  echo "%{F#$color+u}%{U#$color} $4°C %{F!u}"
 }
 
 # The update interval is controlled through the conky update interval
