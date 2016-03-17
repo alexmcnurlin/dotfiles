@@ -70,15 +70,14 @@ temp() {
 
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
-  the_output=($line)
-  output=("${the_output[@]//\"/}")
+  IFS=';' read the_time wifi_percent wifi_essid wifi_ip cpu_percent cpu_temp <<< "$line"
 
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
 
-  temp="$(temp $gdcolor $degcolor $bdcolor ${output[5]})"
-  cpu="$(cpu $gdcolor $degcolor $bdcolor ${output[4]})"
-  wifi="$(wifi $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
-  time="${output[0]}"
+  temp="$(temp $gdcolor $degcolor $bdcolor $cpu_temp)"
+  cpu="$(cpu $gdcolor $degcolor $bdcolor $cpu_percent)"
+  wifi="$(wifi $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid $wifi_ip)"
+  time="$the_time"
 
   echo "%{l}$workspaces %{r}$temp $cpu $wifi $time "
 done

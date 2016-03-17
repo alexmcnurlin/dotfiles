@@ -32,4 +32,4 @@ extra_newline no
 update_interval 1.0
 
 TEXT
-"${time %H:%M:%S}" "${wireless_link_qual wlan0}" "${wireless_essid wlan0}" "${addr wlan0}" "$cpu" "${execi 8 sensors | grep 'Physical' | cut -c18-19}"
+${time %H:%M:%S};${wireless_link_qual wlan0};${wireless_essid wlan0};${addr wlan0};$cpu;${execi 8 sensors | grep 'Physical' | cut -c18-19}
