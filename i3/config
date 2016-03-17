@@ -19,7 +19,8 @@
   set $h                  #
   set $fgcolor            4084d6
   set $accent             64b5f6 
-  set $bgcolor            2f343f
+  set $bgcolor            212121
+  #2f343f
   set $black              212121
   set $white              dddddd
   set $gdcolor            8bc34a
