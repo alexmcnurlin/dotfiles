@@ -111,6 +111,26 @@ power() {
   fi
 }
 
+volume() {
+  vol=$(pactl list sinks | perl -000ne 'if(/#1/){/(\d*(?=%))/; print "$1\n"}')
+
+  if [ $vol -eq 0 ]; then
+    icon=;
+  elif [ $vol -lt 50 ]; then
+    icon=;
+  else
+    icon=
+  fi;
+
+  mute=$(pacmd dump | awk ' $1 == "set-sink-mute" {m[$2] = $3}; $1 == "set-default-sink" {s = $2}; END {print m[s]}');
+
+  if [ $mute = "yes" ]; then
+    echo "%{U#$2F#$2+u} muted($vol) %{UF}%{-u}";
+  else
+    echo "%{U#$1 F#$1+u} $icon $vol %{UF}%{-u}";
+  fi;
+}
+
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   IFS=';' read the_time wifi_percent wifi_essid wifi_ip eth_ip cpu_percent cpu_temp ac bat <<< "$line"
@@ -118,11 +138,12 @@ conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
 
   declare -a output
-  output+="$(temp  $gdcolor $degcolor $bdcolor $cpu_temp) "
-  output+="$(cpu   $gdcolor $degcolor $bdcolor $cpu_percent) "
-  output+="$(eth   $fgcolor $bdcolor "$eth_ip") "
-  output+="$(wifi  $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid "$wifi_ip") "
-  output+="$(power $gdcolor $degcolor $bdcolor $fgcolor $ac $bat) "
+  output+="$(volume $fgcolor $degcolor) "
+  output+="$(temp   $gdcolor $degcolor $bdcolor $cpu_temp) "
+  output+="$(cpu    $gdcolor $degcolor $bdcolor $cpu_percent) "
+  output+="$(eth    $fgcolor $bdcolor "$eth_ip") "
+  output+="$(wifi   $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid "$wifi_ip") "
+  output+="$(power  $gdcolor $degcolor $bdcolor $fgcolor $ac $bat) "
   output+="%{U#$fgcolor+u} $the_time %{U!u} "
 
   echo "%{l}$workspaces %{r}${output[@]}"
