@@ -78,10 +78,12 @@ conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
 
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
 
-  temp="$(temp $gdcolor $degcolor $bdcolor $cpu_temp)"
-  cpu="$(cpu $gdcolor $degcolor $bdcolor $cpu_percent)"
-  wifi="$(wifi $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid $wifi_ip)"
-  time="%{U#$fgcolor+u} $the_time %{U!u}"
+  declare -a output
+  output+="$(temp $gdcolor $degcolor $bdcolor $cpu_temp) "
+  output+="$(cpu $gdcolor $degcolor $bdcolor $cpu_percent) "
+  output+="$(wifi $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid $wifi_ip) "
+  output+="%{U#$fgcolor+u} $the_time %{U!u} "
 
-  echo "%{l}$workspaces %{r}$temp $cpu $wifi $time "
+  echo "%{l}$workspaces %{r}${output[@]}"
+  output=""
 done
