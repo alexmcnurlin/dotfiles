@@ -81,20 +81,33 @@ temp() {
 }
 
 power() {
-  if [ "$5" = on-line ]; then
+  if [ "$5" = "on-line" ]; then
     if [ $6 = 0 ]; then
       echo "%{U#$4+u} Plugged in %{U}%{-u}"
     else
-      echo "%{U#$1+u} Charging: $6% %{U}%{-u}"
+      echo "%{U#$1 F#$1+u}  $6% %{UF}%{-u}"
     fi
   else
-    if [ $6 -lt 33 ]; then
-      echo "%{U#$3+u} Discharging: $6% %{U}%{-u}"
-    elif [ $6 -lt 66 ]; then
-      echo "%{U#$2+u} Discharging: $6% %{U}%{-u}"
+    if [ $6 -lt 20 ]; then
+      icon=
+    elif [ $6 -lt 40 ]; then
+      icon=
+    elif [ $6 -lt 60 ]; then
+      icon=
+    elif [ $6 -lt 80 ]; then
+      icon=
     else
-      echo "%{U#$1+u} Discharging: $6% %{U}%{-u}"
+      icon=
     fi
+
+    if [ $6 -lt 35 ]; then
+      color=$3
+    elif [ $6 -lt 65 ]; then
+      color=$2
+    else 
+      color=$1
+    fi
+      echo "%{U#$color F#$color+u} $icon $6% %{UF}%{-u}"
   fi
 }
 
