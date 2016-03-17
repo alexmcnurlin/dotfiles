@@ -35,6 +35,14 @@ workspaces() {
     echo $output
 }
 
+eth() {
+  if [ $3 != "No Address" ]; then
+    echo "%{F#$1+u}%{U#$1} Eth: $3 %{F!u}"
+  else
+    echo "%{F#$2+u}%{U#$2} No Eth %{F!u}"
+  fi
+}
+
 wifi() {
   if [ $6 != "No Address" ]; then
     if [ $4 -lt 50 ]; then
@@ -72,16 +80,36 @@ temp() {
   echo "%{F#$color+u}%{U#$color} $4°C %{F!u}"
 }
 
+power() {
+  if [ "$5" = on-line ]; then
+    if [ $6 = 0 ]; then
+      echo "%{U#$4+u} Plugged in %{U}%{-u}"
+    else
+      echo "%{U#$1+u} Charging: $6% %{U}%{-u}"
+    fi
+  else
+    if [ $6 -lt 33 ]; then
+      echo "%{U#$3+u} Discharging: $6% %{U}%{-u}"
+    elif [ $6 -lt 66 ]; then
+      echo "%{U#$2+u} Discharging: $6% %{U}%{-u}"
+    else
+      echo "%{U#$1+u} Discharging: $6% %{U}%{-u}"
+    fi
+  fi
+}
+
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
-  IFS=';' read the_time wifi_percent wifi_essid wifi_ip cpu_percent cpu_temp <<< "$line"
+  IFS=';' read the_time wifi_percent wifi_essid wifi_ip eth_ip cpu_percent cpu_temp ac bat <<< "$line"
 
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
 
   declare -a output
   output+="$(temp $gdcolor $degcolor $bdcolor $cpu_temp) "
   output+="$(cpu $gdcolor $degcolor $bdcolor $cpu_percent) "
-  output+="$(wifi $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid $wifi_ip) "
+  output+="$(eth $fgcolor $bdcolor "$eth_ip") "
+  output+="$(wifi $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid "$wifi_ip") "
+  output+="$(power $gdcolor $degcolor $bdcolor $fgcolor $ac $bat) "
   output+="%{U#$fgcolor+u} $the_time %{U!u} "
 
   echo "%{l}$workspaces %{r}${output[@]}"
