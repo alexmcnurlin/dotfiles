@@ -1,12 +1,10 @@
 #! /usr/bin/env bash
 
 # TODO: 
-#   * Fix Ethernet script
 #   * Add Battery, CPU usage, CPU Temp, Disk usage (maybe)
 #   * Hide bar on fullscreen
 #       - Refer to ~/Misc/Packages/i3config-blueStag/home/kelaun/Scripts/hide_lemonbar.sh
 #   * Only show workspaces on current monitor
-#   * Pick Colorscheme
 
 bgcolor=$1
 fgcolor=$2
