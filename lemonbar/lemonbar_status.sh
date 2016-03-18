@@ -42,17 +42,17 @@ eth() {
 }
 
 wifi() {
-  if [ $6 != "No Address" ]; then
-    if [ $4 -lt 50 ]; then
+  if [ $7 != "No Address" ]; then
+    if [ $5 -lt 50 ]; then
       color=$3
-    elif [ $4 -lt 75 ]; then
+    elif [ $5 -lt 75 ]; then
       color=$2
     else
       color=$1
     fi
-    echo "%{F#$color+u}%{U#$color}  $5: $4% IP:$6 %{F!u}"
+    echo "%{F#$color+u}%{U#$color}  $6: $5% IP:$7 %{F!u}"
   else
-    echo "%{F#$3+u}%{U#$3}  No Wifi %{F!u}"
+    echo "%{F#$4+u}%{U#$4}  No Wifi %{F!u}"
   fi;
 }
 
@@ -79,8 +79,8 @@ temp() {
 }
 
 power() {
-  if [ "$5" = "on-line" ]; then
-    if [ $6 = 0 ]; then
+  if [ "$5" == "on-line" ]; then
+    if [ $6 == 0 ]; then
       echo "%{U#$4+u} Plugged in %{U}%{-u}"
     else
       echo "%{U#$1 F#$1+u}  $6% %{UF}%{-u}"
@@ -140,7 +140,7 @@ conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   output+="$(temp   $gdcolor $degcolor $bdcolor $cpu_temp) "
   output+="$(cpu    $gdcolor $degcolor $bdcolor $cpu_percent) "
   output+="$(eth    $fgcolor $bdcolor "$eth_ip") "
-  output+="$(wifi   $gdcolor $degcolor $bdcolor $wifi_percent $wifi_essid "$wifi_ip") "
+  output+="$(wifi   $gdcolor $degcolor $bdcolor $fgcolor $wifi_percent $wifi_essid "$wifi_ip") "
   output+="$(power  $gdcolor $degcolor $bdcolor $fgcolor $ac $bat) "
   output+="%{U#$fgcolor+u} $the_time %{U!u} "
 

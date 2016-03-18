@@ -25,7 +25,7 @@
   set $white              fbf1c7
   set $gdcolor            a8bb26
   set $degcolor           fabd2f
-  set $bdcolor            fb4934
+  set $bdcolor            db3934
 
   # Allows Window borders and statusbar borders to be dependent
   set $border_width       3
