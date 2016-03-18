@@ -81,7 +81,7 @@ temp() {
 power() {
   if [ "$5" == "on-line" ]; then
     if [ $6 == 0 ]; then
-      echo "%{U#$4+u} Plugged in %{U}%{-u}"
+      echo "%{U#$4+u}  -- %{U}%{-u}"
     else
       echo "%{U#$1 F#$1+u}  $6% %{UF}%{-u}"
     fi
