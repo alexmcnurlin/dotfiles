@@ -17,18 +17,18 @@
   # The colors are stored as just the numbers, with the hash symbol in the variable $h. 
   # This allows more flexibility for passing colors as arguments to commands
   set $h                  #
-  set $fgcolor            4084d6
-  set $accent             64b5f6 
-  set $bgcolor            212121
+  set $fgcolor            458588
+  set $accent             83a598 
+  set $bgcolor            282828
   #2f343f
-  set $black              212121
-  set $white              dddddd
-  set $gdcolor            8bc34a
-  set $degcolor           cddc39
-  set $bdcolor            ff5722
+  set $black              1d2021
+  set $white              fbf1c7
+  set $gdcolor            a8bb26
+  set $degcolor           fabd2f
+  set $bdcolor            fb4934
 
   # Allows Window borders and statusbar borders to be dependent
-  set $border_width       4
+  set $border_width       3
 
   # Configuration options for lemonbar and gaps
   # monitor1 = width of left monitor, monitor2 = width of right monitor, 
