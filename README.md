@@ -20,20 +20,23 @@ being useful. Unfortunately, right now, most of the config files will need to
 be symlinked from their default location to the git repo in order to work.  
 Likewise, you will have to delete the contents of the files/directories that 
 are already there. Please back up those files somehow before deleting them.
+***Note***: I haven't actually run these commands to test them. If they don't work,
+please make a pull request with a fix.
 
-        rm -rf ~/.i3/
+        mkdir ~/.dotfiles/bak/
+        mv -r ~/.i3/ ~/.dotfiles/back
         ln -s ~/.dotfiles/i3/ ~/.i3/
 
-        rm ~/.compton.conf
+        mv ~/.compton.conf ~/.dotfiles/back
         ln -s ~/.dotfiles/.compton.conf ~/.compton.conf
         
-        rm ~/.zshrc
+        mv ~/.zshrc ~/.dotfiles/back
         ln -s ~/.dotfiles/shell/.zshrc ~/.zshrc
 
-        rm -rf ~/.config/dunst/
+        mv -r ~/.config/dunst/ ~/.dotfiles/back
         ln -s ~/.dotfiles/dunst/ ~/.config/dunst/
 
-        rm ~/.vimrc ~/.vimrc.local ~/.vimrc.bundles.local
+        mv ~/.vimrc ~/.vimrc.local ~/.vimrc.bundles.local ~/.dotfiles/back
         ln -s ~/.dotfiles/vim/.vimrc
         ln -s ~/.dotfiles/vim/.vimrc.local
         ln -s ~/.dotfiles/vim/.vimrc.bundles.local
