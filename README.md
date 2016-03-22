@@ -14,9 +14,32 @@ Config files for the following applications in this repo:
   * zsh       - shell
   * powerline - statusline (for zsh)
   
-Installation for each package can be found in the standard Ubuntu repositories or their respective git repos.
-In order to actually use the config files, you'll have to create symlinks to your clone of this repo. 
+Installation for each package can be found in the standard Ubuntu repositories 
+or their respective git repos. Some programs (like zsh) must be configured before 
+being useful. Unfortunately, right now, most of the config files will need to 
+be symlinked from their default location to the git repo in order to work.  
+Likewise, you will have to delete the contents of the files/directories that 
+are already there. Please back up those files somehow before deleting them.
+
+        rm -rf ~/.i3/
+        ln -s ~/.dotfiles/i3/ ~/.i3/
+
+        rm ~/.compton.conf
+        ln -s ~/.dotfiles/.compton.conf ~/.compton.conf
+        
+        rm ~/.zshrc
+        ln -s ~/.dotfiles/shell/.zshrc ~/.zshrc
+
+        rm -rf ~/.config/dunst/
+        ln -s ~/.dotfiles/dunst/ ~/.config/dunst/
+
+        rm ~/.vimrc ~/.vimrc.local ~/.vimrc.bundles.local
+        ln -s ~/.dotfiles/vim/.vimrc
+        ln -s ~/.dotfiles/vim/.vimrc.local
+        ln -s ~/.dotfiles/vim/.vimrc.bundles.local
+
+I don't have powerline set up in a way that's easy to configure :( I'll work on that in a later commit.
 
 TODO: 
   * Add links and install commands for the different packages. 
-  * Create a simple setup than a mess of symlinks
+  * Create a simple setup instead of a mess of symlinks
