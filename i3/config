@@ -34,9 +34,9 @@
   # outer_gap = i3-gaps outer gap. inner_gap = i3-gaps inner gap. bar_height = status bar height
   set $monitor1           1920 
   set $monitor2           2560 
-  set $outer_gap          15   
-  set $inner_gap          15   
-  set $bar_height         30   
+  set $outer_gap          10   
+  set $inner_gap          10   
+  set $bar_height         26   
   
   # Class                     border     backgr     text       indicator
   client.focused              $h$fgcolor $h$fgcolor $h$bgcolor $h$accent

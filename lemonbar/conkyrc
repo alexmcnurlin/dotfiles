@@ -29,7 +29,17 @@ net_avg_samples 2
 out_to_console yes
 out_to_stderr no
 extra_newline no
-update_interval 1.0
+update_interval 1
 
 TEXT
-"${time %H:%M:%S}" "${wireless_link_qual wlan0}" "${wireless_essid wlan0}" "${addr wlan0}" "$cpu" "${execi 8 sensors | grep 'Physical' | cut -c18-19}"
+# The semicolon is used to delimit the text when passed to the lemobar script
+# The backslash escapes newlines
+${time %H:%M:%S %a %D};\
+${wireless_link_qual wlan0};\
+${wireless_essid wlan0};\
+${addr wlan0};\
+${addr eth0};\
+$cpu;\
+${execi 8 sensors | grep 'Physical' | cut -c18-19};\
+${acpiacadapter ACAD};\
+${battery_percent BAT1}

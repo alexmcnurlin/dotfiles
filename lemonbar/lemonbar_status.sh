@@ -61,7 +61,65 @@ cpu() {
 }
 
 temp() {
-  echo "$4°C"
+  if [ $4 -lt 75 ]; then
+    color=$1
+  elif [ $4 -lt 90 ]; then
+    color=$2
+  else 
+    color=$3
+  fi
+  echo "%{F#$color+u}%{U#$color} $4°C %{F!u}"
+}
+
+power() {
+  if [ "$5" == "on-line" ]; then
+    if [ $6 == 0 ]; then
+      echo "%{U#$4+u}  -- %{U}%{-u}"
+    else
+      echo "%{U#$1 F#$1+u}  $6% %{UF}%{-u}"
+    fi
+  else
+    if [ $6 -lt 20 ]; then
+      icon=
+    elif [ $6 -lt 40 ]; then
+      icon=
+    elif [ $6 -lt 60 ]; then
+      icon=
+    elif [ $6 -lt 80 ]; then
+      icon=
+    else
+      icon=
+    fi
+
+    if [ $6 -lt 35 ]; then
+      color=$3
+    elif [ $6 -lt 65 ]; then
+      color=$2
+    else 
+      color=$1
+    fi
+      echo "%{U#$color F#$color+u} $icon $6% %{UF}%{-u}"
+  fi
+}
+
+volume() {
+  vol=$(pactl list sinks | perl -000ne 'if(/#1/){/(\d*(?=%))/; print "$1\n"}')
+
+  if [ $vol -eq 0 ]; then
+    icon=;
+  elif [ $vol -lt 50 ]; then
+    icon=;
+  else
+    icon=
+  fi;
+
+  mute=$(pacmd dump | awk ' $1 == "set-sink-mute" {m[$2] = $3}; $1 == "set-default-sink" {s = $2}; END {print m[s]}');
+
+  if [ $mute = "yes" ]; then
+    echo "%{U#$2 F#$2+u} muted($vol%) %{UF}%{-u}";
+  else
+    echo "%{U#$1 F#$1+u} $icon $vol% %{UF}%{-u}";
+  fi;
 }
 
 # The update interval is controlled through the conky update interval
@@ -76,5 +134,10 @@ conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   wifi="$(wifi $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
   time="${output[0]}"
 
-  echo "%{l}$workspaces %{r}$temp $cpu $wifi $time "
+  echo "%{l}$workspaces %{r}${output[@]}"
+  output=""
+
+  if $(~/.dotfiles/lemonbar/hide_lemonbar.sh); then
+    exit 0
+  fi;
 done
