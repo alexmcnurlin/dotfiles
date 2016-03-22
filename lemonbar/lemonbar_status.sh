@@ -12,6 +12,7 @@ accent=$3
 gdcolor=$4
 degcolor=$5
 bdcolor=$6
+monitor_width=$7
 
 sep=" "
 
@@ -147,7 +148,7 @@ conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
   echo "%{l}$workspaces %{r}${output[@]}"
   output=""
 
-  if $(~/.dotfiles/lemonbar/hide_lemonbar.sh); then
+  if $(~/.dotfiles/lemonbar/hide_lemonbar.sh $monitor_width); then
     exit 0
   fi;
 done

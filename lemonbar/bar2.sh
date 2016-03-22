@@ -17,8 +17,8 @@ bdcolor=${12}
 
 while true; do
 
-	~/.dotfiles/lemonbar/lemonbar_status.sh $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor | lemonbar -d -g $(( monitor2 - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( monitor1 + outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#$bgcolor" -F "#FF$fgcolor" -U "#$fgcolor" -p -f "Liberation Mono for Powerline:style=Regular:size=$font_size" -f "FontAwesome:style=Regular:size=$font_size" -u $border_width
+	~/.dotfiles/lemonbar/lemonbar_status.sh $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor $monitor2 | lemonbar -d -g $(( monitor2 - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( monitor1 + outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#$bgcolor" -F "#FF$fgcolor" -U "#$fgcolor" -f "Liberation Mono for Powerline:style=Regular:size=$font_size" -f "FontAwesome:style=Regular:size=$font_size" -u $border_width
 
-	~/.dotfiles/lemonbar/show_lemonbar.sh
+	~/.dotfiles/lemonbar/show_lemonbar.sh $monitor2
 
 done
