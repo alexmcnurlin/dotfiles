@@ -350,7 +350,7 @@
 
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
-    set $ext_monitor VGA1
+    set $ext_monitor HDMI1
     exec "xrandr --output $ext_monitor --auto --right-of eDP1 # Sets up second monitor"
     workspace $one   output eDP1  #  Assigns workspaces to specific monitors
     workspace $two   output eDP1
