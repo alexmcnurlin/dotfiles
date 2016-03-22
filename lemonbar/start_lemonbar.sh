@@ -1,17 +1,18 @@
 #! /usr/bin/env bash
-transparency="a8"
+transparency="c8"
 monitor1=$1
 monitor2=$2
 outer_gap=$3
 inner_gap=$4
 bar_height=$5
+border_width=$6
 font_size=$(( $bar_height * 4 / 10 ))
-bgcolor=$transparency$6
-fgcolor=$7
-accent=$8
-gdcolor=$9
-degcolor=${10}
-bdcolor=${11}
+bgcolor=$transparency$7
+fgcolor=$8
+accent=$9
+gdcolor=${10}
+degcolor=${11}
+bdcolor=${12}
 
 pkill lemonbar
 

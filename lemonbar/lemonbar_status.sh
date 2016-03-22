@@ -1,12 +1,10 @@
 #! /usr/bin/env bash
 
 # TODO: 
-#   * Fix Ethernet script
 #   * Add Battery, CPU usage, CPU Temp, Disk usage (maybe)
 #   * Hide bar on fullscreen
 #       - Refer to ~/Misc/Packages/i3config-blueStag/home/kelaun/Scripts/hide_lemonbar.sh
 #   * Only show workspaces on current monitor
-#   * Pick Colorscheme
 
 bgcolor=$1
 fgcolor=$2
@@ -16,16 +14,13 @@ degcolor=$5
 bdcolor=$6
 
 sep=" "
-# The %{O} tags offset the text by a pixel. May need tweaking with some fonts
-# Powerline format:
-# "%{F$background_color}$sep%{B$foreground_color}%{R}Text here"
 
 workspaces() {
     get_workspaces=$(i3-msg -t get_workspaces | jq -r 'map(.name) | .[]')
     current_workspace=$(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name')
     
      #Leave this blank
-    output=""
+    declare -a output
 
     for workspace in $get_workspaces; do
       if [ "$workspace" = "$current_workspace" ]; then
@@ -38,15 +33,27 @@ workspaces() {
     echo $output
 }
 
-wifi() {
-  if [ $4 -lt 50 ]; then
-    color=$3
-  elif [ $4 -lt 75 ]; then
-    color=$2
+eth() {
+  if [ $3 != "No Address" ]; then
+    echo "%{F#$1+u}%{U#$1} Eth: $3 %{F!u}"
   else
-    color=$1
+    echo "%{F#$2+u}%{U#$2} No Eth %{F!u}"
   fi
-  echo "%{F#$color+u}%{U#$color}  $5: $4% IP:$6 %{F!u}"
+}
+
+wifi() {
+  if [ $7 != "No Address" ]; then
+    if [ $5 -lt 50 ]; then
+      color=$3
+    elif [ $5 -lt 75 ]; then
+      color=$2
+    else
+      color=$1
+    fi
+    echo "%{F#$color+u}%{U#$color}  $6: $5% IP:$7 %{F!u}"
+  else
+    echo "%{F#$4+u}%{U#$4}  No Wifi %{F!u}"
+  fi;
 }
 
 cpu() {
@@ -124,15 +131,18 @@ volume() {
 
 # The update interval is controlled through the conky update interval
 conky -c ~/.dotfiles/lemonbar/conkyrc | while read line; do
-  the_output=($line)
-  output=("${the_output[@]//\"/}")
+  IFS=';' read the_time wifi_percent wifi_essid wifi_ip eth_ip cpu_percent cpu_temp ac bat <<< "$line"
 
   workspaces=$(workspaces $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor)
 
-  temp="$(temp $gdcolor $degcolor $bdcolor ${output[5]})"
-  cpu="$(cpu $gdcolor $degcolor $bdcolor ${output[4]})"
-  wifi="$(wifi $gdcolor $degcolor $bdcolor ${output[1]} ${output[2]} ${output[3]})"
-  time="${output[0]}"
+  declare -a output
+  output+="$(volume $fgcolor $degcolor) "
+  output+="$(temp   $gdcolor $degcolor $bdcolor $cpu_temp) "
+  output+="$(cpu    $gdcolor $degcolor $bdcolor $cpu_percent) "
+  output+="$(eth    $fgcolor $bdcolor "$eth_ip") "
+  output+="$(wifi   $gdcolor $degcolor $bdcolor $fgcolor $wifi_percent $wifi_essid "$wifi_ip") "
+  output+="$(power  $gdcolor $degcolor $bdcolor $fgcolor $ac $bat) "
+  output+="%{U#$fgcolor+u} $the_time %{U!u} "
 
   echo "%{l}$workspaces %{r}${output[@]}"
   output=""
