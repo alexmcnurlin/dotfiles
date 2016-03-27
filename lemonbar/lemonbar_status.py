@@ -6,10 +6,12 @@ import subprocess as sub
 import sys
 
 # TODO: 
-#   * Add Battery, CPU usage, CPU Temp, Disk usage (maybe)
 #   * Hide bar on fullscreen
 #       - Refer to ~/Misc/Packages/i3config-blueStag/home/kelaun/Scripts/hide_lemonbar.sh
 #   * Only show workspaces on current monitor
+#   * Fix volume script (it doesn't show if muted)
+#   * Rewrite workspaces to use python + i3ipc, not bash
+#   * Kill all processes created by the bar when i3 is restarted
 
 bgcolor = sys.argv[1]
 fgcolor = sys.argv[2]
@@ -18,26 +20,25 @@ gdcolor = sys.argv[4]
 degcolor= sys.argv[5]
 bdcolor = sys.argv[6]
 
-sep=" "
-
 
 def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor ):
-    temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(.name) | .[]'", stdout=sub.PIPE, shell=True)
-    get_workspaces = temp.communicate()[0].decode("utf-8").replace("\n","")
+  # Gets the names of each workspace. This should be rewritten to use i3ipc
+  temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(.name) | .[]'", stdout=sub.PIPE, shell=True)
+  get_workspaces = temp.communicate()[0].decode("utf-8").replace("\n","")
 
-    temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'", stdout=sub.PIPE, shell=True)
-    current_workspace = temp.communicate()[0].decode("utf-8").strip()
-    
-     #Leave this blank
-    output = []
+  temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'", stdout=sub.PIPE, shell=True)
+  current_workspace = temp.communicate()[0].decode("utf-8").strip()
+  
+   #Leave this blank
+  output = []
 
-    for workspace in get_workspaces:
-      if ( workspace == current_workspace ):
-        output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, workspace ) )
-      else:
-        output.append(" {0} ".format( workspace ))
+  for workspace in get_workspaces:
+    if ( workspace == current_workspace ):
+      output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, workspace ) )
+    else:
+      output.append(" {0} ".format( workspace ))
 
-    return("".join(output))
+  return("".join(output))
 
 
 def eth( fgcolor, bdcolor, eth_ip ):
@@ -135,9 +136,14 @@ def volume( fgcolor, degcolor ):
   else:
     return("%{{U#{0} F#{0}+u}} {2} {1}% %{{UF}}%{{-u}}".format( fgcolor, vol, icon ))
 
-# The update interval is controlled through the conky update interval
-#conky = subprocess.Popen("conky -c ~/.dotfiles/lemonbar/conkyrc")
-for line in sys.stdin:
+
+def update_bar(arg1, arg2):
+  # Open file containing conky output
+  iterable_line = open("/home/alexmcnurlin/.dotfiles/lemonbar/conky_output", "r")
+  iterable_line.seek(0)
+  line = iterable_line.readline()
+
+  # Parse the results from conky
   conky = line.split(";")
 
   the_time     = conky.pop(0)
@@ -150,10 +156,14 @@ for line in sys.stdin:
   ac           = conky.pop(0)
   bat          = conky.pop(0)
 
+  # Get workspaces 
+  # This would probably be more efficient with i3ipc
   desktops = workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor )
 
   str_r_side = []
   r_side = []
+  # Construct the output from the conky output
+  # Reorder these lines to change the order of output
   r_side.append( str( volume( fgcolor, degcolor )) )
   r_side.append( str( temp(   fgcolor, degcolor, bdcolor, cpu_temp )) )
   r_side.append( str( cpu(    fgcolor, degcolor, bdcolor, cpu_percent )) )
@@ -164,5 +174,19 @@ for line in sys.stdin:
   
   str_r_side = " ".join(r_side)
 
+  # Put together the output
   print("%{{l}}{0} %{{r}}{1}".format( desktops, str_r_side ), flush=True)
-done
+
+
+# Make connection with i3 ipc socket
+i3 = i3ipc.Connection()
+
+# Events that update the bar
+i3.on('workspace::focus', update_bar)
+i3.on("window::focus", update_bar)
+
+# Output the status once before listening to events
+update_bar("ignore_this", "ignore_this_too")
+
+# Listen for events
+i3.main()
