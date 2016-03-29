@@ -17,8 +17,8 @@ bdcolor=${12}
 pkill lemonbar
 
 # This is an invisible bar that makes the tiled windows move out of the way for the actual bar
-echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap ))+$(( monitor1 )) -B "#00000000" &
 echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap )) -B "#00000000" &
+echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap ))+$(( monitor1 )) -B "#00000000" &
 
 ~/.dotfiles/lemonbar/read_conky.sh &
 

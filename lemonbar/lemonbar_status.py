@@ -137,6 +137,8 @@ def volume( fgcolor, degcolor ):
     return("%{{U#{0} F#{0}+u}} {2} {1}% %{{UF}}%{{-u}}".format( fgcolor, vol, icon ))
 
 
+
+
 def update_bar(arg1, arg2):
   # Open file containing conky output
   iterable_line = open("/home/alexmcnurlin/.dotfiles/lemonbar/conky_output", "r")
@@ -178,12 +180,18 @@ def update_bar(arg1, arg2):
   print("%{{l}}{0} %{{r}}{1}".format( desktops, str_r_side ), flush=True)
 
 
+def hide_bar(self, e):
+  if ( i3.get_tree().find_focused().fullscreen_mode == 1 ): 
+    exit(0)
+
 # Make connection with i3 ipc socket
 i3 = i3ipc.Connection()
 
 # Events that update the bar
 i3.on('workspace::focus', update_bar)
 i3.on("window::focus", update_bar)
+i3.on("barconfig_update", update_bar)
+i3.on("window::fullscreen_mode", hide_bar)
 
 # Output the status once before listening to events
 update_bar("ignore_this", "ignore_this_too")
