@@ -4,6 +4,8 @@ import i3ipc
 from subprocess import call
 import subprocess as sub
 import sys
+import multiprocessing
+from time import sleep
 
 # TODO: 
 #   * Hide bar on fullscreen
@@ -20,23 +22,20 @@ gdcolor = sys.argv[4]
 degcolor= sys.argv[5]
 bdcolor = sys.argv[6]
 
+# Make connection with i3 ipc socket
+i3 = i3ipc.Connection()
 
-def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor ):
-  # Gets the names of each workspace. This should be rewritten to use i3ipc
-  temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(.name) | .[]'", stdout=sub.PIPE, shell=True)
-  get_workspaces = temp.communicate()[0].decode("utf-8").replace("\n","")
 
-  temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'", stdout=sub.PIPE, shell=True)
-  current_workspace = temp.communicate()[0].decode("utf-8").strip()
-  
-   #Leave this blank
+def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3 ):
   output = []
-
-  for workspace in get_workspaces:
-    if ( workspace == current_workspace ):
-      output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, workspace ) )
+  tree = i3.get_tree()
+  get_workspaces = tree.workspaces()
+  current_workspace = tree.find_focused().workspace()
+  for icon in get_workspaces:
+    if ( icon.name == current_workspace.name ):
+      output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, icon.name ) )
     else:
-      output.append(" {0} ".format( workspace ))
+      output.append(" {0} ".format( icon.name ))
 
   return("".join(output))
 
@@ -180,12 +179,17 @@ def update_bar(arg1, arg2):
   print("%{{l}}{0} %{{r}}{1}".format( desktops, str_r_side ), flush=True)
 
 
+def background_update_bar():
+  #conky_output = open("/home/alexmcnurlin/.dotfiles/lemonbar/conky_output", "r")
+  while True:
+    update_bar("ignore_this", "ignore_this_too")
+    sleep(1)
+
+
 def hide_bar(self, e):
   if ( i3.get_tree().find_focused().fullscreen_mode == 1 ): 
     exit(0)
 
-# Make connection with i3 ipc socket
-i3 = i3ipc.Connection()
 
 # Events that update the bar
 i3.on('workspace::focus', update_bar)
@@ -194,7 +198,11 @@ i3.on("barconfig_update", update_bar)
 i3.on("window::fullscreen_mode", hide_bar)
 
 # Output the status once before listening to events
+
+
 update_bar("ignore_this", "ignore_this_too")
+background_update = multiprocessing.Process(name='bg_update', target=background_update_bar)
+background_update.start()
 
 # Listen for events
 i3.main()
