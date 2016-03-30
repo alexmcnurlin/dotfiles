@@ -159,18 +159,18 @@ def update_bar(arg1, arg2):
 
   # Get workspaces 
   # This would probably be more efficient with i3ipc
-  desktops = workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor )
+  desktops = workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3 )
 
   str_r_side = []
   r_side = []
   # Construct the output from the conky output
   # Reorder these lines to change the order of output
   r_side.append( str( volume( fgcolor, degcolor )) )
-  r_side.append( str( temp(   fgcolor, degcolor, bdcolor, cpu_temp )) )
-  r_side.append( str( cpu(    fgcolor, degcolor, bdcolor, cpu_percent )) )
-  r_side.append( str( eth(    fgcolor, bdcolor, eth_ip )) )
+  r_side.append( str( temp(   gdcolor, degcolor, bdcolor, cpu_temp )) )
+  r_side.append( str( cpu(    gdcolor, degcolor, bdcolor, cpu_percent )) )
+  r_side.append( str( eth(    fgcolor, fgcolor, eth_ip )) )
   r_side.append( str( wifi(   fgcolor, degcolor, bdcolor, fgcolor, wifi_percent, wifi_essid, wifi_ip )) )
-  r_side.append( str( power(  fgcolor, degcolor, bdcolor, fgcolor, ac, bat )) )
+  r_side.append( str( power(  gdcolor, degcolor, bdcolor, fgcolor, ac, bat )) )
   r_side.append( str("%{{U#{0}+u}} {1} %{{U!u}}".format( fgcolor, the_time )) )
   
   str_r_side = " ".join(r_side)
