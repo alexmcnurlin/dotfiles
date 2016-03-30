@@ -372,7 +372,3 @@
   exec --no-startup-id davmail .davmail.vandals.properties        #  Starts the Davmail server
   exec --no-startup-id guake                                      #  A popup terminal.
   exec --no-startup-id "~/Misc/Packages/WhatPulse/whatpulse"      #  A program to log keystroke statistics
-  exec                 blueman-applet                             #? Enables the blueman bluetooth client. Doesn't seem to run on startup. 
-  exec --no-startup-id "~/Misc/custom-scripts/xmod"               #? Doesn't run on startup? Runs a custom  script to change Super_R to Control_R. 
-                                                                  #  As a workaround, this command is added to my ~/.zshrc
-  exec --no-startup-id "~/Misc/custom-scripts/mouse-accel"        #  Works fine. Runs a custom script to disable mouse acceleration.  
