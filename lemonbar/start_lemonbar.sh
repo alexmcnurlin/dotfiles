@@ -14,7 +14,13 @@ gdcolor=${10}
 degcolor=${11}
 bdcolor=${12}
 
+# Kill the previous bar and all its subsidiaries
 pkill lemonbar
+kill -9 $(ps -aux | grep bar1.sh | grep -v grep | awk '{print $2}')
+kill -9 $(ps -aux | grep bar2.sh | grep -v grep | awk '{print $2}')
+kill -9 $(ps -aux | grep lemonbar_status.py | grep -v grep | awk '{print $2}')
+kill -9 $(ps -aux | grep read_conky.sh | grep -v grep | awk '{print $2}')
+kill -9 $(ps -aux | grep show_lemonbar.sh | grep -v grep | awk '{print $2}')
 
 # This is an invisible bar that makes the tiled windows move out of the way for the actual bar
 echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap )) -B "#00000000" &
