@@ -15,6 +15,7 @@ from time import sleep
 #   * Rewrite workspaces to use python + i3ipc, not bash
 #   * Kill all processes created by the bar when i3 is restarted
 
+# Parse arguments
 bgcolor = sys.argv[1]
 fgcolor = sys.argv[2]
 accent  = sys.argv[3]
