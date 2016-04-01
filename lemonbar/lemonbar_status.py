@@ -133,8 +133,11 @@ def volume( fgcolor, degcolor ):
     icon=""
 
   try:
-     temp = sub.Popen("pacmd dump | awk ' $1 == \"set-sink-mute\" {m[$2] = $3}; $1 == \"set-default-sink\" {s = $2}; END {print m[s]}'", stdout=sub.PIPE, shell=True)
-     mute = temp.communicate()[0]
+     temp1 = sub.Popen("pacmd dump | awk ' $1 == \"set-sink-mute\" {m[$2] = $3}; $1 == \"set-default-sink\" {s = $2}; END {print m[s]}'", stdout=sub.PIPE, shell=True)
+     temp2 = temp1.communicate()[0]
+     mute = temp2.decode("utf-8").strip()
+  except AttributeError:
+    mute = temp.strip()
   except:
     sys.stderr.write("Error in mute")
     mute = "no"
