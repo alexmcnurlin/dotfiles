@@ -203,6 +203,8 @@ def hide_bar(self, e):
     exit(0)
 
 
+
+
 # Events that update the bar
 i3.on('workspace::focus', update_bar)
 i3.on("window::focus", update_bar)
