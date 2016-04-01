@@ -16,27 +16,35 @@ from time import sleep
 #   * Kill all processes created by the bar when i3 is restarted
 
 # Parse arguments
-bgcolor = sys.argv[1]
-fgcolor = sys.argv[2]
-accent  = sys.argv[3]
-gdcolor = sys.argv[4]
-degcolor= sys.argv[5]
-bdcolor = sys.argv[6]
+bgcolor   = sys.argv[1]
+fgcolor   = sys.argv[2]
+accent    = sys.argv[3]
+gdcolor   = sys.argv[4]
+degcolor  = sys.argv[5]
+bdcolor   = sys.argv[6]
+x_monitor = sys.argv[8]
 
 # Make connection with i3 ipc socket
 i3 = i3ipc.Connection()
 
 
-def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3 ):
+def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3, x_monitor ):
   output = []
   tree = i3.get_tree()
   get_workspaces = tree.workspaces()
-  current_workspace = tree.find_focused().workspace()
+  current_output = x_monitor
+  current_workspace = ""
+  for x_output in i3.get_outputs():
+    if ( current_output == x_output.name ):
+      current_workspace = x_output.current_workspace
   for icon in get_workspaces:
-    if ( icon.name == current_workspace.name ):
-      output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, icon.name ) )
-    else:
-      output.append(" {0} ".format( icon.name ))
+    try:
+      if ( icon.name == current_workspace ):
+        output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, icon.name ) )
+      else:
+        output.append(" {0} ".format( icon.name ) )
+    except AttributeError:
+        output.append(" {0} ".format( icon.name ) )
 
   return("".join(output))
 
@@ -160,7 +168,7 @@ def update_bar(arg1, arg2):
 
   # Get workspaces 
   # This would probably be more efficient with i3ipc
-  desktops = workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3 )
+  desktops = workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3, x_monitor )
 
   str_r_side = []
   r_side = []
