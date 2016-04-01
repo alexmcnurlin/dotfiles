@@ -26,7 +26,7 @@ kill -9 $(ps -aux | grep show_lemonbar.sh | grep -v grep | awk '{print $2}')
 
 # This is an invisible bar that makes the tiled windows move out of the way for the actual bar
 echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap )) -B "#00000000" &
-echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap ))+$(( monitor1 )) -B "#00000000" &
+echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap ))+$(( monitor1_width )) -B "#00000000" &
 
 ~/.dotfiles/lemonbar/read_conky.sh &
 
