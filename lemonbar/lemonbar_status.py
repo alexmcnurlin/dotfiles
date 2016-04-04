@@ -216,6 +216,7 @@ i3.on("window::fullscreen_mode", hide_bar)
 
 update_bar("ignore_this", "ignore_this_too")
 background_update = multiprocessing.Process(name='bg_update', target=background_update_bar)
+background_update.daemon = True
 background_update.start()
 
 # Listen for events
