@@ -14,6 +14,7 @@ fgcolor=${10}
 accent=${11}
 gdcolor=${12}
 degcolor=${13}
+bdcolor=${14}
 
 
 while true; do
