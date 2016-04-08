@@ -19,7 +19,7 @@ bdcolor=${14}
 
 while true; do
 
-	~/.dotfiles/lemonbar/lemonbar_status.py $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor $monitor2_width $monitor2_output | lemonbar -d -g $(( monitor2_width - 2*outer_gap - 2*inner_gap + 2 ))x$bar_height+$(( monitor1_width + outer_gap + inner_gap -1 ))+$(( outer_gap + inner_gap )) -B "#$bgcolor" -F "#FF$fgcolor" -U "#$fgcolor" -f "Liberation Mono for Powerline:style=Regular:size=$font_size" -f "FontAwesome:style=Regular:size=$font_size" -u $border_width
+	~/.dotfiles/lemonbar/lemonbar_status.py $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor $monitor2_width $monitor2_output | lemonbar -d -g $(( monitor2_width - 2*outer_gap - 2*inner_gap ))x$bar_height+$(( monitor1_width + outer_gap + inner_gap ))+$(( outer_gap + inner_gap )) -B "#$bgcolor" -F "#FF$fgcolor" -U "#$fgcolor" -f "Liberation Mono for Powerline:style=Regular:size=$font_size" -f "FontAwesome:style=Regular:size=$font_size" -u $border_width
 
 	~/.dotfiles/lemonbar/show_lemonbar.py
 
