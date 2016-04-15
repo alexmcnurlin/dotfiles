@@ -369,7 +369,7 @@
     workspace $seven output $monitor2_output
 
 # Startup commands
-  exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $inner_gap $outer_gap $bar_height
+  exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $inner_gap $outer_gap $bar_height $border_width
   exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
   exec --no-startup-id compton -f                                 #  Lightweight composting manager to allow subtle graphics effects
   exec --no-startup-id variety                                    #  Automatic wallpaper changer
