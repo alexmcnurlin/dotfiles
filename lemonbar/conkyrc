@@ -43,3 +43,4 @@ $cpu;\
 ${execi 8 sensors | grep 'Physical' | cut -c18-19};\
 ${acpiacadapter ACAD};\
 ${battery_percent BAT1};\
+${fs_free};\

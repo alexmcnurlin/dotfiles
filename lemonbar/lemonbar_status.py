@@ -148,6 +148,11 @@ def volume( fgcolor, degcolor ):
     return("%{{U#{0} F#{0}+u}} {2} {1}% %{{UF}}%{{-u}}".format( fgcolor, vol, icon ))
 
 
+def du( fgcolor, disk_usage ):
+  return("%{{U#{0} F#{0}+u}}  {1} %{{UF}}%{{-u}}".format( fgcolor, disk_usage ))
+
+
+
 
 
 def update_bar(arg1, arg2):
@@ -168,6 +173,7 @@ def update_bar(arg1, arg2):
   cpu_temp     = conky.pop(0)
   ac           = conky.pop(0)
   bat          = conky.pop(0)
+  disk_usage   = conky.pop(0)
 
   # Get workspaces 
   # This would probably be more efficient with i3ipc
@@ -177,6 +183,7 @@ def update_bar(arg1, arg2):
   r_side = []
   # Construct the output from the conky output
   # Reorder these lines to change the order of output
+  r_side.append( str( du(     fgcolor, disk_usage )) )
   r_side.append( str( volume( fgcolor, degcolor )) )
   r_side.append( str( temp(   gdcolor, degcolor, bdcolor, cpu_temp )) )
   r_side.append( str( cpu(    gdcolor, degcolor, bdcolor, cpu_percent )) )
