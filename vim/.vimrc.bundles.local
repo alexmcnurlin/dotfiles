@@ -34,7 +34,8 @@ Plugin 'yssl/AutoCWD.vim'
 
 " Colorschemes
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'alexmcnurlin/gruvbox'
+"Plugin 'alexmcnurlin/gruvbox'
+Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'

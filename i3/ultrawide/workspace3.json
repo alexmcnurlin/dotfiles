@@ -12,42 +12,18 @@
             "current_border_width": 3,
             "floating": "auto_off",
             "geometry": {
-                "height": 1074,
-                "width": 715,
-                "x": 1152,
-                "y": 0
+               "height": 998,
+               "width": 1874,
+               "x": 23,
+               "y": 59
             },
             "name": "HipChat",
-            "percent": 1,
+            "percent": 0.5,
             "swallows": [
-                {
-                    "class": "^HipChat$",
-                    "instance": "^hipchat$"
-                    // "title": "^HipChat$",
-                    // "transient_for": "^$"
-                }
-            ],
-            "type": "con"
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 3,
-            "floating": "auto_off",
-            "geometry": {
-                "height": 1074,
-                "width": 715,
-                "x": 1152,
-                "y": 0
-            },
-            "name": "HipChat",
-            "percent": 1,
-            "swallows": [
-                {
-                    "class": "^HipChat$",
-                    "instance": "^hipchat$"
-                    // "title": "^HipChat$",
-                    // "transient_for": "^$"
-                }
+               {
+               "class": "^HipChat$",
+               "instance": "^hipchat4$"
+               }
             ],
             "type": "con"
         }

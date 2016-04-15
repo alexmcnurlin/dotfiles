@@ -13,27 +13,44 @@
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier mod4
 
-  # The width of window borders, also disables titlebars
-  new_window pixel 4 
+  # The x outputs of the monitors to use. This is intended to work with dual 
+  # monitors that are aligned at the top
+  set $monitor1_output eDP1
+  set $monitor2_output HDMI1
 
   # new pastel colors
-  set $fgcolor            #4084d6
-  set $accent             #64b5f6 
-  set $bgcolor            #2f343f
-  set $black              #212121
-  set $white              #dddddd
+  # The colors are stored as just the numbers, with the hash symbol in the variable $h. 
+  # This allows more flexibility for passing colors as arguments to commands
+  set $h                  #
+  set $fgcolor            458588
+  set $accent             83a598 
+  set $bgcolor            282828
+  #2f343f
+  set $black              1d2021
+  set $white              fbf1c7
+  set $gdcolor            a8bb26
+  set $degcolor           fabd2f
+  set $bdcolor            db3934
+
+  # Allows Window borders and statusbar borders to be dependent
+  set $border_width       3
 
   # Configuration options for lemonbar and gaps
-  set $monitor1           1920 # The width of the first monitor
-  set $monitor2           2560 # The width of the second monitor
-  set $outer_gap          15   # The size of outer gaps
-  set $inner_gap          15   # The size of inner gaps
-  set $bar_height         20   # The height of the status bar
+  # monitor1 = width of left monitor, monitor2 = width of right monitor, 
+  # outer_gap = i3-gaps outer gap. inner_gap = i3-gaps inner gap. bar_height = status bar height
+  set $monitor1_width     1920 
+  set $monitor2_width     2560 
+  set $outer_gap          10   
+  set $inner_gap          10   
+  set $bar_height         26   
+  
+  # The width of window borders, also disables titlebars
+  new_window pixel $border_width 
 
-  # Class                     border   backgr   text     indicator
-  client.focused              $fgcolor $fgcolor $bgcolor $accent
-  client.focused_inactive     $bgcolor $bgcolor $fgcolor $bgcolor
-  client.unfocused            $bgcolor $bgcolor $fgcolor $bgcolor
+  # Class                     border     backgr     text       indicator
+  client.focused              $h$fgcolor $h$fgcolor $h$bgcolor $h$accent
+  client.focused_inactive     $h$bgcolor $h$bgcolor $h$fgcolor $h$bgcolor
+  client.unfocused            $h$bgcolor $h$bgcolor $h$fgcolor $h$bgcolor
 
   # Make the Variety Wallpaper chooser always be float, not tiling
   for_window [class="Variety" instance="variety"] floating enable
@@ -264,28 +281,9 @@
     #}
     #bindsym $mod+m mode "move"
 
-# i3bar
-  # Config can be found in ~/.i3status.conf
-  bar {
-    colors {
-      # Whole color settings
-      background $bgcolor
-      statusline $accent
-      separator  $fgcolor 
-
-                          #border  #bg     #text 
-      focused_workspace 	$fgcolor $fgcolor $bgcolor
-      active_workspace  	$fgcolor $fgcolor $bgcolor
-      inactive_workspace	$bgcolor $bgcolor $fgcolor  
-      urgent_workspace	  $bgcolor $bgcolor $fgcolor  
-    }
-    # sudo pip install py3status
-    i3bar_command i3bar
-    status_command py3status
-    separator_symbol ""
-    font pango:FontAwesome 11
-    position top
-  }
+# lemonbar
+  # Here's some experimentation with lemonbar
+  exec_always --no-startup-id "~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1_width $monitor1_output $monitor2_width $monitor2_output $outer_gap $inner_gap $bar_height $border_width $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor"
 
 # Custom Keys/Commands
   #Media/FN key controls
@@ -327,13 +325,17 @@
     bindsym Control+$mod+p            exec variety --show-selector
     bindsym Control+$mod+backslash    exec xdg-open "$(variety --show-current | grep -oP \"^/home.*$\")"
     bindsym Control+$mod+Return       exec variety --favorite;exec notify-send -a "Vaiety" "$(variety --show-current | grep -oP '[^\/ ]+?\.[^ ]+') has been added to favorites"
+
     bindsym $mod+x exec xmod
     bindsym $mod+Escape exec tp
     bindsym $mod+c exec mouse-accel
     bindsym $mod+b exec "if [ blueman-applet ]; then notify-send 'Blueman is running'; fi"
 
+    bindsym Mod4+2 exec sensible-browser
+    bindsym Mod4+4 exec "xdg-open ~"
+
     #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
-    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
+    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "90" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
 
   # Mouse button configuration
     set $alt   Mod1
@@ -357,17 +359,17 @@
 
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
-    set $ext_monitor HDMI1
-    exec "xrandr --output $ext_monitor --auto --right-of eDP1 # Sets up second monitor"
+    exec "xrandr --output $monitor2_output --auto --right-of eDP1 # Sets up second monitor"
     workspace $one   output eDP1  #  Assigns workspaces to specific monitors
     workspace $two   output eDP1
     workspace $three output eDP1
-    workspace $four  output $ext_monitor
-    workspace $five  output $ext_monitor
-    workspace $six   output $ext_monitor
-    workspace $seven output $ext_monitor
+    workspace $four  output $monitor2_output
+    workspace $five  output $monitor2_output
+    workspace $six   output $monitor2_output
+    workspace $seven output $monitor2_output
 
 # Startup commands
+  exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $inner_gap $outer_gap $bar_height $border_width
   exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
   exec --no-startup-id compton -f                                 #  Lightweight composting manager to allow subtle graphics effects
   exec --no-startup-id variety                                    #  Automatic wallpaper changer
@@ -375,6 +377,3 @@
   exec --no-startup-id davmail .davmail.vandals.properties        #  Starts the Davmail server
   exec --no-startup-id guake                                      #  A popup terminal.
   exec --no-startup-id "~/Misc/Packages/WhatPulse/whatpulse"      #  A program to log keystroke statistics
-  exec                 blueman-applet                             #? Enables the blueman bluetooth client. Doesn't seem to run on startup. 
-  exec --no-startup-id "~/Misc/custom-scripts/xmod"               #? Doesn't run on startup? Runs a custom  script to change Super_R to Control_R. 
-  exec --no-startup-id "~/Misc/custom-scripts/mouse-accel"        #  Works fine. Runs a custom script to disable mouse acceleration.  
