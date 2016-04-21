@@ -324,6 +324,7 @@
     bindsym Control+$mod+bracketright exec variety -n
     bindsym Control+$mod+p            exec variety --show-selector
     bindsym Control+$mod+backslash    exec xdg-open "$(variety --show-current | grep -oP \"^/home.*$\")"
+    bindsym Control+$mod+d            exec delete-background
     bindsym Control+$mod+Return       exec variety --favorite;exec notify-send -a "Vaiety" "$(variety --show-current | grep -oP '[^\/ ]+?\.[^ ]+') has been added to favorites"
 
     bindsym $mod+x exec xmod
