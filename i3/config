@@ -281,6 +281,15 @@
     #}
     #bindsym $mod+m mode "move"
 
+  # Insert mode
+    # This is a mode that allows you to use any shortcuts within an application
+    #   that would normally conflict with i3 shortcuts
+    mode "insert" {
+      bindsym Escape mode "default"
+      bindsym Control+bracketleft mode "default"
+    }
+    bindsym $mod+i mode "insert"
+
 # lemonbar
   # Here's some experimentation with lemonbar
   exec_always --no-startup-id "~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1_width $monitor1_output $monitor2_width $monitor2_output $outer_gap $inner_gap $bar_height $border_width $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor"
