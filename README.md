@@ -18,6 +18,7 @@ Config files for the following applications in this repo:
   * (g)vim - Text editor
     - Uses [Vundle](https://github.com/VundleVim/Vundle.vim) for plugin management
   * [zsh](http://www.zsh.org/) - shell
+    - You'll need to make zsh your default shell
     - [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   * [powerline](https://github.com/powerline/powerline) - statusline (for zsh)
     - [powerline-gitstatus](https://github.com/jaspernbrouwer/powerline-gitstatus) - Git segment for Powerline
@@ -74,7 +75,7 @@ If you are trying to install this onto your local setup, let me know what can be
 
 
 ## Customization
-  Color settings for i3, Lemonbar, and Dunst are all 
+  Color settings for i3, Lemonbar, and Dunst are all configured using variables in the i3 config. If you want to change the colors, the variables to edit should be at the beginning of the i3 config.
 
 TODO: 
   * Add links and install commands for the different packages. 
