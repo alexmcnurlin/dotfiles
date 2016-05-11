@@ -344,8 +344,7 @@
     bindsym Mod4+2 exec sensible-browser
     bindsym Mod4+4 exec "xdg-open ~"
 
-    #bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "100" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$fgcolor" -hlbg "$fgcolor" -hlfg "$bgcolor" "System San Francisco Display 18" -terminal "gnome-terminal"
-    bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 20 -yoffset 15 -opacity "90" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
+    exec_always pkill rofi; rofi -sidebar-mode -key-run mod1+space -key-window mod1+Tab -lines 10 -columns 1 -eh 2 -width 100 -padding 500 -opacity "90" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" -bg-active "$h$bgcolor" -fg-active "$h$accent" -hlbg-active "$h$fgcolor" -hlfg-active "$h$bgcolor" "FontAwesome 18" -terminal "gnome-terminal" -fuzzy 
 
   # Mouse button configuration
     set $alt   Mod1
