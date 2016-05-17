@@ -190,7 +190,7 @@ def update_bar(arg1, arg2):
   r_side.append( str( eth(    fgcolor, fgcolor, eth_ip )) )
   r_side.append( str( wifi(   fgcolor, degcolor, bdcolor, fgcolor, wifi_percent, wifi_essid, wifi_ip )) )
   r_side.append( str( power(  gdcolor, degcolor, bdcolor, fgcolor, ac, bat )) )
-  r_side.append( str("%{{U#{0}+u}} {1} %{{U!u}}".format( fgcolor, the_time )) )
+  r_side.append( str("%{{F#{0} U#{0}+u}} {1} %{{F U!u}}".format( gdcolor, the_time )) )
   
   str_r_side = " ".join(r_side)
 
