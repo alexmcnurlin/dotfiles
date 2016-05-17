@@ -123,6 +123,11 @@ export PATH="$PATH:$HOME/Misc/custom-scripts/files/"
 
 export GOPATH=$HOME/.Go
 
+# Java installation
+export JAVA_HOME=/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/
+export JRE_HOME=/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/
+export PATH=$PATH:/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/bin:/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/jre/bin
+
 figlet "LinuxMasterRace"
 #screenfetch
 
