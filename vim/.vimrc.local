@@ -120,6 +120,8 @@ noremap <S-BS> zc
 nnoremap <Enter> zo
 nnoremap <S-Enter> zc
 
+imap <S-Enter> <Enter><Esc>kA
+
 
 "nnoremap <S-Tab> <c-o>
 " Navigates the changelist
