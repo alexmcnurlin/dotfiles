@@ -1,0 +1,31 @@
+vim             * repos vim-gtk
+  vundle        * git
+compton         * repos
+redshift        * repos
+git             * repos
+virtualbox      * repos virtualbox-5.0
+rofi            * repos
+i3-gaps         * git
+davmail         * from website
+insync          * insync
+insync-thunar   * repos (Don't know what this does)
+lemonbar fork   * git
+powerline       * git
+thunar          * repos
+google-chrome   * repos google-chrome-stable
+arc-theme       * http://software.opensuse.org/download.html?project=home%3AHorst3180&package=arc-theme
+javaJDK         * website
+android studio  * website
+blueman         * repos
+zsh             * repos
+  oh-my-zsh     * git
+i3-lock
+i3ipc           * pip
+FontAwesome     * git git@github.com:FortAwesome/Font-Awesome.git
+numix-circle    * repos? numic-icon-theme?
+variety         * repos
+Helium          * website
+i3lock-blur     * git https://github.com/karulont/i3lock-blur
+Playerctl       * website 
+Steam           * website
+vagrant         * website
