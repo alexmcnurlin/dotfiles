@@ -29,3 +29,4 @@ i3lock-blur     * git https://github.com/karulont/i3lock-blur
 Playerctl       * website 
 Steam           * website
 vagrant         * website
+youtube-dl      * repos
