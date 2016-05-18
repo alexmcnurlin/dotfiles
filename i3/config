@@ -15,7 +15,7 @@
 
   # The x outputs of the monitors to use. This is intended to work with dual 
   # monitors that are aligned at the top
-  set $monitor1_output eDP1
+  set $monitor1_output VGA1
   set $monitor2_output HDMI1
 
   # new pastel colors
