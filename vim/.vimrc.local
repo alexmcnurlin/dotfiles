@@ -120,6 +120,8 @@ noremap <S-BS> zc
 nnoremap <Enter> zo
 nnoremap <S-Enter> zc
 
+" This doesn't seem to be working...
+" But it worked when I added it, I promise!
 imap <S-Enter> <Enter><Esc>kA
 
 
