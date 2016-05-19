@@ -380,7 +380,7 @@
 # Startup commands
   exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $inner_gap $outer_gap $bar_height $border_width
   exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
-  exec --no-startup-id compton -f                                 #  Lightweight composting manager to allow subtle graphics effects
+  exec --no-startup-id compton --config ~/.config/.compton.conf   #  Lightweight composting manager to allow subtle graphics effects
   exec --no-startup-id variety                                    #  Automatic wallpaper changer
   exec --no-startup-id insync start                               #  Good Google Drive client. I got it for free :)
   exec --no-startup-id davmail .davmail.vandals.properties        #  Starts the Davmail server
