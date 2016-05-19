@@ -80,13 +80,16 @@ def cpu( gdcolor, degcolor, bdcolor, cpu_percent ):
 
 
 def temp( gdcolor, degcolor, bdcolor, cpu_temp ):
-  if ( int(cpu_temp) < 75 ):
-    color=gdcolor
-  elif ( int(cpu_temp) < 90 ):
-    color=degcolor
-  else:
-    color=bdcolor
-  return("%{{F#{0}+u}}%{{U#{0}}} {1}°C %{{F!u}}".format( color, cpu_temp ))
+  try:
+    if ( int(cpu_temp) < 75 ):
+      color=gdcolor
+    elif ( int(cpu_temp) < 90 ):
+      color=degcolor
+    else:
+      color=bdcolor
+    return("%{{F#{0}+u}}%{{U#{0}}} {1}°C %{{F!u}}".format( color, cpu_temp ))
+  except ValueError:
+    return("%{{F#{0}+u}}%{{U#{0}}} {1} %{{F!u}}".format(bdcolor, "Error, temp not found"))
 
 
 def power( gdcolor, degcolor, bdcolor, fgcolor, ac, bat ):
