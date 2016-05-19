@@ -30,7 +30,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'wellle/targets.vim'
 Plugin 'yegappan/mru'
-Plugin 'yssl/AutoCWD.vim'
+" This didn't work after upgrading to Ubuntu 15.10
+"Plugin 'yssl/AutoCWD.vim'
 
 " Colorschemes
 Plugin 'NLKNguyen/papercolor-theme'
