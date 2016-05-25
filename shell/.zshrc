@@ -45,9 +45,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting)
+#plugins=(git zsh-syntax-highlighting)
 # http://github.com/zsh-users/zsh-syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,28 +130,10 @@ export PATH=$PATH:/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/bin:/home/al
 figlet "LinuxMasterRace"
 #screenfetch
 
-## This is the official powerline. I can't figure out how to customize it so
-## the other one is being used for now
-#powerline-daemon -q
 . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 
-
-#function powerline_precmd() {
-# export PS1="$(~/Misc/Packages/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
-# 
-#  }
-# 
-#  function install_powerline_precmd() {
-#  for s in "${precmd_functions[@]}"; do
-#    if [ "$s" = "powerline_precmd"  ]; then
-#      return
-#    fi
-#  done
-#  precmd_functions+=(powerline_precmd)
-# 
-#    }
-# 
-#    install_powerline_precmd
+export PROMPT=$PROMPT"
+ $ "
 
 # A calculator plugin for zsh
 source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh
