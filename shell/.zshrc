@@ -123,6 +123,9 @@ export PATH="$PATH:$HOME/Misc/custom-scripts/files/"
 export WORKON_HOME=~/Envs
 source /usr/local/bin/virtualenvwrapper.sh
 
+# add torch to path. torch directory is in ~/.torch/
+. /home/alexmcnurlin/.torch/install/bin/torch-activate
+
 export GOPATH=$HOME/.Go
 
 # Java installation
@@ -140,3 +143,5 @@ export PROMPT=$PROMPT"
 
 # A calculator plugin for zsh
 source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh
+
+
