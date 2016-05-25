@@ -120,6 +120,9 @@ export KITCHEN_LOCAL_WORDPRESS_SHARE_DIR=/home/alexmcnurlin/kb/krs-wordpress-the
 export PATH="$PATH:$HOME/Misc/custom-scripts/"
 export PATH="$PATH:$HOME/Misc/custom-scripts/files/"
 
+export WORKON_HOME=~/Envs
+source /usr/local/bin/virtualenvwrapper.sh
+
 export GOPATH=$HOME/.Go
 
 # Java installation
