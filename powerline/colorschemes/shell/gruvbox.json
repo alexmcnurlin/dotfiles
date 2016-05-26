@@ -3,34 +3,34 @@
     "groups": {
         "attached_clients":          { "fg": "light0",        "bg": "faded_green",    "attrs": [] },
         "cwd":                       { "fg": "light1",        "bg": "dark3",          "attrs": [] },
-        "cwd:current_folder":        { "fg": "light1",        "bg": "dark2",     "attrs": ["bold"]   },
+        "cwd:current_folder":        { "fg": "light1",        "bg": "dark2",          "attrs": ["bold"]   },
         "cwd:divider":               { "fg": "light1",        "bg": "dark3",          "attrs": [] },
         "date":                      { "fg": "light2",        "bg": "dark1",          "attrs": [] },
         "environment":               { "fg": "light0",        "bg": "faded_green",    "attrs": [] },
-        "fuzzy_time":                { "fg": "light1",         "bg": "neutral_blue",         "attrs": ["bold"] },
+        "fuzzy_time":                { "fg": "light1",        "bg": "neutral_blue",   "attrs": ["bold"] },
         "gitstatus":                 { "fg": "light4",        "bg": "light1",         "attrs": [] },
         "gitstatus:divider":         { "fg": "gray_245",      "bg": "light1",         "attrs": [] },
         "gitstatus_ahead":           { "fg": "neutral_green", "bg": "dark1",          "attrs": [] },
         "gitstatus_behind":          { "fg": "neutral_red",   "bg": "dark1",          "attrs": [] },
         "gitstatus_branch":          { "fg": "light4",        "bg": "light1",         "attrs": [] },
-        "gitstatus_branch_clean":    { "fg": "dark0",         "bg": "neutral_green",   "attrs": [] },
-        "gitstatus_branch_detached": { "fg": "light2",        "bg": "neutral_purple", "attrs": [] },
-        "gitstatus_branch_dirty":    { "fg": "dark1",         "bg": "bright_red",  "attrs": [] },
-        "gitstatus_changed":         { "fg": "neutral_orange","bg": "dark1",          "attrs": [] },
-        "gitstatus_staged":          { "fg": "neutral_aqua",  "bg": "dark1",          "attrs": [] },
-        "gitstatus_stashed":         { "fg": "neutral_blue",  "bg": "dark1",          "attrs": [] },
-        "gitstatus_unmerged":        { "fg": "neutral_red",   "bg": "dark1",          "attrs": [] },
-        "gitstatus_untracked":       { "fg": "neutral_orange","bg": "dark1",          "attrs": [] },
+        "gitstatus_branch_clean":    { "fg": "dark1",         "bg": "neutral_aqua",  "attrs": [] },
+        "gitstatus_branch_detached": { "fg": "light1",        "bg": "dark_purple",    "attrs": [] },
+        "gitstatus_branch_dirty":    { "fg": "dark1",         "bg": "bright_red",     "attrs": [] },
+        "gitstatus_changed":         { "fg": "neutral_orange","bg": "dark1", "attrs": [] },
+        "gitstatus_staged":          { "fg": "neutral_aqua",  "bg": "dark1",   "attrs": [] },
+        "gitstatus_stashed":         { "fg": "neutral_blue",  "bg": "dark1",   "attrs": [] },
+        "gitstatus_unmerged":        { "fg": "neutral_red",   "bg": "dark1",    "attrs": [] },
+        "gitstatus_untracked":       { "fg": "neutral_orange","bg": "dark1", "attrs": [] },
         "hostname":                  { "fg": "bright_yellow", "bg": "neutral_orange", "attrs": [] },
-        "mode":                      { "fg": "light2",        "bg": "dark4",     "attrs": ["bold"] },
+        "mode":                      { "fg": "light1",        "bg": "neutral_blue", "attrs": ["bold"] },
         "time":                      { "fg": "gray10",        "bg": "gray2",          "attrs": ["bold"] },
         "time:divider":              { "fg": "gray5",         "bg": "gray2",          "attrs": [] },
-        "virtualenv":                { "fg": "light0",         "bg": "dark_purple", "attrs": [] }
+        "virtualenv":                { "fg": "light0",        "bg": "dark_purple",    "attrs": [] }
     },
     "mode_translations": {
         "vicmd": {
             "groups": {
-                "mode": {"fg": "dark1", "bg": "light3", "attrs": ["bold"]}
+                "mode": {"fg": "dark1", "bg": "neutral_yellow", "attrs": ["bold"]}
             }
         }
     }
