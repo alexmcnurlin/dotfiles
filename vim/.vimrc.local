@@ -129,6 +129,10 @@ imap <S-Enter> <Enter><Esc>kA
 " Navigates the changelist
 nnoremap <Tab> <C-I> " Ctrl-I is already tab, but keeping this for completeness
 nnoremap <S-Tab> <C-O>
+
+" Navigate jumplist
+nnoremap g. g;
+
 "nnoremap <C-Tab> g,|     " Navigate changelist
 "nnoremap <S-Tab>g;|    " Navigate changelist
 
