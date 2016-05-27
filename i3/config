@@ -33,7 +33,7 @@
   set $bdcolor            db3934
 
   # Allows Window borders and statusbar borders to be dependent
-  set $border_width       3
+  set $border_width       5
 
   # Configuration options for lemonbar and gaps
   # monitor1 = width of left monitor, monitor2 = width of right monitor, 
