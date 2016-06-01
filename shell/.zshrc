@@ -119,6 +119,8 @@ export KITCHEN_LOCAL_WORDPRESS_SHARE_DIR=/home/alexmcnurlin/kb/krs-wordpress-the
 # Add my custom scripts to the path
 export PATH="$PATH:$HOME/Misc/custom-scripts/"
 export PATH="$PATH:$HOME/Misc/custom-scripts/files/"
+export PATH="$PATH:$HOME/.dotfiles/custom_scripts/"
+export PATH="$PATH:$HOME/.dotfiles/custom_scripts/files/"
 
 export WORKON_HOME=~/Envs
 source /usr/local/bin/virtualenvwrapper.sh

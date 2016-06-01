@@ -1,0 +1,65 @@
+#! /bin/bash
+# Sorts all the images in the current directory by aspect ratio and sorts them into respective folders.
+# TODO: Suppress common errors, An unopenable jpg will kill the whole script. Sometimes, Google Drive will sync a text file with the url. If the directory already exists in Misc, the folder won't be moved. 
+
+declare -A dirs_to_replace;
+dirs_to_replace[43x18]=21x9;
+dirs_to_replace[64x27]=21x9;
+dirs_to_replace[160x67]=21x9;
+dirs_to_replace[8x5]=16x10;
+dirs_to_replace[16x3]=48x9;
+
+safe_dirs="16x9/,21x9/,32x9/,48x9/,Misc/,9x16/,48x9/";
+
+# Sorts all jpg and png images into folders based on aspect ratio
+for image in "$@"; do
+  if [ -f "$image" ]; then
+    width=$(identify -format %w "$image");
+    height=$(identify -format %h "$image");
+    gcd=$(qalc -set "base 10" -t "gcd($width,$height)");
+    ratio=$((width/$gcd))"x"$((height/$gcd));
+    echo $image": "$width"x"$height" -> "$ratio;
+    mkdir -p $ratio;
+    mv "$image" $ratio;
+  fi;
+done;
+
+# Takes certain folders and puts them into other folders, based on the $dirs_to_replace variable
+for dir in "${!dirs_to_replace[@]}"; do
+  new_dir=${dirs_to_replace[$dir]}
+  if [ -d $dir/ ]; then 
+    echo "Moving $dir to $new_dir";
+    mkdir -p $new_dir;
+    if [ "$(ls -A $dir/)" ]; then
+      mv "$dir"/* "$new_dir";
+      rm -d "$dir";
+    fi;
+  fi;
+done;
+
+# Takes any folder not listed in $safe_dirs and puts it into a 'Misc/'
+for dir in */; do
+  if [[ $safe_dirs != *"$dir"* ]]; then
+    mkdir -p Misc/;
+    echo "Putting $dir into Misc/";
+    mv "$dir"* Misc/;
+    rmdir $dir;
+  fi;
+done;
+
+# Goes into each directory and sorts the folders by resolution
+for dir in */; do 
+  if [ $dir ]; then
+    echo "Sorting $dir";
+    cd $dir;
+    for image in {*.jpg,*png};
+      do if [ -f "$image" ]; then
+        res=$(identify -format %wx%h\\n "$image");
+        mkdir -p $res;
+        echo $image" -> "$res;
+        mv "$image" $res;
+      fi;
+    done;
+    cd ../;
+  fi;
+done;

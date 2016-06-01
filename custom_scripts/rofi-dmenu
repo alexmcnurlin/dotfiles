@@ -1,0 +1,1 @@
+rofi -dmenu -lines 10 -columns 1 -eh 2 -width 20 -yoffset 12 -opacity "100" -bw 0 -bc "#282828" -bg "#282828" -fg "#458588" -hlbg "#458588" -hlfg "#282828" "System San Francisco Display 18" -terminal "gnome-terminal" -fuzzy 

@@ -1,0 +1,58 @@
+#! /usr/bin/env bash
+
+
+if [ -z "$1" ] ; then
+  for fgbg in 38 48 ; do #Foreground/Background
+          for color in {0..255} ; do #Colors
+                  #Display the color
+                  echo -en "\e[${fgbg};5;${color}m ${color}\t\e[0m"
+                  #Display 10 colors per lines
+                  if [ $((($color) % 6)) -eq 3 ] ; then
+                          echo #New line
+                  fi
+          done
+          echo #New line
+  done
+fi
+
+if [ "$1" == "x" ] || [ "$1" == "r" ] ; then
+  for fgbg in 38 48 ; do #Foreground/Background
+    for color1 in {0..5} ; do #Colors
+      for color2 in {0..5} ; do
+        color=$(( 16 + $2 * 36 + color2 + color1 * 6 ))
+        #Display the color
+        echo -en "\e[${fgbg};5;${color}m ${color}\t\e[0m"
+      done
+      echo #New line
+    done
+    echo #New line
+  done
+fi
+
+if [ "$1" == "y" ] || [ "$1" == "b" ] ; then
+  for fgbg in 38 48 ; do #Foreground/Background
+    for color1 in {0..5} ; do #Colors
+      for color2 in {0..5} ; do
+        color=$(( 16 + $2 + color2 * 36 + color1 * 6 ))
+        #Display the color
+        echo -en "\e[${fgbg};5;${color}m ${color}\t\e[0m"
+      done
+      echo #New line
+    done
+    echo #New line
+  done
+fi
+
+if [ "$1" == "z" ] || [ "$1" == "g" ] ; then
+  for fgbg in 38 48 ; do #Foreground/Background
+    for color1 in {0..5} ; do #Colors
+      for color2 in {0..5} ; do
+        color=$(( 16 + 6*$2 + color1 * 36 + color2 ))
+        #Display the color
+        echo -en "\e[${fgbg};5;${color}m ${color}\t\e[0m"
+      done
+      echo #New line
+    done
+    echo #New line
+  done
+fi

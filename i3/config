@@ -324,7 +324,7 @@
     bindsym Mod4+Down         exec xdotool key --clearmodifiers XF86MonBrightnessDown
 
   # Custom Key Shortcuts
-    bindsym Mod4+s exec ~/Misc/custom-scripts/lock.sh
+    bindsym Mod4+s exec ~/.dotfiles/custom_scripts/lock.sh
     bindsym Mod4+$mod+Return exec /home/alexmcnurlin/.i3/monitor-flip.py
     bindsym Print            exec scrot ~/Pictures/Screenshots/screenshot_%b-%d_%H:%M:%S.png; exec notify-send -a "Scrot" "Screenshot of whole desktop saved"
     bindsym Control+$mod+s   exec screenshot;
