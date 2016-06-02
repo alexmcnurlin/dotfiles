@@ -135,7 +135,7 @@ export JAVA_HOME=/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/
 export JRE_HOME=/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/
 export PATH=$PATH:/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/bin:/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/jre/bin
 
-figlet "LinuxMasterRace"
+figlet -kt "LinuxMasterRace"
 #screenfetch
 
 . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
