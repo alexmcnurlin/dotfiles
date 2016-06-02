@@ -59,6 +59,8 @@
   exec_always i3-msg gaps inner all set $inner_gap
   exec_always i3-msg gaps outer all set $outer_gap
 
+  popup_during_fullscreen leave_fullscreen
+
 # Basic key bindings
   # start a terminal
   bindsym $mod+Return exec gnome-terminal
