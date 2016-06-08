@@ -1,9 +1,9 @@
 // vim:ts=4:sw=4:et
 {
-    // splitv split container with 2 children
+    // splith split container with 2 children
     "border": "pixel",
     "floating": "auto_off",
-    "layout": "splitv",
+    "layout": "splith",
     "percent": 1,
     "type": "con",
     "nodes": [
@@ -18,14 +18,14 @@
                "y": 0
             },
             "name": "alexmcnurlin@Laquisha: ~",
-            "percent": 0.18,
+            "percent": 0.5,
             "swallows": [
                {
                "class": "^Gnome\\-terminal$",
                "instance": "^gnome\\-terminal\\-server$"
                // "title": "^alexmcnurlin\\@Laquisha\\:\\ \\~$",
                // "transient_for": "^$",
-               // "window_role": "^gnome\\-terminal\\-window\\-7753e581\\-923e\\-4e0d\\-87f7\\-e7224e551f44$"
+               // "window_role": "^gnome\\-terminal\\-window\\-875edf02\\-a561\\-4e6b\\-8932\\-e5df5c1d4811$"
                }
             ],
             "type": "con"
@@ -35,20 +35,20 @@
             "current_border_width": 5,
             "floating": "auto_off",
             "geometry": {
-               "height": 954,
-               "width": 850,
+               "height": 898,
+               "width": 757,
                "x": 0,
                "y": 0
             },
             "name": "alexmcnurlin@Laquisha: ~",
-            "percent": 0.82,
+            "percent": 0.5,
             "swallows": [
                {
                "class": "^Gnome\\-terminal$",
                "instance": "^gnome\\-terminal\\-server$"
                // "title": "^alexmcnurlin\\@Laquisha\\:\\ \\~$",
                // "transient_for": "^$",
-               // "window_role": "^gnome\\-terminal\\-window\\-a40319a1\\-06a1\\-4e4b\\-a2ad\\-95828eb699da$"
+               // "window_role": "^gnome\\-terminal\\-window\\-64e886dc\\-4d4a\\-410f\\-84e2\\-9deff28f012e$"
                }
             ],
             "type": "con"
