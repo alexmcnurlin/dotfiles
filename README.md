@@ -22,6 +22,7 @@ Config files for the following applications in this repo:
     - [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   * [powerline](https://github.com/powerline/powerline) - statusline (for zsh)
     - [powerline-gitstatus](https://github.com/jaspernbrouwer/powerline-gitstatus) - Git segment for Powerline
+    - [powerline-extra-symbols](https://github.com/ryanoasis/powerline-extra-symbols) - Extra symbols for Powerline. This is just experimental
   
 
         sudo apt-get install zsh compton vim-gtk conky powerline
