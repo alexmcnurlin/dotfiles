@@ -296,6 +296,9 @@
   # Here's some experimentation with lemonbar
   exec_always --no-startup-id "~/.dotfiles/lemonbar/start_lemonbar.sh $monitor1_width $monitor1_output $monitor2_width $monitor2_output $outer_gap $inner_gap $bar_height $border_width $bgcolor $fgcolor $accent $gdcolor $degcolor $bdcolor"
 
+  # Attempt to get trayer working for system tray
+  #exec_always --no-startup-id "trayer --SetDockType false --widthtype request --padding 10 --edge top --distance $(( $outer_gap + $inner_gap )) --alpha 255 --transparent true"
+
 # Custom Keys/Commands
   #Media/FN key controls
     # Pulse Audio controls
