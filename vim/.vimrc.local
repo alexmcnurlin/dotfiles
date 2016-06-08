@@ -104,7 +104,7 @@ noremap ' `
 " switches to the most recently closed file
 noremap '" :e#<CR>
 
-nmap <leader>= :Autoformat<CR>
+"nmap <leader>= :Autoformat<CR>
 
 nmap <leader>& s&amp;<Esc>
 imap ,& &amp;
