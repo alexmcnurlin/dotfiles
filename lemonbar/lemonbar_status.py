@@ -29,22 +29,21 @@ i3 = i3ipc.Connection()
 
 
 def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3, x_monitor ):
+  # Gets the names of each workspace. This should be rewritten to use i3ipc
+  temp = sub.Popen("i3-msg -t get_workspaces | jq -r 'map(.name) | .[]'", stdout=sub.PIPE, shell=True)
+  get_workspaces = temp.communicate()[0].decode("utf-8").replace("\n","")
+
+  temp = sub.Popen("i3-msg -t get_outputs | jq -r 'map(select(.active == true)) | map(select(.name == \"{0}\"))[0].current_workspace'".format( x_monitor ), stdout=sub.PIPE, shell=True)
+  current_workspace = temp.communicate()[0].decode("utf-8").strip()
+  
+   #Leave this blank
   output = []
-  tree = i3.get_tree()
-  get_workspaces = tree.workspaces()
-  current_output = x_monitor
-  current_workspace = ""
-  for x_output in i3.get_outputs():
-    if ( current_output == x_output.name ):
-      current_workspace = x_output.current_workspace
-  for icon in get_workspaces:
-    try:
-      if ( icon.name == current_workspace ):
-        output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, icon.name ) )
-      else:
-        output.append(" {0} ".format( icon.name ) )
-    except AttributeError:
-        output.append(" {0} ".format( icon.name ) )
+
+  for workspace in get_workspaces:
+    if ( workspace == current_workspace ):
+      output.append("%{{U#{0} F#{0}+u}} {1} %{{F!u}}".format( accent, workspace ) )
+    else:
+      output.append(" {0} ".format( workspace ))
 
   return("".join(output))
 
