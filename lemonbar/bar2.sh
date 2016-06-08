@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-transparency="c8"
 monitor1_width=$1
 monitor1_output=$2
 monitor2_width=$3
@@ -9,7 +8,7 @@ inner_gap=$6
 bar_height=$7
 border_width=$8
 font_size=$(( $bar_height * 4 / 10 ))
-bgcolor=$transparency$9
+bgcolor=${15}$9
 fgcolor=${10}
 accent=${11}
 gdcolor=${12}

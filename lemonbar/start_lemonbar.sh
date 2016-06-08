@@ -32,7 +32,7 @@ echo " " | lemonbar -p -g 2x$(( bar_height + outer_gap ))+$(( monitor1_width )) 
 
 # Geometry is {width-2(outer_gap)}x{bar_height}+{offset+outer_gap}+{outer_gap}
 # The bar for the left monitor (monitor1)
-~/.dotfiles/lemonbar/bar1.sh $@ &
+~/.dotfiles/lemonbar/bar1.sh $@ $transparency &
 
 # The bar for the right monitor (monitor2)
-~/.dotfiles/lemonbar/bar2.sh $@ &
+~/.dotfiles/lemonbar/bar2.sh $@ $transparency &
