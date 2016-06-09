@@ -6,6 +6,7 @@ import subprocess as sub
 import sys
 import multiprocessing
 from time import sleep
+import datetime
 
 # TODO: 
 #   * Hide bar on fullscreen
@@ -26,6 +27,8 @@ x_monitor = sys.argv[8]
 
 # Make connection with i3 ipc socket
 i3 = i3ipc.Connection()
+
+logfile = open( '/home/alexmcnurlin/.dotfiles/lemonbar/log_lemonbar_status.txt', 'a+' )
 
 
 def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3, x_monitor ):
@@ -166,16 +169,21 @@ def update_bar(arg1, arg2):
   # Parse the results from conky
   conky = line.split(";")
 
-  the_time     = conky.pop(0)
-  wifi_percent = conky.pop(0)
-  wifi_essid   = conky.pop(0)
-  wifi_ip      = conky.pop(0)
-  eth_ip       = conky.pop(0)
-  cpu_percent  = conky.pop(0)
-  cpu_temp     = conky.pop(0)
-  ac           = conky.pop(0)
-  bat          = conky.pop(0)
-  disk_usage   = conky.pop(0)
+  try:
+    the_time     = conky.pop(0)
+    wifi_percent = conky.pop(0)
+    wifi_essid   = conky.pop(0)
+    wifi_ip      = conky.pop(0)
+    eth_ip       = conky.pop(0)
+    cpu_percent  = conky.pop(0)
+    cpu_temp     = conky.pop(0)
+    ac           = conky.pop(0)
+    bat          = conky.pop(0)
+    disk_usage   = conky.pop(0)
+  except IndexError:
+    logfile.write( datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S') + " Conky input is empty!" + "\n" )
+    return None
+
 
   # Get workspaces 
   # This would probably be more efficient with i3ipc
@@ -202,9 +210,13 @@ def update_bar(arg1, arg2):
 
 def background_update_bar():
   #conky_output = open("/home/alexmcnurlin/.dotfiles/lemonbar/conky_output", "r")
-  while True:
-    update_bar("ignore_this", "ignore_this_too")
-    sleep(1)
+  try:
+    while True:
+      update_bar("ignore_this", "ignore_this_too")
+      sleep(1)
+  except Exception as e:
+    temp = logfile.write(datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S') + str(e) + "\n" )
+    background_update_bar()
 
 
 def hide_bar(self, e):
