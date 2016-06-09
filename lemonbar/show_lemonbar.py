@@ -9,5 +9,7 @@ def show_bar(self, e):
 i3 = i3ipc.Connection()
 
 i3.on("window::fullscreen_mode", show_bar)
+i3.on('workspace::focus', show_bar)
+i3.on("window::focus", show_bar)
 
 i3.main()
