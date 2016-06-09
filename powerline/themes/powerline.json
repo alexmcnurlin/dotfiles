@@ -1,12 +1,12 @@
 {
 	"dividers": {
 		"left": {
-			"hard": "\uE0b8  ",
-			"soft": "\uE0b9  "
+			"hard": "\uE0b0 ",
+			"soft": "\uE0b1 "
 		},
 		"right": {
-			"hard": " \uE0ba",
-			"soft": " \uE0bb"
+			"hard": " \uE0b2",
+			"soft": " \uE0b3"
 		}
 	},
 	"spaces": 1,
