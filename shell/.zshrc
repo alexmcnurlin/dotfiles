@@ -141,7 +141,7 @@ figlet -t "LinuxMasterRace"
 . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 
 export PROMPT=$PROMPT"
- $ "
+ › "
 
 # A calculator plugin for zsh
 source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh
