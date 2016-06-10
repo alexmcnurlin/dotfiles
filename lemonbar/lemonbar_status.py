@@ -227,10 +227,12 @@ def hide_bar(self, e):
 
 
 # Events that update the bar
-i3.on('workspace::focus', update_bar)
-i3.on("window::focus", update_bar)
-i3.on("barconfig_update", update_bar)
+i3.on('workspace::focus',        update_bar)
+i3.on("window::focus",           update_bar)
+i3.on("barconfig_update",        update_bar)
 i3.on("window::fullscreen_mode", hide_bar)
+i3.on('workspace::focus',        hide_bar)
+i3.on("window::focus",           hide_bar)
 
 # Output the status once before listening to events
 
