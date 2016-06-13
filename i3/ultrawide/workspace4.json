@@ -37,8 +37,8 @@
                             "percent": 0.5,
                             "swallows": [
                                {
-                               "class": "^Firefox$",
-                               "instance": "^Navigator$"
+                               "class": "^google\\-chrome$"
+                               //"instance": "^google\\-chrome$"
                                // "title": "^Time\\ Card\\ \\(kb\\)\\ \\-\\ Mozilla\\ Firefox$",
                                // "transient_for": "^$",
                                // "window_role": "^browser$"
@@ -68,8 +68,8 @@
                                     "percent": 0.5,
                                     "swallows": [
                                        {
-                                       "class": "^Firefox$",
-                                       "instance": "^Navigator$"
+                                       "class": "^google\\-chrome$",
+                                       "instance": "^google\\-chrome$"
                                        // "title": "^Projects\\ \\-\\ Stash\\ \\-\\ Mozilla\\ Firefox$",
                                        // "transient_for": "^$",
                                        // "window_role": "^browser$"
@@ -91,8 +91,8 @@
                                     "percent": 0.5,
                                     "swallows": [
                                        {
-                                       "class": "^Firefox$",
-                                       "instance": "^Navigator$"
+                                       "class": "^google\\-chrome$",
+                                       "instance": "^google\\-chrome$"
                                        // "title": "^GitHub\\ \\-\\ Mozilla\\ Firefox$",
                                        // "transient_for": "^$",
                                        // "window_role": "^browser$"
@@ -128,8 +128,8 @@
                     "percent": 1,
                     "swallows": [
                        {
-                       "class": "^Firefox$",
-                       "instance": "^Navigator$"
+                       "class": "^google\\-chrome$",
+                       "instance": "^google\\-chrome$"
                        // "title": "^\\[VI\\-70\\]\\ Sierra\\ Energy\\ Radiant\\ Beta\\ \\|\\ \\(530\\)\\ 863\\-9072\\ \\|\\ Redeeming\\ entire\\ card\\ ballance\\ on\\ fuel\\ purchase\\ \\-\\ JIRA\\ \\-\\ Mozilla\\ Firefox$",
                        // "transient_for": "^$",
                        // "window_role": "^browser$"

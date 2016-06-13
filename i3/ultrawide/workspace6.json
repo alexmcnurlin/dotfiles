@@ -37,8 +37,8 @@
                             "percent": 0.5,
                             "swallows": [
                                {
-                               "class": "^Firefox$",
-                               "instance": "^Navigator$"
+                               "class": "^google\\-chrome$",
+                               "instance": "^google\\-chrome$"
                                // "transient_for": "^$"
                                }
                             ],
@@ -58,8 +58,8 @@
                             "percent": 0.5,
                             "swallows": [
                                {
-                               "class": "^Firefox$",
-                               "instance": "^Navigator$"
+                               "class": "^google\\-chrome$",
+                               "instance": "^google\\-chrome$"
                                // "title": "^Pushbullet\\ \\-\\ Your\\ devices\\ working\\ better\\ together\\ \\-\\ Mozilla\\ Firefox$",
                                // "transient_for": "^$",
                                // "window_role": "^browser$"
@@ -83,8 +83,8 @@
                     "percent": 0.5,
                     "swallows": [
                        {
-                       "class": "^Firefox$",
-                       "instance": "^Navigator$"
+                       "class": "^google\\-chrome$",
+                       "instance": "^google\\-chrome$"
                        // "title": "^GroupMe\\ \\-\\ Mozilla\\ Firefox$",
                        // "transient_for": "^$",
                        // "window_role": "^browser$"

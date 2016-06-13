@@ -37,8 +37,8 @@
     "percent": 0.4296875,
     "swallows": [
        {
-       "class": "^Firefox$",
-       "instance": "^Navigator$"
+       "class": "^google\\-chrome$",
+       "instance": "^google\\-chrome$"
        // "title": "^i3\\:\\ Layout\\ saving\\ in\\ i3\\ \\-\\ Mozilla\\ Firefox$",
        // "transient_for": "^$",
        // "window_role": "^browser$"

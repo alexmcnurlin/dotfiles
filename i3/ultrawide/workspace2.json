@@ -12,8 +12,8 @@
             "current_border_width": 5,
             "floating": "auto_off",
             "geometry": {
-               "height": 954,
-               "width": 850,
+               "height": 426,
+               "width": 642,
                "x": 0,
                "y": 0
             },
@@ -21,11 +21,10 @@
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^Gnome\\-terminal$",
-               "instance": "^gnome\\-terminal\\-server$"
+                "class": "^X\\-terminal\\-emulator$",
+                "instance": "^x\\-terminal\\-emulator$"
                // "title": "^alexmcnurlin\\@Laquisha\\:\\ \\~$",
-               // "transient_for": "^$",
-               // "window_role": "^gnome\\-terminal\\-window\\-875edf02\\-a561\\-4e6b\\-8932\\-e5df5c1d4811$"
+               // "transient_for": "^$"
                }
             ],
             "type": "con"
@@ -35,8 +34,8 @@
             "current_border_width": 5,
             "floating": "auto_off",
             "geometry": {
-               "height": 898,
-               "width": 757,
+               "height": 426,
+               "width": 642,
                "x": 0,
                "y": 0
             },
@@ -44,11 +43,10 @@
             "percent": 0.5,
             "swallows": [
                {
-               "class": "^Gnome\\-terminal$",
-               "instance": "^gnome\\-terminal\\-server$"
+               "class": "^X\\-terminal\\-emulator$",
+               "instance": "^x\\-terminal\\-emulator$"
                // "title": "^alexmcnurlin\\@Laquisha\\:\\ \\~$",
-               // "transient_for": "^$",
-               // "window_role": "^gnome\\-terminal\\-window\\-64e886dc\\-4d4a\\-410f\\-84e2\\-9deff28f012e$"
+               // "transient_for": "^$"
                }
             ],
             "type": "con"
