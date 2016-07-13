@@ -40,9 +40,9 @@
   # outer_gap = i3-gaps outer gap. inner_gap = i3-gaps inner gap. bar_height = status bar height
   set $monitor1_width     1920 
   set $monitor2_width     2560 
-  set $outer_gap          12   
-  set $inner_gap          12   
-  set $bar_height         24   
+  set $outer_gap          12
+  set $inner_gap          12
+  set $bar_height         24
   
   # The width of window borders, also disables titlebars
   new_window pixel $border_width 
