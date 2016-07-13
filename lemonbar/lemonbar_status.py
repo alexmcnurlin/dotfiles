@@ -9,12 +9,7 @@ from time import sleep
 import datetime
 
 # TODO: 
-#   * Hide bar on fullscreen
-#       - Refer to ~/Misc/Packages/i3config-blueStag/home/kelaun/Scripts/hide_lemonbar.sh
-#   * Only show workspaces on current monitor
-#   * Fix volume script (it doesn't show if muted)
-#   * Rewrite workspaces to use python + i3ipc, not bash
-#   * Kill all processes created by the bar when i3 is restarted
+#   * Make status bar hide for individual monitors
 
 # Parse arguments
 bgcolor   = sys.argv[1]
