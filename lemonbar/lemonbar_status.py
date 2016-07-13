@@ -123,7 +123,7 @@ def power( gdcolor, degcolor, bdcolor, fgcolor, ac, bat ):
 
 def volume( fgcolor, degcolor ):
   try:
-    temp = sub.Popen("pactl list sinks | perl -000ne 'if(/#1/){/(\d*(?=%))/; print \"$1\"}'", stdout=sub.PIPE, shell=True)
+    temp = sub.Popen("get_volume", stdout=sub.PIPE, shell=True)
     vol_b = temp.communicate()[0]
     vol = vol_b.decode("utf-8")
   except:
