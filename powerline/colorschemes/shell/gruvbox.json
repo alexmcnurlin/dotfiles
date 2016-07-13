@@ -22,6 +22,7 @@
         "gitstatus_unmerged":        { "fg": "neutral_red",   "bg": "dark1",    "attrs": [] },
         "gitstatus_untracked":       { "fg": "neutral_orange","bg": "dark1", "attrs": [] },
         "hostname":                  { "fg": "bright_yellow", "bg": "neutral_orange", "attrs": [] },
+        "jobnum":                    { "fg": "dark1",        "bg": "neutral_yellow", "attrs": []   },
         "mode":                      { "fg": "light1",        "bg": "neutral_blue", "attrs": ["bold"] },
         "time":                      { "fg": "gray10",        "bg": "gray2",          "attrs": ["bold"] },
         "time:divider":              { "fg": "gray5",         "bg": "gray2",          "attrs": [] },
