@@ -96,7 +96,7 @@ au FocusLost * silent! w
 
 
 " This is to prevent me from mistyping Po as PO. requires Nyancat plugin
-imap PO <Esc>:tabnew \| :Nyancat<CR> 
+"imap PO <Esc>:tabnew \| :Nyancat<CR> 
 imap teh <Esc>:tabnew \| :Nyancat<CR> 
 imap ednl <Esc>:tabnew \| :Nyancat<CR> 
 
