@@ -34,7 +34,7 @@ def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3, x_moni
   temp = sub.Popen("i3-msg -t get_outputs | jq -r 'map(select(.active == true)) | map(select(.name == \"{0}\"))[0].current_workspace'".format( x_monitor ), stdout=sub.PIPE, shell=True)
   current_workspace = temp.communicate()[0].decode("utf-8").strip()
   
-   #Leave this blank
+  #Leave this blank
   output = []
 
   for workspace in get_workspaces:
