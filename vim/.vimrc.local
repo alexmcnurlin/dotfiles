@@ -22,6 +22,7 @@ set spell spelllang=en_us             " Enables spell checking
 set nobackup                          " Disables backup files (those ending in ~)
 set noswapfile                        " Disables swap files (those ending in .swp)
 set autoindent                        " Will automatically indent text
+set autochdir
 vnoremap < <gv|                      " Indenting lines in visual mode keeps the selection. The pipe allows comments
 vnoremap > >gv|                      " Indenting lines in visual mode keeps the selection. The pipe allows comments
 nnoremap Y yg_|                      " Yanks the rest of the line
