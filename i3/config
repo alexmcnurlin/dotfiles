@@ -115,6 +115,15 @@
   # focus the parent container
   bindsym $mod+a focus parent
 
+  # Scratchpad bindings.
+  bindsym $super+semicolon scratchpad show
+  bindsym $super+apostrophe scratchpad show; scratchpad show
+  bindsym $super+Shift+BackSpace move scratchpad
+  # Hipchat (the title might be Hipchat, HipChat or hipchat)
+  bindsym $super+h [title="ip.ha"] scratchpad show
+  # Chrome (Used for messengers, like Mightytext or Facebook Messenger)
+  bindsym $super+m [class="chrome"] scratchpad show
+
 # Reloading/Restarting i3
   # reload the configuration file
   bindsym $mod+Shift+c reload
