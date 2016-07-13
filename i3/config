@@ -343,6 +343,7 @@
 
     bindsym $mod+x exec xmod
     bindsym $mod+Escape exec tp
+    bindsym Control+Escape exec xdotool key Caps_Lock
     bindsym $mod+c exec mouse-accel
     bindsym $mod+b exec "if [ blueman-applet ]; then notify-send 'Blueman is running'; fi"
 
