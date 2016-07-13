@@ -33,8 +33,9 @@ nmap k gk|                           " Makes k move across displayed lines, not 
 set colorcolumn=80 " Set softwrap
 
 " Line wrap
-set wrap
-set linebreak
+" I'm going to see how I like not having linebreaks
+set nowrap
+set nolinebreak
 set nolist
 
 " This is actually set in ~/.vimrc after the colorscheme declaration
