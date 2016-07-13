@@ -139,7 +139,7 @@
     dmenu = /home/alexmcnurlin/.dotfiles/custom_scripts/rofi-dmenu -dmenu
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox --new-window
+    browser = /usr/bin/google-chrome --new-window
 
     # Align icons left/right/off
     icon_position = off
