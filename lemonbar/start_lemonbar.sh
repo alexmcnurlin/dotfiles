@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-transparency="c8"
+transparency="a3"
 monitor1_width=$1
 monitor1_output=$2
 monitor2_width=$3
