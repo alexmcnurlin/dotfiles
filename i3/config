@@ -56,8 +56,8 @@
   for_window [class="Variety" instance="variety"] floating enable
   for_window [class="Guake" instance="guake"] floating enable
 
-  exec_always i3-msg gaps inner all set $inner_gap
-  exec_always i3-msg gaps outer all set $outer_gap
+  gaps inner $inner_gap
+  gaps outer $outer_gap
 
   popup_during_fullscreen leave_fullscreen
 
