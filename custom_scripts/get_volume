@@ -4,7 +4,7 @@
 sinks=$( pactl list sinks )
 running_sink=$( echo "$sinks" | pcregrep 'RUNNING' )
 if [ -z "$running_sink" ]; then
-	echo $sinks | perl -000ne 'if(/#1/){/(\d*(?=%))/; print "$1\n"}'
+	echo $sinks | perl -000ne 'if(/#1/){/(\d*(?=%))/; print "$1"}'
 else 
-	echo $sinks | pcregrep -M 'RUNNING\n(.*\n)*?\tVolume:.*?(\d*)(?=%)' | grep -oP "\d*(?=%)" | tail -n 1
+	echo $sinks | pcregrep -M 'RUNNING\n(.*\n)*?\tVolume:.*?(\d*)(?=%)' | grep -oP "\d*(?=%)" | tail -n 1 | tr -d "\n"
 fi
