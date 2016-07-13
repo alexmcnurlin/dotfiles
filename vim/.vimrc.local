@@ -103,6 +103,9 @@ imap ednl <Esc>:tabnew \| :Nyancat<CR>
 cmap <c-j> <down>
 cmap <c-k> <up>
 
+vnoremap * y/<C-R>"<CR>
+vnoremap # y?<C-R>"<CR>
+
 " Maps single quote to backtick. If this messes up anything, just uncomment the below line.
 "noremap '' ``
 noremap ' `
