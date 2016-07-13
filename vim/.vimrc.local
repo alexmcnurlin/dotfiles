@@ -67,6 +67,7 @@ set guioptions-=r " Removes scrollbar
 set guioptions-=m " Removes menu bar
 set guioptions-=T " Removes GTK toolbar
 set guioptions-=e " Uses the terminal tabline (currently powerline) instead of GTK tabline
+set guioptions+=c " Uses status line instead of dialog popup for things like file changes.
 set showtabline=2 " Always show tabline
 
 " Keep cursor in the middle of the screen
