@@ -15,7 +15,7 @@
 
   # The x outputs of the monitors to use. This is intended to work with dual 
   # monitors that are aligned at the top
-  set $monitor1_output VGA1
+  set $monitor1_output eDP1
   set $monitor2_output HDMI1
 
   # new pastel colors
@@ -132,23 +132,33 @@
 
 # Workspace management
   # switch to workspace
-  # This is using FontAwesome fonts. The font must be `FontAwesome` in the i3bar settings (line 272 at time of writing)
+  # This is using FontAwesome fonts. The font must be `FontAwesome` in the i3bar settings (line 322 at time of writing)
   # Ubuntu package - `fonts-font-awesome`
   #     sudo apt-get install fonts-font-awesome
   # Arch package - ttf-font-awesome or otf-font-awesome
   # I don't use Arch, idk if this is correct :)
-  set $one   
-  set $two   
-  set $three 
-  set $four  
+  #set $one   
+  #set $two   
+  #set $three 
+  #set $four  
+  #set $five  
+  #set $six   
+  #set $seven 
+  #set $eight 
+  #set $nine  
+  #set $ten   10
+
+  set $one   
+  set $two   
+  set $three 
+  set $four  
   set $five  
-  set $six   
-  set $seven 
+  set $six   
+  set $seven 
   set $eight 
   set $nine  
   set $ten   10
-               
-                
+
   bindsym $mod+Control+KP_1   workspace $one
   bindsym $mod+Control+m      workspace $one
   bindsym $mod+Control+KP_2   workspace $two
@@ -385,12 +395,12 @@
     # This is the xrandr output for the monitor
     exec "xrandr --output $monitor2_output --auto --right-of $monitor1_output # Sets up second monitor"
     workspace $one   output $monitor1_output  #  Assigns workspaces to specific monitors
-    workspace $two   output $monitor1_output
-    workspace $three output $monitor1_output
-    workspace $four  output $monitor2_output
+    workspace $two   output $monitor2_output
+    workspace $three output $monitor2_output
+    workspace $four  output $monitor1_output
     workspace $five  output $monitor2_output
     workspace $six   output $monitor2_output
-    workspace $seven output $monitor2_output
+    workspace $seven output $monitor1_output
 
 # Startup commands
   exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $inner_gap $outer_gap $bar_height $border_width
