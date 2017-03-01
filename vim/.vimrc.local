@@ -83,6 +83,10 @@ set cursorline
 " Doens't redraw the screen during a macro execution
 set lazyredraw
 
+" Omni completion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " Fixes bugs caused by mapping Enter to controlling folds
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
