@@ -80,11 +80,14 @@ def temp( gdcolor, degcolor, bdcolor, cpu_temp ):
   try:
     if ( int(cpu_temp) < 75 ):
       color=gdcolor
+      icon=''
     elif ( int(cpu_temp) < 90 ):
       color=degcolor
+      icon=''
     else:
       color=bdcolor
-    return("%{{F#{0}+u}}%{{U#{0}}} {1}°C %{{F!u}}".format( color, cpu_temp ))
+      icon=''
+    return("%{{F#{0}+u}}%{{U#{0}}} {2} {1}°C %{{F!u}}".format( color, cpu_temp, icon ))
   except ValueError:
     return("%{{F#{0}+u}}%{{U#{0}}} {1} %{{F!u}}".format(bdcolor, "Error, temp not found"))
 
@@ -122,15 +125,18 @@ def volume( fgcolor, degcolor ):
     vol_b = temp.communicate()[0]
     vol = vol_b.decode("utf-8")
   except:
-    sys.stderr.write("Error")
+    sys.stderr.write("Error in getting volume")
 
 
-  if ( int(vol) == 0 ):
-    icon=""
-  elif ( int(vol) < 50 ):
-    icon=""
-  else:
-    icon=""
+  try:
+    if ( int(vol) == 0 ):
+      icon=""
+    elif ( int(vol) < 50 ):
+      icon=""
+    else:
+      icon=""
+  except:
+    icon="?"
 
   try:
      temp1 = sub.Popen("pacmd dump | awk ' $1 == \"set-sink-mute\" {m[$2] = $3}; $1 == \"set-default-sink\" {s = $2}; END {print m[s]}'", stdout=sub.PIPE, shell=True)
