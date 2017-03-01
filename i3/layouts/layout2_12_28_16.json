@@ -1,0 +1,48 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 5,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 986,
+       "width": 920,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Inbox - KickBack Email - Mozilla Thunderbird",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Thunderbird$",
+       "instance": "^Mail$"
+       // "title": "^Inbox\\ \\-\\ KickBack\\ Email\\ \\-\\ Mozilla\\ Thunderbird$"
+       // "transient_for": "^$"
+       // "window_role": "^3pane$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 5,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 998,
+       "width": 1874,
+       "x": 23,
+       "y": 59
+    },
+    "name": "HipChat",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^HipChat$",
+       "instance": "^hipchat4$"
+       // "title": "^HipChat$"
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+

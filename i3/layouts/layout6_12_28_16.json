@@ -1,0 +1,79 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 5,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1074,
+       "width": 1914,
+       "x": 0,
+       "y": 0
+    },
+    "name": "System Monitor",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Gnome\\-system\\-monitor$",
+       "instance": "^gnome\\-system\\-monitor$"
+       // "title": "^System\\ Monitor$"
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 5,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 400,
+               "width": 500,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Volume Control",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Pavucontrol$",
+               "instance": "^pavucontrol$",
+               "title": "^Volume\\ Control$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 5,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 487,
+               "width": 925,
+               "x": 965,
+               "y": 563
+            },
+            "name": "Bluetooth Devices",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Blueman\\-manager$",
+               "instance": "^blueman\\-manager$",
+               "title": "^Bluetooth\\ Devices$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
