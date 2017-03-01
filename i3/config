@@ -115,14 +115,18 @@
   # focus the parent container
   bindsym $mod+a focus parent
 
+  # focus the most recent urgent container
+  bindsym $mod+u [urgent=latest] focus
+
   # Scratchpad bindings.
   bindsym $super+semicolon scratchpad show
   bindsym $super+apostrophe scratchpad show; scratchpad show
   bindsym $super+Shift+BackSpace move scratchpad
   # Hipchat (the title might be Hipchat, HipChat or hipchat)
-  bindsym $super+h [title="ip.ha"] scratchpad show
+  bindsym $super+h [title="term"] scratchpad show
   # Chrome (Used for messengers, like Mightytext or Facebook Messenger)
   bindsym $super+m [class="chrome"] scratchpad show
+  bindsym $super+slash [class="term"] scratchpad show
 
 # Reloading/Restarting i3
   # reload the configuration file
@@ -358,7 +362,7 @@
     bindsym Control+$mod+p            exec variety --show-selector
     bindsym Control+$mod+backslash    exec xdg-open "$(variety --show-current | grep -oP \"^/home.*$\")"
     bindsym Control+$mod+d            exec delete-background
-    bindsym Control+$mod+Return       exec variety --favorite;exec notify-send -a "Vaiety" "$(variety --show-current | grep -oP '[^\/ ]+?\.[^ ]+') has been added to favorites"
+    #bindsym Control+$mod+Return       exec variety --favorite;exec notify-send -a "Vaiety" "$(variety --show-current | grep -oP '[^\/ ]+?\.[^ ]+') has been added to favorites"
 
     bindsym $mod+x exec xmod
     bindsym $mod+Escape exec tp
