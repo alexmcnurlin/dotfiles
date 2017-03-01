@@ -35,6 +35,7 @@ Plugin 'wellle/targets.vim'
 "Plugin 'davidhalter/jedi-vim'
 " This didn't work after upgrading to Ubuntu 16.04
 "Plugin 'yssl/AutoCWD.vim'
+Plugin 'luochen1990/rainbow'
 
 " Colorschemes
 "Plugin 'NLKNguyen/papercolor-theme'
