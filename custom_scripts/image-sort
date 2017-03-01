@@ -1,6 +1,6 @@
 #! /bin/bash
 # Sorts all the images in the current directory by aspect ratio and sorts them into respective folders.
-# TODO: Suppress common errors, An unopenable jpg will kill the whole script. Sometimes, Google Drive will sync a text file with the url. If the directory already exists in Misc, the folder won't be moved. 
+# TODO: Suppress common errors such as: An unopenable jpg will kill the whole script. Sometimes, Google Drive will sync a text file with the url. If the directory already exists in Misc, the folder won't be moved. 
 
 declare -A dirs_to_replace;
 dirs_to_replace[43x18]=21x9;
