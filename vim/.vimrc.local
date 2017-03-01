@@ -144,6 +144,9 @@ imap <S-Enter> <Enter><Esc>kA
 nnoremap <Tab> <C-I> " Ctrl-I is already tab, but keeping this for completeness
 nnoremap <S-Tab> <C-O>
 
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
+
 " Navigate jumplist
 nnoremap g. g;
 
@@ -167,6 +170,8 @@ nmap F <Plug>(easymotion-bd-f)
 omap F <Plug>(easymotion-bd-f)
 vmap F <Plug>(easymotion-bd-f)
 
+nnoremap <leader>F :%!python -m json.tool
+
 " Goes to the file under cursor, but creates it if it doesn't exist
 nnoremap gF :edit <cfile><cr>
 
@@ -182,6 +187,8 @@ imap ,h <c-o>:noh<CR>
 " L and H will cycle through tabs
 nnoremap L gt 
 nnoremap H gT
+
+nnoremap <leader>m :make!<CR>
 
 nmap <leader><leader>d /\(\s\$\(\) \)\@<=.*$<CR>
 nmap <leader><leader>h /\(\s-\(\) \)\@<=.\+$<CR>
@@ -255,6 +262,8 @@ au BufRead,BufNewFile *.cpp nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!g++ %
 au BufRead,BufNewFile *.cpp nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r
 au BufRead,BufNewFile *.php nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
 au BufRead,BufNewFile *.php nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!php %
+au BufRead,BufNewFile *.tex nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
+au BufRead,BufNewFile *.tex nnoremap <leader><leader>r  :w \|:cd %:p:h \|:!pdflatex %; evince %:r.pdf<CR>
 "au BufRead,BufNewFile *.sh nnoremap <leader><leader>c :w \|:cd %:p:h \|sh %<CR>
 "au BufRead,BufNewFile *.sh nnoremap <leader><leader>ca :w \|:cd %:p:h \|sh %
 
