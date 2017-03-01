@@ -301,6 +301,7 @@ let g:autoclose_vim_commentmode = 1
 
 " Vim AutoPairs. This disables autocomplete from double quotes
 let g:AutoPairs={'(':')', '[':']', '{':'}',"'":"'", '`':'`',}
+let g:AutoPairsMultilineClose=0
 
 " undotree
 nnoremap <leader>u :UndotreeToggle<cr>
