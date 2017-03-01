@@ -34,8 +34,9 @@ set colorcolumn=80 " Set softwrap
 
 " Line wrap
 " I'm going to see how I like not having linebreaks
-set nowrap
-set nolinebreak
+" I didn't like not having linebreaks
+set wrap
+set linebreak
 set nolist
 
 " This is actually set in ~/.vimrc after the colorscheme declaration
