@@ -6,6 +6,9 @@
 # Basic settings
   set $mod Mod1
 
+  # Reload Xresources
+  exec_always "xrdb ~/.Xresources"
+
   # Font for window titles.
   #font pango:DejaVu Sans Mono 8
   font pango:Ubuntu Mono 9
@@ -21,16 +24,27 @@
   # new pastel colors
   # The colors are stored as just the numbers, with the hash symbol in the variable $h. 
   # This allows more flexibility for passing colors as arguments to commands
-  set $h                  #
-  set $fgcolor            458588
-  set $accent             83a598 
-  set $bgcolor            282828
-  #2f343f
-  set $black              1d2021
-  set $white              fbf1c7
-  set $gdcolor            a8bb26
-  set $degcolor           fabd2f
-  set $bdcolor            db3934
+
+  # i3 4.13
+  set $h                                     #
+  set_from_resource  $fgcolor  i3wm.fgcolor   2196F3
+  set_from_resource  $accent   i3wm.accent    000000
+  set_from_resource  $bgcolor  i3wm.bgcolor   607D8B
+  set_from_resource  $black    i3wm.black     000000
+  set_from_resource  $white    i3wm.white     ffffff
+  set_from_resource  $gdcolor  i3wm.gdcolor   8bc34a
+  set_from_resource  $degcolor i3wm.degcolor  cddc39
+  set_from_resource  $bdcolor  i3wm.bdcolor   ff5722
+
+  # set $h                  #
+  # set $fgcolor $fgcolor   458588
+  # set $accent             83a598
+  # set $bgcolor            282828
+  # set $black              1d2021
+  # set $white              fbf1c7
+  # set $gdcolor            a8bb26
+  # set $degcolor           fabd2f
+  # set $bdcolor            db3934
 
   # Allows Window borders and statusbar borders to be dependent
   set $border_width       5
