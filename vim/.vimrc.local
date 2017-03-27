@@ -175,10 +175,10 @@ nnoremap <leader>F :%!python -m json.tool
 " Goes to the file under cursor, but creates it if it doesn't exist
 nnoremap gF :edit <cfile><cr>
 
-" Hilights the previously pasted text
+" Highlights the previously pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" Hilights the previously selected test
+" Highlights the previously selected test
 nnoremap gv vgv
 
 nmap <leader>h :noh<CR>
