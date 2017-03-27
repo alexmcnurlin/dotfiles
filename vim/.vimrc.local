@@ -158,6 +158,20 @@ nmap cu mub~`u
 imap ,cu <esc>mub~`ua
 
 
+function Replace(options)
+	call inputsave()
+  let l:wordUnderCursor = expand("<cword>")
+	let l:input = input('Enter new variable name: ')
+  "echom l:wordUnderCursor
+  "echom l:input
+  "echom a:options
+	execute "%s/\\<" . l:wordUnderCursor . "\\>/" . l:input . "/" . a:options
+	call inputrestore()
+endfunction
+nnoremap <leader>c :call Replace("g")<CR>
+nnoremap <leader><leader>c :call Replace("gc")<CR>
+
+
 " Force changes the current directory. 
 " The should be unnecessary with 'yssl/AutoCWD.vim'
 nmap <leader>e :lcd %:p:h<CR>
