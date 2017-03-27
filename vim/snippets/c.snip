@@ -1,0 +1,13 @@
+snippet FILE
+abbr FILE* fp...
+    FILE* ${1:fp};
+    $1 = fopen(${2:PATH}, "${3:rw}");
+    if ($1 == NULL) {
+      ${4:Err}
+    }
+    ${5:CODE}
+    fclose($1);${0}
+
+snippet fseek
+abbr fseek(...)
+    fseek(${1:fp}, ${2:0}, ${3:SEEK_CUR});${0}

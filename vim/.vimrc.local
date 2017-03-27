@@ -307,6 +307,7 @@ endfunction
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+let g:neosnippet#snippets_directory='~/.dotfiles/vim/snippets'
 
 " Vim Autoclose
 " I hacked the plugin to make this never autoclose double quotes.
