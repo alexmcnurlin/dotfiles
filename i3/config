@@ -414,17 +414,21 @@
 
   # Workspaces/Monitor
     # This is the xrandr output for the monitor
+    #exec "xrandr --output eDP1 --off --output HDMI1 --auto --rotate left --output VGA1 --auto --pos 1080x1130"
     exec "xrandr --output $monitor2_output --auto --right-of $monitor1_output # Sets up second monitor"
+    exec "xrandr --output $monitor3_output --auto --right-of $monitor2_output # Sets up third monitor"
+    # 2560x740
     workspace $one   output $monitor1_output  #  Assigns workspaces to specific monitors
     workspace $two   output $monitor2_output
-    workspace $three output $monitor2_output
+    workspace $three output $monitor3_output
     workspace $four  output $monitor1_output
     workspace $five  output $monitor2_output
-    workspace $six   output $monitor2_output
+    workspace $six   output $monitor3_output
     workspace $seven output $monitor1_output
 
 # Startup commands
-  exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $inner_gap $outer_gap $bar_height $border_width
+  exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $bar_height $border_width
+  exec_always --no-startup-id ~/.dotfiles/custom_scripts/color-steam.sh $bgcolor $fgcolor $accent $white $bdcolor $bar_height $border_width
   exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
   exec --no-startup-id compton --config ~/.config/.compton.conf   #  Lightweight composting manager to allow subtle graphics effects
   exec --no-startup-id variety                                    #  Automatic wallpaper changer
