@@ -239,6 +239,30 @@ nmap U <c-r>
 
 imap qq <Esc>
 
+" Add 2 functions to automatically manage your tags file for ctags
+" taken from http://vim.wikia.com/wiki/Autocmd_to_update_ctags_file
+" sudo apt-get install ctags
+function! DelTagOfFile(file)
+  let fullpath = a:file
+  let cwd = getcwd()
+  let tagfilename = cwd . "/tags"
+  let f = substitute(fullpath, cwd . "/", "", "")
+  let f = escape(f, './')
+  let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
+  let resp = system(cmd)
+endfunction
+
+function! UpdateTags()
+  let f = expand("%:p")
+  let cwd = getcwd()
+  let tagfilename = cwd . "/tags"
+  let cmd = 'ctags -a -f ' . tagfilename . ' --c++-kinds=+p --fields=+iaS --extra=+q ' . '"' . f . '"'
+  call DelTagOfFile(f)
+  let resp = system(cmd)
+endfunction
+autocmd BufWritePost *.cpp,*.h,*.c call UpdateTags()
+
+
 " ,s will find the last misspelled word and change it to the first suggested 
 " spell correction
 imap ,s <esc>mm[sz=1<Enter>`ma
