@@ -1,0 +1,27 @@
+# These are the colors that i3 will use
+# fgcolor:  The primary forground color. I'd reccomend some color
+# accent:   An alternate to fgcolor, I'd reccomend a lighter shade of fgcolor
+# bgcolor:  Background color. I'd reccomend something black or grey
+# black:	  I don't actually think I use this. Keep it black, probably
+# white:	  I don't actually think I use this. Keep it white, probably
+# gdcolor:  'good color', I'd reccomend a shade of green
+# degcolor: 'degrading color', I'd reccomend a shade of yellow. Think 'warning'
+# bdcolor:  'bad color', I'd reccomend a shade of red. Think 'error'
+*fgcolor : 5C6BC0
+*accent  : 448AFF
+*bgcolor : 263238
+*black   : 000000
+*white   : ffffff
+*gdcolor : 66BB6A
+*degcolor: FFEE58
+*bdcolor : FF7043
+
+# This is the xrandr name of each connected monitor, from left to right
+# can be found by running `xrandr`
+# The names are usually something like HDMI1, HDMI-3, DP-1, VGA0
+*monitor1_output: eDP1
+*monitor2_output: HDMI1
+
+# This is the pixel width of the monitors
+*monitor1_width: 1920
+*monitor2_width: 2560
