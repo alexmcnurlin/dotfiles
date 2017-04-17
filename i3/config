@@ -173,11 +173,11 @@
 
   set $one   
   set $two   
-  set $three 
-  set $four  
-  set $five  
+  set $three 
+  set $four  
+  set $five  
   set $six   
-  set $seven 
+  set $seven 
   set $eight 
   set $nine  
   set $ten   10
