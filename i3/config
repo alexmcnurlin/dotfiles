@@ -18,8 +18,12 @@
 
   # The x outputs of the monitors to use. This is intended to work with dual
   # monitors that are aligned at the top
-  set $monitor1_output eDP1
-  set $monitor2_output HDMI1
+  # set $monitor1_output eDP1
+  # set $monitor2_output VGA1
+  # set $monitor3_output VGA1
+  set_from_resource  $monitor1_output  i3wm.monitor1_output  HDMI1
+  set_from_resource  $monitor2_output  i3wm.monitor2_output  HDMI2
+  set_from_resource  $monitor3_output  i3wm.monitor3_output  VGA1
 
   # new pastel colors
   # The colors are stored as just the numbers, with the hash symbol in the variable $h.
@@ -54,9 +58,9 @@
   # Configuration options for lemonbar and aps
   # monitor1 = width of left monitor, monitor2 = width of right monitor,
   # outer_gap = i3-gaps outer gap. inner_gap = i3-gaps inner gap. bar_height = status bar height
-  set $monitor1_width     1920
-  set $monitor2_width     1920
-  set $monitor3_width     1920
+  set_from_resource $monitor1_width i3wm.monitor1_width 1920
+  set_from_resource $monitor2_width i3wm.monitor1_width 1920
+  set_from_resource $monitor3_width i3wm.monitor1_width 1920
   set $outer_gap          12
   set $inner_gap          12
   set $bar_height         24
