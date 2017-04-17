@@ -53,8 +53,6 @@
   # Allows Window borders and statusbar borders to be dependent
   set $border_width       5
 
-  set $tray_size          100
-
   # Configuration options for lemonbar and aps
   # monitor1 = width of left monitor, monitor2 = width of right monitor,
   # outer_gap = i3-gaps outer gap. inner_gap = i3-gaps inner gap. bar_height = status bar height
