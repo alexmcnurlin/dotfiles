@@ -128,7 +128,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#5C6BC0"
+    separator_color = "#5"
 
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -162,7 +162,7 @@
     close = mod4+BackSpace
 
     # Close all notifications.
-    close_all = mod4+shift+BackSpace
+    # close_all = mod4+shift+BackSpace
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
@@ -191,7 +191,7 @@
 [urgency_critical]
     # Don't remove the comment at the end of the following lines. It's used 
     # for regexes in external scripts
-    background = "#12" # critical 
+    background = "#FF7043" # critical 
     foreground = "#ffffff" # critical 
     timeout = 20 # critical 
 

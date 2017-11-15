@@ -1,0 +1,98 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ConnectionError	i3/i3.py	/^class ConnectionError(i3Exception):$/;"	c
+EVENT_TYPES	i3/i3.py	/^EVENT_TYPES = [$/;"	v
+EventTypeError	i3/i3.py	/^class EventTypeError(i3Exception):$/;"	c
+MSG_TYPES	i3/i3.py	/^MSG_TYPES = [$/;"	v
+MessageError	i3/i3.py	/^class MessageError(i3Exception):$/;"	c
+MessageTypeError	i3/i3.py	/^class MessageTypeError(i3Exception):$/;"	c
+ModuleType	i3/i3.py	/^ModuleType = type(sys)$/;"	v
+SearchManager	vim/python_modules/behave_yourself.py	/^class SearchManager():$/;"	c
+Socket	i3/i3.py	/^class Socket(object):$/;"	c
+Subscription	i3/i3.py	/^class Subscription(threading.Thread):$/;"	c
+__author__	i3/i3.py	/^__author__ = 'Jure Ziberna'$/;"	v
+__call_cmd__	i3/i3.py	/^def __call_cmd__(cmd):$/;"	f	file:
+__date__	i3/i3.py	/^__date__ = '2012-06-20'$/;"	v
+__function__	i3/i3.py	/^def __function__(type, message='', *args, **crit):$/;"	f	file:
+__getattr__	i3/i3.py	/^    def __getattr__(self, name):$/;"	m	class:i3	file:
+__init__	i3/i3.py	/^    def __init__(self, callback, event_type, event=None, event_socket=None,$/;"	m	class:Subscription
+__init__	i3/i3.py	/^    def __init__(self, module):$/;"	m	class:i3
+__init__	i3/i3.py	/^    def __init__(self, path=None, timeout=None, chunk_size=None,$/;"	m	class:Socket
+__init__	i3/i3.py	/^    def __init__(self, socket_path):$/;"	m	class:ConnectionError
+__init__	i3/i3.py	/^    def __init__(self, type):$/;"	m	class:EventTypeError
+__init__	i3/i3.py	/^    def __init__(self, type):$/;"	m	class:MessageTypeError
+__init__	vim/python_modules/behave_yourself.py	/^    def __init__(self, step_string):$/;"	m	class:SearchManager
+__license__	i3/i3.py	/^__license__ = 'GNU GPL 3'$/;"	v
+__socket__	i3/i3.py	/^__socket__ = None$/;"	v
+__version__	i3/i3.py	/^__version__ = '0.6.5'$/;"	v
+accent	lemonbar/lemonbar_status.py	/^accent    = sys.argv[3]$/;"	v
+active_display	i3/switch-workspace.py	/^            active_display = w['output']$/;"	v
+active_display	i3/switch-workspace.py	/^    active_display = None$/;"	v
+background_update	lemonbar/lemonbar_status.py	/^background_update = multiprocessing.Process(name='bg_update', target=background_update_bar)$/;"	v
+background_update_bar	lemonbar/lemonbar_status.py	/^def background_update_bar():$/;"	f
+bdcolor	lemonbar/lemonbar_status.py	/^bdcolor   = sys.argv[6]$/;"	v
+bgcolor	lemonbar/lemonbar_status.py	/^bgcolor   = sys.argv[1]$/;"	v
+buffer	i3/i3.py	/^    buffer = b''  # byte string$/;"	v	class:Socket
+callback	i3/i3.py	/^        def callback(event, data, subscription):$/;"	f	function:subscribe
+chunk_size	i3/i3.py	/^    chunk_size = 1024  # in bytes$/;"	v	class:Socket
+close	i3/i3.py	/^    def close(self):$/;"	m	class:Socket
+close	i3/i3.py	/^    def close(self):$/;"	m	class:Subscription
+connect	i3/i3.py	/^    def connect(self, path=None):$/;"	m	class:Socket
+connected	i3/i3.py	/^    def connected(self):$/;"	m	class:Socket
+container	i3/i3.py	/^def container(**criteria):$/;"	f
+cpu	lemonbar/lemonbar_status.py	/^def cpu( gdcolor, degcolor, bdcolor, cpu_percent ):$/;"	f
+default_socket	i3/i3.py	/^def default_socket(socket=None):$/;"	f
+degcolor	lemonbar/lemonbar_status.py	/^degcolor  = sys.argv[5]$/;"	v
+du	lemonbar/lemonbar_status.py	/^def du( fgcolor, disk_usage ):$/;"	f
+eth	lemonbar/lemonbar_status.py	/^def eth( fgcolor, bdcolor, eth_ip ):$/;"	f
+fgcolor	lemonbar/lemonbar_status.py	/^fgcolor   = sys.argv[2]$/;"	v
+filter	i3/i3.py	/^def filter(tree=None, function=None, **conditions):$/;"	f
+find	vim/python_modules/behave_yourself.py	/^def find(text, step_directory="steps\/", default_filename=None):$/;"	f
+function	i3/i3.py	/^    def function(*args2, **crit2):$/;"	f	function:__function__
+gdcolor	lemonbar/lemonbar_status.py	/^gdcolor   = sys.argv[4]$/;"	v
+get	i3/i3.py	/^    def get(self, msg_type, payload=''):$/;"	m	class:Socket
+get_socket_path	i3/i3.py	/^def get_socket_path():$/;"	f
+has_child	i3/i3.py	/^    def has_child(node):$/;"	f	function:parent
+hide_bar	lemonbar/lemonbar_status.py	/^def hide_bar(self, e):$/;"	f
+i3	i3/i3.py	/^class i3(ModuleType):$/;"	c
+i3	lemonbar/lemonbar_status.py	/^i3 = i3ipc.Connection()$/;"	v
+i3	lemonbar/show_lemonbar.py	/^i3 = i3ipc.Connection()$/;"	v
+i3Exception	i3/i3.py	/^class i3Exception(Exception):$/;"	c
+initialize	i3/i3.py	/^    def initialize(self):$/;"	m	class:Socket
+ipc_query	i3/switch-workspace.py	/^def ipc_query(req="command", msg=""):$/;"	f
+listen	i3/i3.py	/^    def listen(self):$/;"	m	class:Subscription
+logfile	lemonbar/lemonbar_status.py	/^logfile = open( '\/home\/alexmcnurlin\/.dotfiles\/lemonbar\/log_lemonbar_status.txt', 'a+' )$/;"	v
+magic_string	i3/i3.py	/^    magic_string = 'i3-ipc'  # safety string for i3-ipc$/;"	v	class:Socket
+msg	i3/i3.py	/^def msg(type, message=''):$/;"	f
+newworkspace	i3/switch-workspace.py	/^    newworkspace = argv[1]$/;"	v
+pack	i3/i3.py	/^    def pack(self, msg_type, payload):$/;"	m	class:Socket
+parent	i3/i3.py	/^def parent(con_id, tree=None):$/;"	f
+parse_event_type	i3/i3.py	/^def parse_event_type(event_type):$/;"	f
+parse_msg_type	i3/i3.py	/^def parse_msg_type(msg_type):$/;"	f
+power	lemonbar/lemonbar_status.py	/^def power( gdcolor, degcolor, bdcolor, fgcolor, ac, bat ):$/;"	f
+receive	i3/i3.py	/^    def receive(self):$/;"	m	class:Socket
+results	vim/python_modules/behave_yourself.py	/^    results = find(*sys.argv[1:])$/;"	v	class:SearchManager
+run	i3/i3.py	/^    def run(self):$/;"	m	class:Subscription
+search	vim/python_modules/behave_yourself.py	/^    def search(self, filename):$/;"	m	class:SearchManager
+search_all	vim/python_modules/behave_yourself.py	/^    def search_all(self):$/;"	m	class:SearchManager
+send	i3/i3.py	/^    def send(self, msg_type, payload=''):$/;"	m	class:Socket
+show_bar	lemonbar/show_lemonbar.py	/^def show_bar(self, e):$/;"	f
+subscribe	i3/i3.py	/^    def subscribe(self, event_type, event=None):$/;"	m	class:Socket
+subscribe	i3/i3.py	/^def subscribe(event_type, event=None, callback=None):$/;"	f
+subscribed	i3/i3.py	/^    subscribed = False$/;"	v	class:Subscription
+success	i3/i3.py	/^def success(response):$/;"	f
+temp	lemonbar/lemonbar_status.py	/^def temp( gdcolor, degcolor, bdcolor, cpu_temp ):$/;"	f
+timeout	i3/i3.py	/^    timeout = 0.5  # in seconds$/;"	v	class:Socket
+to_be_swapped	i3/monitor-flip.py	/^to_be_swapped = [output for output in i3.get_outputs() if output['active']]$/;"	v
+type_translation	i3/i3.py	/^    type_translation = {$/;"	v	class:Subscription
+unpack	i3/i3.py	/^    def unpack(self, data):$/;"	m	class:Socket
+unpack_header	i3/i3.py	/^    def unpack_header(self, data):$/;"	m	class:Socket
+update_bar	lemonbar/lemonbar_status.py	/^def update_bar(arg1, arg2):$/;"	f
+volume	lemonbar/lemonbar_status.py	/^def volume( fgcolor, degcolor ):$/;"	f
+wifi	lemonbar/lemonbar_status.py	/^def wifi( gdcolor, degcolor, bdcolor, fgcolor, wifi_percent, wifi_essid, wifi_ip ):$/;"	f
+workspaces	lemonbar/lemonbar_status.py	/^def workspaces( bgcolor, fgcolor, accent, gdcolor, degcolor, bdcolor, i3, x_monitor ):$/;"	f
+x_monitor	lemonbar/lemonbar_status.py	/^x_monitor = sys.argv[8]$/;"	v

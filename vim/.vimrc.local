@@ -1,5 +1,7 @@
 " ###Settings For Vanilla VIM 
 " vim: fdm=manual
+" This should be at ~/.vimrc.local
+" For files that source this file, check ~/.vimrc or ~/.config/nvim/init.vim
 
 
 
@@ -7,9 +9,8 @@
 set mouse=c
 
 " These are to set options that I liked from spf13-vim
-" Sets the <leader> to comma 
-set t_Co=256
-let g:mapleader=' '
+" set t_Co=256
+let g:mapleader=' '                   " Sets the <leader> to space
 set number                            " Enables line numbering
 set wildmode=longest,list,full        " Sets desired file completion from command mode
 set wildmenu                          " Sets desired file completion from command mode
@@ -42,14 +43,23 @@ set nolist
 " This is actually set in ~/.vimrc after the colorscheme declaration
 " highlight ColorColumn ctermbg=236 guibg=#202326
 
+" Custom highlight options
+" highlight customBlue guifg=26 
+
 " When lines are softwrapped, indentation is preserved.
 " HOW DID I NOT KNOW ABOUT THIS SOONER!!!
 set breakindent
 
+" Reverses the meaning of /g in a regex, making g be set by defalut
+" E.g.
+" %s/foo/bar/ will now replace all instances of foo with bar
+" %s/foo/bar/g will now replace only the first instance
+set gdefault
+
 " Fold settings
 set foldmethod=indent  " Will create folds for indented text
 set foldopen-=block    " Navigating using `[` and `]` (among others) won't open folds
-set foldminlines=1     " One indented line by itself will not be foldled
+set foldminlines=0     " One indented line by itself will still be foldled
 set foldignore-=#      " Lines with a `#` will still be folded
 
 " Changes the time needed to chain keys together for a mapping
@@ -57,24 +67,30 @@ set timeoutlen=500
 set ttimeoutlen=50
 
 " Change tab width"
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
-set softtabstop=2
+set softtabstop=4
+
+" Make command line file completion be case insensitive
+set wildignorecase
+
+" Set relative line numbering
+set relativenumber
 
 " Set guioptions
 " T Removes tabline
-set guioptions-=r " Removes scrollbar
-set guioptions-=m " Removes menu bar
-set guioptions-=T " Removes GTK toolbar
-set guioptions-=e " Uses the terminal tabline (currently powerline) instead of GTK tabline
+set guioptions+=r " Removes scrollbar
+set guioptions+=m " Removes menu bar
+set guioptions+=T " Removes GTK toolbar
+set guioptions+=e " Uses the terminal tabline (currently powerline) instead of GTK tabline
 set guioptions+=c " Uses status line instead of dialog popup for things like file changes.
 set showtabline=2 " Always show tabline
 
 " Keep cursor in the middle of the screen
 " I'm disbling this for now, I'm testing a different value
 "set so=100
-set so=5
+set so=10
 
 " Highlights the line the cursor is on. 
 set nocursorline
@@ -88,8 +104,8 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " Fixes bugs caused by mapping Enter to controlling folds
-autocmd CmdwinEnter * nnoremap <CR> <CR>
-autocmd BufReadPost quickfix nnoremap <CR> <CR>
+" autocmd CmdwinEnter * nnoremap <CR> <CR>
+" autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " Saves the current file when you switch out of the window
 au FocusLost * silent! w
@@ -102,8 +118,8 @@ au FocusLost * silent! w
 
 " This is to prevent me from mistyping Po as PO. requires Nyancat plugin
 "imap PO <Esc>:tabnew \| :Nyancat<CR> 
-imap teh <Esc>:tabnew \| :Nyancat<CR> 
-imap ednl <Esc>:tabnew \| :Nyancat<CR> 
+" imap teh <Esc>:tabnew \| :Nyancat<CR> 
+" imap ednl <Esc>:tabnew \| :Nyancat<CR> 
 
 cmap <c-j> <down>
 cmap <c-k> <up>
@@ -131,8 +147,8 @@ noremap <BS> dd
 noremap <S-BS> zc
 
 " Using enter to manage folds. Very convenient with foldmethod=indnent
-nnoremap <Enter> zo
-nnoremap <S-Enter> zc
+" nnoremap <Enter> zo
+" nnoremap <S-Enter> zc
 
 " This doesn't seem to be working...
 " But it worked when I added it, I promise!
@@ -159,17 +175,26 @@ imap ,cu <esc>mub~`ua
 
 
 function Replace(options)
-	call inputsave()
+  call inputsave()
   let l:wordUnderCursor = expand("<cword>")
-	let l:input = input('Enter new variable name: ')
+  let l:input = input('Enter new variable name: ')
   "echom l:wordUnderCursor
   "echom l:input
   "echom a:options
-	execute "%s/\\<" . l:wordUnderCursor . "\\>/" . l:input . "/" . a:options
-	call inputrestore()
+  execute "%s/\\<" . l:wordUnderCursor . "\\>/" . l:input . "/" . a:options
+  call inputrestore()
 endfunction
 nnoremap <leader>c :call Replace("g")<CR>
 nnoremap <leader><leader>c :call Replace("gc")<CR>
+
+
+function Search()
+  call inputsave()
+  let l:input = input('Search current directory for: ')
+  execute "Ack " . l:input
+  call inputrestore()
+endfunction
+nmap <leader><leader>s :call Search()<CR>
 
 
 " Force changes the current directory. 
@@ -179,7 +204,8 @@ nmap <leader>e :lcd %:p:h<CR>
 " 
 nmap <leader><leader>e :!sudo chmod a+x %<CR>
 
-" Sets F to use the easymotion 'f' motion. Requires 'easymotion/vim-easymotion'
+" Sets F to use the easymotion 'f' motion.
+" Requires 'easymotion/vim-easymotion'
 nmap F <Plug>(easymotion-bd-f)
 omap F <Plug>(easymotion-bd-f)
 vmap F <Plug>(easymotion-bd-f)
@@ -209,14 +235,16 @@ nmap <leader><leader>h /\(\s-\(\) \)\@<=.\+$<CR>
 nmap <leader><leader>o /\(\s\!\(\) \)\@<=.*$<CR>
 
 " Enables indent guides on startup, even though they should already be on, and 
-" creates a keyboard shortcut for it. Requires Indent Guides plugin
+" creates a keyboard shortcut for it.
+" Requires Indent Guides plugin
 nmap <leader><leader>i :IndentGuidesEnable<CR>
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Takes the current line and enters it into vim command line. Useful for
-" editing vimrc
-" The second one will take the line and pass it on to a shell
-nmap <leader>s yy:<c-r>"<BS><CR>
-nmap <leader>! ^g_:!<c-r>"
+  " editing vimrc
+        " The second one will take the line and pass it on to a shell
+      nmap <leader>s yy:<c-r>"<BS><CR>
+    nmap <leader>! ^g_:!<c-r>"
 
 " Saves the current file as root
 " This doesn't work consistently
@@ -262,10 +290,12 @@ function! UpdateTags()
 endfunction
 autocmd BufWritePost *.cpp,*.h,*.c call UpdateTags()
 
+set tags=~/flowcontroller/mytags
+
 
 " ,s will find the last misspelled word and change it to the first suggested 
 " spell correction
-imap ,s <esc>mm[sz=1<Enter>`ma
+" imap <leader><leader>s <esc>mm[sz=1<Enter>`ma
 
 nmap <leader>z z=1
 
@@ -278,11 +308,11 @@ nmap <leader>6 :colorscheme gruvbox<CR>
 
 " A function that toggles between light and dark themes
 function! ColorToggle()
-	if &background ==? 'dark'
-		let &background = 'light'
-	else 
-		let &background = 'dark'
-	endif
+  if &background ==? 'dark'
+    let &background = 'light'
+  else 
+    let &background = 'dark'
+  endif
 endfunction
 nmap <leader>` :call ColorToggle()<CR>
 
@@ -292,16 +322,16 @@ nmap <leader>` :call ColorToggle()<CR>
 
 
 
-au BufRead,BufNewFile java  nnoremap <leader><leader>c  :w \| :!javac %:t;java %:t:r<CR> 
-au BufRead,BufNewFile java  nnoremap <leader><leader>ca :w \| :!javac %:t;java %:t:r 
-au BufRead,BufNewFile *.py  nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!./%<CR>
-au BufRead,BufNewFile *.py  nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!./%
-au BufRead,BufNewFile *.cpp nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r<CR>
-au BufRead,BufNewFile *.cpp nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r
-au BufRead,BufNewFile *.php nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
-au BufRead,BufNewFile *.php nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!php %
-au BufRead,BufNewFile *.tex nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
-au BufRead,BufNewFile *.tex nnoremap <leader><leader>r  :w \|:cd %:p:h \|:!pdflatex %; evince %:r.pdf<CR>
+"au BufRead,BufNewFile java  nnoremap <leader><leader>c  :w \| :!javac %:t;java %:t:r<CR> 
+"au BufRead,BufNewFile java  nnoremap <leader><leader>ca :w \| :!javac %:t;java %:t:r 
+"au BufRead,BufNewFile *.py  nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!./%<CR>
+"au BufRead,BufNewFile *.py  nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!./%
+"au BufRead,BufNewFile *.cpp nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r<CR>
+"au BufRead,BufNewFile *.cpp nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!g++ % -o %:t:r; ./%:t:r
+"au BufRead,BufNewFile *.php nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
+"au BufRead,BufNewFile *.php nnoremap <leader><leader>ca :w \|:cd %:p:h \|:!php %
+"au BufRead,BufNewFile *.tex nnoremap <leader><leader>c  :w \|:cd %:p:h \|:!php %<CR>
+"au BufRead,BufNewFile *.tex nnoremap <leader><leader>r  :w \|:cd %:p:h \|:!pdflatex %; evince %:r.pdf<CR>
 "au BufRead,BufNewFile *.sh nnoremap <leader><leader>c :w \|:cd %:p:h \|sh %<CR>
 "au BufRead,BufNewFile *.sh nnoremap <leader><leader>ca :w \|:cd %:p:h \|sh %
 
@@ -315,9 +345,13 @@ au BufRead,BufNewFile *.tex nnoremap <leader><leader>r  :w \|:cd %:p:h \|:!pdfla
 " Enables Smartcase
 let g:EasyMotion_smartcase=1
 
-" Neocomple 
-let g:neocomplete#enable_at_startup=1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+else
+  " Neocomple 
+  let g:neocomplete#enable_at_startup=1
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+endif
 set completeopt-=preview              " This removes a bug where a split window would randomly pop up in some situations
 " Prevents a popup from preventing you from using Enter
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -327,11 +361,25 @@ function! s:my_cr_function()
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 
-" Neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-let g:neosnippet#snippets_directory='~/.dotfiles/vim/snippets'
+if has('nvim')
+  " Utilsnips
+  let g:UltiSnipsExpandTrigger="<c-k>"
+  let g:UltiSnipsJumpForwardTrigger="<c-l>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+  let g:UltiSnipsSnippetsDir="/home/joe/.dotfiles/vim/ultisnips/"
+  let g:UltiSnipsSnippetDirectories=["/home/joe/.dotfiles/vim/ultisnips/"]
+elseif
+  " Neosnippet
+  imap <C-k>     <Plug>(neosnippet_jump_or_expand)
+  smap <C-k>     <Plug>(neosnippet_jump_or_expand)
+  imap <C-L>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-L>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+  command ReloadSnippets call neosnippet#variables#set_snippets({})
+  let g:neosnippet#snippets_directory='~/.dotfiles/vim/snippets'
+  autocmd BufWritePost *.snip,*.snippets
+        \ call neosnippet#variables#set_snippets({})
+endif
 
 " Vim Autoclose
 " I hacked the plugin to make this never autoclose double quotes.
@@ -350,16 +398,18 @@ set undolevels=1000
 set undoreload=10000
 
 " When a buffer is loaded, this detects the current indent settings and
-" adjusts accordingly. Requires 'ciaranm/detectindent'
+" adjusts accordingly.
+" Requires 'ciaranm/detectindent'
 au BufReadPost * :DetectIndent
-let g:detectindent_preferred_indent = 2
+let g:detectindent_preferred_indent = 4
 
 " Powerline
 set laststatus=2
 
-" Mappings to navigate by indentation. Requires 'jeetsukumaran/vim-indentwise'
+" Mappings to navigate by indentation.
+" Requires 'jeetsukumaran/vim-indentwise'
 map - <Plug>(IndentWisePreviousLesserIndent)
-map = <Plug>(IndentWiseNextGreaterIndent)
+" map = <Plug>(IndentWiseNextGreaterIndent)
 map \ <Plug>(IndentWiseNextEqualIndent)
 map \| <Plug>(IndentWisePreviousEqualIndent)
 map + <Plug>(IndentWisePreviousGreaterIndent)
@@ -369,7 +419,7 @@ map _ <Plug>(IndentWiseNextLesserIndent)
 " Requires 'yssl/AutoCWD.vim'
 " This one actually works
 let g:autocwd_patternwd_pairs = [
-	\['*', '%:p:h' ]
+  \['*', '%:p:h' ]
 \]
 
 " Gitgutter
@@ -383,22 +433,34 @@ let g:gitgutter_sign_modified_removed = '-'
 " Airline configuration options
 " Requires 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Syntastic configuration options
-" Requires 'scrooloose/syntastic'
-let g:sytastic_check_on_wq=0
-let g:syntastic_error_symbol = '⊗'
-let g:syntastic_warning_symbol = '⊙'
-let g:syntastic_vim_checkers = ['vint']
-let g:syntastic_python_checkers = ['pylint', 'pep8']
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
-let g:syntastic_always_populate_loc_list=1
 
-" Adds c++11 support
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
+if has('nvim')
+  " Ale configuration
+  " Requires 'w0rp/ale'
+  let g:ale_sign_column_always = 1
+  let g:ale_sign_error = '⊗'
+  let g:ale_sign_warning = '⊙'
+  let g:airline#extensions#ale#enabled = 1
+else
+  " Syntastic configuration options
+  " Requires 'scrooloose/syntastic'
+  let g:sytastic_check_on_wq=0
+  let g:syntastic_error_symbol = '⊗'
+  let g:syntastic_warning_symbol = '⊙'
+  let g:syntastic_vim_checkers = ['vint']
+  let g:syntastic_python_checkers = ['flake8', 'pylint']
+  let g:syntastic_php_checkers=['php', 'phpcs']
+  let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+  let g:syntastic_always_populate_loc_list=1
+
+  " Adds c++11 support
+  let g:syntastic_cpp_compiler_options = ' -std=c++11'
+endif
+
 
 " Configuration for vim-unimpaired
 " Requires 'tpope/vim-unimpaired'
@@ -413,3 +475,89 @@ nmap ]e :lnext<CR>
 " Makes f and t become case insensitive
 " Requires 'dahu/vim-fanfingtastic'
 let g:fanfingtastic_ignorecase=1
+
+" Adds mapping to open ctrl-p in the home directory
+nmap <leader>p :CtrlP<space>~<CR>
+
+" Tells Ack.vim to use ag, rather than ack for searching.
+" requires that `ag` be installed, of course
+" Requires 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Used in an effort to get syntax highlighting to work better
+" Requires 'hdima/python-syntax'
+let python_highlight_all = 0
+let pyton_highlight_indentation_errors = 1
+let python_highlight_builtin_funcs = 0
+
+" Bindings for XPtemplate, a more powerful snippet engine
+" Requires 'drmingdrmer/xptemplate'
+let g:xptemplate_key = '<C-l>'
+let g:xptemplate_nav_next = '<C-k>'
+imap <C-\> <C-r><C-l>
+
+" Settings for SimplyFold, a python folding plugin
+" Requires 'tmhedberg/SimplyFold'
+let g:SimpylFold_docstring_preview = 1
+
+" Settings for YouCompleteMe, a completion plugin
+" Requires 'Valloric/YouCompleteMe'
+" nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
+" let g:ycm_key_list_select_completion = ['<Down>']
+
+
+let giutablabel='%t'
+
+let g:behaveyourself_step_path = '/home/joe/flowcontroller/flowcontroller/test/features/steps/'
+function! BehaveYourself()
+python3 << EOF
+import vim
+from behave_yourself import find
+
+my_line = vim.current.line
+step_directory = vim.eval('g:behaveyourself_step_path')
+results = find(text=my_line, step_directory=step_directory)
+if results:
+  filename, start_line, end_line = results[0]
+  vim.command('tab drop {} | go {}'.format(filename, start_line+1))
+else:
+  print("No file found")
+
+EOF
+endfunction
+
+
+let g:feature_file_path = '/home/joe/flowcontroller/flowcontroller/test/features/'
+function! Goto_feature()
+python3 << EOF
+import vim
+from re import sub
+from os.path import isfile, splitext, basename
+
+filename = vim.current.buffer.name
+step_file_base = basename(filename)
+step_file_head = splitext(step_file_base)[0]
+if step_file_head == filename:
+  print("'{}' is not a python file".format(filename))
+else:
+  feature_file_head = step_file_head.upper()
+  feature_path = vim.eval('g:feature_file_path')
+  feature_file_full = "{}{}.feature".format(feature_path, feature_file_head)
+  if not isfile(feature_file_full):
+    print("'{}' not an existing file".format(feature_file_full))
+  else:
+    vim.command("tab drop {}".format(feature_file_full))
+EOF
+endfunction
+
+nmap <leader>k :call BehaveYourself()<CR>
+nmap <leader>K :call Goto_feature()<CR>
+
+" Enable Rainbow H
+let g:rainbow_active = 1
+
+if has('nvim')
+  source ~/.nvimrc
+endif

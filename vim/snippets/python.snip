@@ -1,0 +1,38 @@
+snippet @step
+alias @when @given @then @and
+options word
+abbr @step("...")
+    @${1:step}("${2}")
+    def step_impl(context${3}):
+        ${4}
+
+snippet format
+abbr "...".format(...)
+    "${1}".format(${2})
+
+snippet logging
+abbr logging.debug(...)
+    logging.${1:debug}(${2})
+
+snippet [
+abbr [x for x in ..]
+alias [
+options word
+    [${2:x} for ${1:x} in ${3:collection}${4:#:if...}
+
+snippet if
+abbr if TARGET
+    if ${1:condition}:
+        ${2:TARGET}
+
+snippet func
+abbr func TARGET
+    ${1:float}(${2:TARGET})
+
+snippet raise
+abbr raise ....
+    raise ${1:AssertionError}("${2:Error!}"${3:.format(${4\})})
+
+snippet root_session
+abbr root_session(...)
+    root_session(context, "${1:PermissionLevel3}")

@@ -2,11 +2,7 @@
 
 "Plugin 'Chiel92/vim-autoformat'
 Plugin 'Potatoesmaster/i3-vim-syntax'
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'bkad/CamelCaseMotion'
+Plugin 'airblade/vim-gitgutter' "Plugin 'bkad/CamelCaseMotion'
 Plugin 'bling/vim-airline'
 Plugin 'ciaranm/detectindent'
 Plugin 'dahu/vim-fanfingtastic'
@@ -21,10 +17,9 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'rking/ag.vim'
 "Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'tmhedberg/matchit' 
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -32,20 +27,57 @@ Plugin 'tpope/vim-commentary'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'wellle/targets.vim'
 "Plugin 'yegappan/mru'
-"Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 " This didn't work after upgrading to Ubuntu 16.04
 "Plugin 'yssl/AutoCWD.vim'
 Plugin 'luochen1990/rainbow'
+Plugin 'kien/ctrlp.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'mileszs/ack.vim'
+Plugin 'hdima/python-syntax'
+" Just trying this out
+" Plugin 'drmingdrmer/xptemplate'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'tmhedberg/SimpylFold'
+" Plugin 'Chiel92/vim-autoformat'
+
+if has('nvim')
+	Plugin 'w0rp/ale'
+else
+	Plugin 'scrooloose/syntastic'
+endif
+
+if has('nvim')
+	Plugin 'Shougo/deoplete.nvim'
+	Plugin 'SirVer/ultisnips'
+	Plugin 'honza/vim-snippets.git'
+else
+	Plugin 'Shougo/neocomplete'
+	Plugin 'Shougo/neosnippet'
+	Plugin 'Shougo/neosnippet-snippets'
+endif
+
+if has('nvim')
+	" Neovim specific plugins
+	Plugin 'c0r73x/neotags.nvim'
+	Plugin 'KeitaNakamura/highlighter.nvim'
+	" Plugin 'fntlnz/atags.vim'
+	Plugin 'ludovicchabant/vim-gutentags'
+	Plugin 'bfredl/nvim-ipy'
+endif
+
 
 " Colorschemes
-"Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'NLKNguyen/papercolor-theme'
 "Plugin 'alexmcnurlin/gruvbox'
 Plugin 'morhetz/gruvbox'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'sickill/vim-monokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'romainl/flattened'
+Plugin 'sickill/vim-monokai'
 "Plugin 'tomasr/molokai'
 "Plugin 'vim-scripts/phd'
 "Plugin 'vim-scripts/twilight'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'zanglg/nova.vim'
 
 "set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/ "Powerline status bar

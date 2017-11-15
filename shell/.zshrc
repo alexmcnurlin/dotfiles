@@ -1,11 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,8 +49,11 @@ plugins=(zsh-syntax-highlighting)
 #plugins=(git zsh-syntax-highlighting)
 # http://github.com/zsh-users/zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
+source /home/joe/Packages/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/joe/Packages/zsh-autosuggestions/zsh-autosuggestions.zsh
+export TERM=xterm-256color
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -93,6 +96,23 @@ alias i3logout="i3-msg exit"
 #alias lock="lock.sh"
 #alias i3lock="~/Misc/Packages/i3lock-blur/i3lock"
 alias netflix="google-chrome --app='https://www.netflix.com'"
+alias pysel="source ~/flowcontroller/virtual_ve/bin/activate"
+alias pipsel="pip install ~/flowcontroller/flowcontroller/test/modules/testtools" 
+alias git-branchname="git branch | grep \* | cut -d '/' -f2"
+
+function t() {
+  echo "telnet 192.168.1.240 30$1"
+  telnet 192.168.1.240 "30$1"
+}
+
+agvim() {
+  file=$(ag -l "$@" | rofi -dmenu -p "vim")
+  if [ ! -z "$file" ]; then
+    vim $file;
+  else
+    echo "No file chosen"
+  fi
+}
 
 # games
 alias minesweeper="freesweep"
@@ -106,7 +126,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export EDITOR=/usr/bin/gvim # Change Gvim to default text editor. 
 
 #opp.zsh
-source ~/Misc/Packages/opp.zsh/opp.zsh
+# source ~/Misc/Packages/opp.zsh/opp.zsh
 
 #set -o vi
 bindkey -v
@@ -123,10 +143,10 @@ export PATH="$PATH:$HOME/.dotfiles/custom_scripts/"
 export PATH="$PATH:$HOME/.dotfiles/custom_scripts/files/"
 
 export WORKON_HOME=~/Envs
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # add torch to path. torch directory is in ~/.torch/
-. /home/alexmcnurlin/.torch/install/bin/torch-activate
+# . /home/alexmcnurlin/.torch/install/bin/torch-activate
 
 export GOPATH=$HOME/.Go
 
@@ -138,12 +158,25 @@ export PATH=$PATH:/home/alexmcnurlin/Misc/Packages/Java/jdk1.8.0_92/bin:/home/al
 figlet -t "LinuxMasterRace"
 #screenfetch
 
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH=$PATH:$HOME/.local/bin/
+  export POWERLINE_CONFIG_COMMAND="$HOME/.local/bin/powerline-config"
+fi
+. ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export PROMPT=$PROMPT"
- › "
+› "
 
 # A calculator plugin for zsh
-source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh
+# source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh
 
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
 
+# Settings for zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=7
+bindkey '^N'  autosuggest-accept
+bindkey '^P'  autosuggest-clear
+bindkey '^\n' autosuggest-execute
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=10000
+export PATH="$PATH:$HOME/flowcontroller/alex_scripts"

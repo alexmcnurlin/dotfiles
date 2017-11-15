@@ -20,9 +20,16 @@ source ~/.vimrc.local
 	call vundle#end()
 
 set background=dark
+" set termguicolors
+" set t_Co=256
 colorscheme gruvbox
-let g:grovbox_contrast_dark="soft"
-let g:grovbox_invert_indent_guides=1
-let g:grovbox_improved_strings=1
+" colorscheme nova
+let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_invert_indent_guides=1
+let g:gruvbox_improved_strings=0
+
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=236
+
 
 filetype plugin indent on

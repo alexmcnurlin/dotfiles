@@ -137,8 +137,10 @@
   # focus the most recent urgent container
   bindsym $mod+u [urgent=latest] focus
 
+  # bindsym $mod+F5 [class="pycharm"] focus; exec 'xdotool --clearmodifiers -key ctrl+F5'
+
   # Scratchpad bindings.
-  bindsym $super+semicolon scratchpad show
+  bindsym $super+semicolon scratchpad show, resize set 900 800, move position center
   bindsym $super+apostrophe scratchpad show; scratchpad show
   bindsym $super+Shift+BackSpace move scratchpad
   # Hipchat (the title might be Hipchat, HipChat or hipchat)
@@ -392,15 +394,26 @@
     bindsym Mod4+2 exec sensible-browser
     bindsym Mod4+4 exec "xdg-open ~"
 
-    exec_always pkill rofi; rofi -sidebar-mode -key-run mod1+space -key-window mod1+Tab -lines 10 -columns 1 -eh 2 -width 800 -padding 10 -opacity "90" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" -bg-active "$h$bgcolor" -fg-active "$h$accent" -hlbg-active "$h$fgcolor" -hlfg-active "$h$bgcolor" "FontAwesome 18" -terminal "x-terminal-emulator" -fuzzy
+    # exec_always pkill rofi; rofi -sidebar-mode -key-run mod1+space -key-window mod1+Tab -lines 10 -columns 1 -eh 2 -width 800 -padding 10 -opacity "90" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" -bg-active "$h$bgcolor" -fg-active "$h$accent" -hlbg-active "$h$fgcolor" -hlfg-active "$h$bgcolor" "FontAwesome 18" -terminal "x-terminal-emulator" -fuzzy
+
+    # bindsym $mod+space exec rofi -show run -lines 10 -columns 1 -eh 2 -width 800 -padding 10 -opacity "90" -bw 0 -bc "$h$bgcolor" -bg "$h$bgcolor" -fg "$h$fgcolor" -hlbg "$h$fgcolor" -hlfg "$h$bgcolor" -bg-active "$h$bgcolor" -fg-active "$h$accent" -hlbg-active "$h$fgcolor" -hlfg-active "$h$bgcolor" "FontAwesome 18" -terminal "x-terminal-emulator" -fuzzy
+
+    set $rofiargs  -modi 'drun,ssh,run' -sidebar-mode -padding 20 -width 800 -fuzzy -font 'Ubuntu Mono derivative Powerline 11'
+
+    bindsym $mod+space exec "rofi -show drun $rofiargs"
+    bindsym $mod+Tab exec "rofi -show window $rofiargs"
+    # bindsym $mod+Tab exec rofi -show run -color-enabled -bc "$h$bgcolor"  -color-normal "$h$bgcolor,$h$fgcolor,$h$bgcolor,$h$bgcolor,$h$fgcolor" -color-active "$h$accent,$h$accent,$h$accent,$h$accent,$h$accent"
+    # -color-window "$h$bgcolor" "$h$bgcolor" "$h$bgcolor"
+
+    # exec_always notify-send "$h$bgcolor $h$fgcolor $h$bgcolor $h$bgcolor $h$fgcolor"
 
   # Mouse button configuration
     set $alt   Mod1
     set $super Mod4
 
-    bindsym --whole-window button6             exec xdotool key --clearmodifiers XF86AudioPlay
-    bindsym --whole-window button7             exec xdotool key --clearmodifiers XF86AudioNext
-    bindsym --whole-window $alt+button7        exec xdotool key --clearmodifiers XF86AudioPrev
+    # bindsym --whole-window button6             exec xdotool key --clearmodifiers XF86AudioPlay
+    # bindsym --whole-window button7             exec xdotool key --clearmodifiers XF86AudioNext
+    # bindsym --whole-window $alt+button7        exec xdotool key --clearmodifiers XF86AudioPrev
 
     bindsym --whole-window button8             exec xdotool key --clearmodifiers control+Prior
     bindsym --whole-window button9             exec xdotool key --clearmodifiers control+Next
@@ -430,6 +443,7 @@
 
 # Startup commands
   exec_always --no-startup-id ~/.dotfiles/dunst/color-dunst.sh $bgcolor $fgcolor $accent $white $bdcolor $bar_height $border_width
+  exec_always --no-startup-id ~/.dotfiles/custom_scripts/color-rofi.sh $bgcolor $fgcolor $accent $white $bdcolor $bar_height $border_width
   exec_always --no-startup-id ~/.dotfiles/custom_scripts/color-steam.sh $bgcolor $fgcolor $accent $white $bdcolor $bar_height $border_width
   exec --no-startup-id redshift ~/.config/redshift.conf           #  Redshifts the screen
   exec --no-startup-id compton --config ~/.config/.compton.conf   #  Lightweight composting manager to allow subtle graphics effects
