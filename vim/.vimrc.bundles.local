@@ -12,7 +12,7 @@ Plugin 'henrik/vim-indexed-search'
 Plugin 'jeetsukumaran/vim-indentwise'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'koron/nyancat-vim'
-Plugin 'mbbill/undotree'
+" Plugin 'mbbill/undotree'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'rking/ag.vim'
@@ -60,10 +60,10 @@ endif
 if has('nvim')
 	" Neovim specific plugins
 	Plugin 'c0r73x/neotags.nvim'
-	Plugin 'KeitaNakamura/highlighter.nvim'
+	" Plugin 'KeitaNakamura/highlighter.nvim'
 	" Plugin 'fntlnz/atags.vim'
 	Plugin 'ludovicchabant/vim-gutentags'
-	Plugin 'bfredl/nvim-ipy'
+	" Plugin 'bfredl/nvim-ipy'
 endif
 
 

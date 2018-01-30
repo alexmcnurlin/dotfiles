@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
-# export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="random"
+ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +54,7 @@ source /home/joe/Packages/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/joe/Packages/zsh-autosuggestions/zsh-autosuggestions.zsh
 export TERM=xterm-256color
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -132,10 +133,6 @@ export EDITOR=/usr/bin/gvim # Change Gvim to default text editor.
 bindkey -v
 export KEYTIMEOUT=1
 
-# Global environment settings for the krs-wordpress-theme repo
-export KITCHEN_BRIDGE_NETWORK_INTERFACE=wlan0
-export KITCHEN_LOCAL_WORDPRESS_SHARE_DIR=/home/alexmcnurlin/kb/krs-wordpress-theme/
-
 # Add my custom scripts to the path
 export PATH="$PATH:$HOME/Misc/custom-scripts/"
 export PATH="$PATH:$HOME/Misc/custom-scripts/files/"
@@ -160,12 +157,12 @@ figlet -t "LinuxMasterRace"
 
 if [ -d "$HOME/.local/bin" ]; then
   export PATH=$PATH:$HOME/.local/bin/
-  export POWERLINE_CONFIG_COMMAND="$HOME/.local/bin/powerline-config"
+  # export POWERLINE_CONFIG_COMMAND="$HOME/.local/bin/powerline-config"
 fi
-. ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+# . ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
-export PROMPT=$PROMPT"
-› "
+# export PROMPT=$PROMPT"
+# › "
 
 # A calculator plugin for zsh
 # source ~/.oh-my-zsh/custom/plugins/calc.plugin.zsh/calc.plugin.zsh

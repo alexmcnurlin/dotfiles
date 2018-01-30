@@ -3,6 +3,11 @@
 " This should be at ~/.vimrc.local
 " For files that source this file, check ~/.vimrc or ~/.config/nvim/init.vim
 
+" Fixes a weird bug with nvim 0.2.x
+" https://github.com/neovim/neovim/issues/7002
+if has('nvim')
+  set guicursor=
+end
 
 
 " Disable mouse
@@ -29,6 +34,10 @@ vnoremap > >gv|                      " Indenting lines in visual mode keeps the 
 nnoremap Y yg_|                      " Yanks the rest of the line
 nmap j gj|                           " Makes j move across displayed lines, not physical lines. Useful when wordwrap is on
 nmap k gk|                           " Makes k move across displayed lines, not physical lines. Useful when wordwrap is on
+
+" Prevents the editor from starting a comment when hitting 'o' or 'O' from a
+" comment
+set formatoptions-=o
 
 " Makes a different colored background at 80 characters
 set colorcolumn=80 " Set softwrap
@@ -561,3 +570,7 @@ let g:rainbow_active = 1
 if has('nvim')
   source ~/.nvimrc
 endif
+
+" Requires 'tpope/vim-fugitive'
+nmap <leader>g :Gblame<CR>
+
