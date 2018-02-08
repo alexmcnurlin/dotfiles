@@ -1,0 +1,63 @@
+{
+    "python.pythonPath": "/home/joe/flowcontroller/virtual_ve/bin/python",
+    "python.flowcontrollerPythonPath": "/home/joe/flowcontroller/virtual_ve/bin/python",
+    "editor.cursorStyle": "block",
+    "editor.fontSize": 12.5,
+    "window.zoomLevel": -1,
+    "workbench.editor.enablePreview": false,
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.cmdLineInitialColon": true,
+    "vim.visualstar": true,
+    "vim.hlsearch": true,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors" : {
+        "normal": "#0D47A1",
+        "insert": "#b71c1c",
+        "visual": "#4A148C",
+        "visualline": "#7b1fa2",
+        "visualblock": "#9C27B0",
+        "replace": "#424242"
+    },
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-m>": false
+    },
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["leader", "h"],
+            "after": [],
+            "commands": [
+                {"command": ":noh"}
+            ]
+        },
+        {
+            "before": ["'", "'"],
+            "after": ["`", "`"],
+            "commands": []
+        }
+    ],
+    "workbench.colorTheme": "Atom One Dark",
+    "python.linting.pylintArgs": [
+        "--max-line-length=150"
+    ],
+    "python.linting.pep8Args": [
+        "--max-line-length=150"
+    ],
+    "[python]": {
+        "editor.rulers": [
+            120,
+            150
+        ]
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#0D47A1",
+        "statusBar.noFolderBackground": "#0D47A1",
+        "statusBar.debuggingBackground": "#0D47A1"
+    },
+    "vscodeWorkspaceSwitcher.paths": [
+        "~/flowcontroller/alex_scripts"
+    ]
+
+}

@@ -1,0 +1,9 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    { "key": "ctrl+l",      "command": "jumpToNextSnippetPlaceholder",
+                            "when": "editorTextFocus && hasNextTabstop && inSnippetMode" },
+    { "key": "ctrl+k",      "command": "acceptSelectedSuggestion",
+                            "when": "editorTextFocus && suggestWidgetVisible" },
+    { "key": "shift+tab",   "command": "jumpToPrevSnippetPlaceholder",
+                            "when": "editorTextFocus && hasPrevTabstop && inSnippetMode" }
+]
